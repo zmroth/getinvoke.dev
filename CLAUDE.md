@@ -34,6 +34,8 @@ getinvoke.dev/
 │   └── post.html           # Blog post layout (dark theme, matches site)
 ├── _posts/
 │   └── 2026-03-12-why-i-built-invoke.md   # First blog post
+├── download/
+│   └── index.html          # Download page (/download) — system reqs, install steps, activation
 ├── learn/
 │   └── index.html          # Blog listing page (/learn/)
 ├── CNAME                   # Custom domain: getinvoke.dev

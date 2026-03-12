@@ -1,0 +1,462 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download — Invoke</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TH81W7C68"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6TH81W7C68');
+</script>
+<meta name="description" content="Download Invoke for Windows. Sub-second voice-to-text with local GPU transcription. Free 7-day trial.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getinvoke.dev/download">
+<meta property="og:title" content="Download Invoke">
+<meta property="og:description" content="Sub-second voice-to-text for developers. Free 7-day trial. Windows 10/11.">
+<meta property="og:image" content="https://getinvoke.dev/og-image.png">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #050505;
+  --bg: #09090b;
+  --bg-surface: #0f0f12;
+  --bg-elevated: #18181b;
+  --border: #27272a;
+  --border-subtle: #1c1c1f;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --green: #22c55e;
+  --green-dim: #16a34a;
+  --amber: #f59e0b;
+  --font: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+nav .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 700; color: var(--text);
+  letter-spacing: -0.5px; text-decoration: none;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo img { width: 24px; height: 24px; border-radius: 4px; }
+
+.nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
+.nav-links a { color: var(--text-muted); font-size: 13px; font-weight: 400; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+.nav-cta {
+  background: var(--green); color: var(--bg) !important;
+  padding: 6px 16px; font-weight: 600; font-size: 12px !important;
+  letter-spacing: 0.3px;
+}
+.nav-cta:hover { background: var(--green-dim) !important; }
+
+/* Page */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+
+.page-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.page-sub {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+/* Download hero */
+.dl-hero {
+  text-align: center;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 48px;
+}
+
+.dl-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--green);
+  color: var(--bg) !important;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+  text-decoration: none !important;
+  margin-bottom: 16px;
+}
+
+.dl-btn:hover { background: var(--green-dim); }
+
+.dl-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.dl-meta span {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  margin: 0 2px;
+}
+
+/* Sections */
+.dl-section {
+  margin-bottom: 48px;
+}
+
+.dl-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.dl-section p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* Requirements list */
+.req-list {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.req-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.req-list li:first-child {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.req-label {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.req-value {
+  text-align: right;
+}
+
+.req-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* Steps */
+.steps-list {
+  list-style: none;
+  counter-reset: steps;
+}
+
+.steps-list li {
+  counter-increment: steps;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.steps-list li:first-child {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.steps-list li::before {
+  content: counter(steps);
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.steps-list li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.steps-list li code {
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--green);
+}
+
+/* Activation box */
+.activation-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 28px;
+  margin-bottom: 48px;
+}
+
+.activation-box h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.activation-box p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.activation-box p:last-child { margin-bottom: 0; }
+
+/* Buy link */
+.buy-section {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.buy-section p {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.buy-link {
+  display: inline-block;
+  padding: 10px 24px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none !important;
+}
+
+.buy-link:hover { color: var(--text) !important; border-color: var(--text-muted); }
+
+/* Footer */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+footer .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.footer-left { font-size: 12px; color: var(--text-muted); font-weight: 300; }
+.footer-left strong { color: var(--text-secondary); font-weight: 600; }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { color: var(--text-muted); font-size: 12px; font-weight: 400; }
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .nav-links li:not(:last-child) { display: none; }
+  .nav-links { gap: 0; }
+  .page { padding: 88px 16px 48px; }
+  .page-title { font-size: 24px; }
+  .req-list li { flex-direction: column; gap: 2px; }
+  .req-value { text-align: left; }
+  footer .container { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="/icon-nav.png" alt="Invoke"> invoke</a>
+    <ul class="nav-links">
+      <li><a href="/learn/">Learn</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="/download" class="nav-cta">Download free</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Download hero -->
+  <div class="dl-hero">
+    <div class="page-label">Download</div>
+    <h1 class="page-title">Download Invoke</h1>
+    <p class="page-sub">Free for 7 days. No credit card. No signup.</p>
+    <a href="https://github.com/zmroth/invoke/releases/latest" class="dl-btn">Download for Windows</a>
+    <div class="dl-meta">
+      <span>Windows 10/11</span> <span>64-bit</span> <span>~200 MB</span>
+    </div>
+  </div>
+
+  <!-- System requirements -->
+  <div class="dl-section">
+    <h2 class="dl-section-title">System requirements</h2>
+    <ul class="req-list">
+      <li>
+        <span class="req-label">Operating system</span>
+        <span class="req-value">Windows 10 or 11 (64-bit)</span>
+      </li>
+      <li>
+        <span class="req-label">RAM</span>
+        <span class="req-value">4 GB minimum</span>
+      </li>
+      <li>
+        <span class="req-label">GPU</span>
+        <span class="req-value">NVIDIA with CUDA 12.x (recommended)</span>
+      </li>
+      <li>
+        <span class="req-label">CPU mode</span>
+        <span class="req-value">Works without GPU &mdash; just slower</span>
+      </li>
+      <li>
+        <span class="req-label">Microphone</span>
+        <span class="req-value">Any input device</span>
+      </li>
+      <li>
+        <span class="req-label">Disk space</span>
+        <span class="req-value">~200 MB</span>
+      </li>
+      <li>
+        <span class="req-label">Internet</span>
+        <span class="req-value">For license activation + AI reformatter</span>
+      </li>
+    </ul>
+    <p class="req-note">GPU transcription is sub-second. CPU mode takes a few seconds per dictation. Use <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">CUDA Toolkit 12.x</a> for GPU acceleration.</p>
+  </div>
+
+  <!-- Installation steps -->
+  <div class="dl-section">
+    <h2 class="dl-section-title">Installation</h2>
+    <ol class="steps-list">
+      <li><strong>Download the installer</strong> from <a href="https://github.com/zmroth/invoke/releases/latest">GitHub Releases</a>. Look for the <code>.exe</code> file.</li>
+      <li><strong>Run the installer.</strong> Windows may show a SmartScreen warning &mdash; click "More info" then "Run anyway." The app is code-signed but new to SmartScreen.</li>
+      <li><strong>Follow the setup wizard.</strong> Choose your audio device, pick a reformatter backend (OpenRouter, Claude CLI, Ollama, or none), and set your hotkey.</li>
+      <li><strong>Start dictating.</strong> Hold your hotkey, speak, release. Text appears at your cursor. Free for 7 days &mdash; no license key needed.</li>
+    </ol>
+  </div>
+
+  <!-- Already purchased -->
+  <div class="activation-box">
+    <h3>Already purchased?</h3>
+    <p>Check your email for the license key from LemonSqueezy. Open Invoke and enter it in the activation dialog, or run <code>invoke license activate</code> from the command line.</p>
+    <p>Your key works on the machine where you activate it. Both Invoke and Invoke+ unlock all features &mdash; the difference is <a href="/#pricing">update duration and support tier</a>.</p>
+  </div>
+
+  <!-- Buy link -->
+  <div class="buy-section">
+    <p>Don't have a license yet? Try free for 7 days, or buy now.</p>
+    <a href="/#pricing" class="buy-link">See pricing &rarr;</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-left">
+      <strong><img src="/icon-nav.png" alt="" style="width:16px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:4px;">invoke</strong> &mdash; built by <a href="https://github.com/zmroth" target="_blank">Zach Roth</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="https://x.com/zachroth" target="_blank">Twitter/X</a></li>
+      <li><a href="mailto:zach@scrn.co">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
