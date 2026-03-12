@@ -211,29 +211,15 @@ nav .container {
 
 .hero h1 .accent { color: var(--green); }
 
-.hero-h1-wrap {
-  position: relative;
-  min-height: clamp(80px, 13vw, 140px);
-  margin-bottom: 16px;
-}
-
-.hero-rotate {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.hero h1 {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -2px;
+  margin-bottom: 16px;
 }
 
-.hero-rotate.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+.hero h1 .accent { color: var(--green); }
 
 .hero-sub {
   font-size: 15px;
@@ -830,11 +816,7 @@ footer .container {
     padding: 100px 0 60px;
   }
 
-  .hero-h1-wrap {
-    min-height: 90px;
-  }
-
-  .hero-rotate {
+  .hero h1 {
     font-size: 32px;
     letter-spacing: -1px;
   }
@@ -875,11 +857,7 @@ footer .container {
 
   .hero { padding: 88px 0 48px; }
 
-  .hero-h1-wrap {
-    min-height: 120px;
-  }
-
-  .hero-rotate {
+  .hero h1 {
     font-size: 26px;
     letter-spacing: -0.5px;
   }
@@ -938,11 +916,8 @@ footer .container {
   <div class="container">
     <div class="hero-text">
       <div class="hero-badge">Windows &mdash; macOS coming soon</div>
-      <div class="hero-h1-wrap">
-        <h1 class="hero-rotate active">Speak code<br>into <span class="accent">existence</span></h1>
-        <h1 class="hero-rotate">A prompt engine<br>with a <span class="accent">microphone</span></h1>
-      </div>
-      <p class="hero-sub">Voice-powered prompt engineering for vibe coders. Local Whisper transcription, context-aware reformatting, no subscription.</p>
+      <h1>Speak code<br>into <span class="accent">existence</span></h1>
+      <p class="hero-sub">A prompt engine with a microphone. Local Whisper transcription, context-aware reformatting, no subscription.</p>
 
       <div id="waitlist">
         <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/YOUR_ID" method="POST">
@@ -1321,15 +1296,7 @@ async function runSequence() {
 // Start after a brief delay
 setTimeout(runSequence, 800);
 
-// ====== ROTATING H1 ======
-const headlines = document.querySelectorAll('.hero-rotate');
-let currentH1 = 0;
 
-setInterval(() => {
-  headlines[currentH1].classList.remove('active');
-  currentH1 = (currentH1 + 1) % headlines.length;
-  headlines[currentH1].classList.add('active');
-}, 2500);
 </script>
 
 </body>
