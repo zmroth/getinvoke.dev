@@ -822,12 +822,27 @@ footer .container {
 @media (max-width: 900px) {
   .hero .container {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
   }
 
   .hero {
     min-height: auto;
-    padding: 120px 0 60px;
+    padding: 100px 0 60px;
+  }
+
+  .hero-h1-wrap {
+    min-height: 100px;
+  }
+
+  .hero-rotate {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .terminal-body {
+    min-height: 260px;
+    font-size: 11px;
+    padding: 16px;
   }
 
   .steps { grid-template-columns: 1fr; }
@@ -840,6 +855,14 @@ footer .container {
   .compare-table { font-size: 11px; }
   .compare-table th, .compare-table td { padding: 10px 12px; }
 
+  .problem { padding: 80px 0; }
+  .how { padding: 80px 0; }
+  .features { padding: 80px 0; }
+  .comparison { padding: 80px 0; }
+  .pricing { padding: 80px 0; }
+
+  .section-title { font-size: 20px; margin-bottom: 36px; }
+
   footer .container {
     flex-direction: column;
     gap: 16px;
@@ -848,10 +871,49 @@ footer .container {
 }
 
 @media (max-width: 600px) {
+  .container { padding: 0 16px; }
+
+  .hero { padding: 88px 0 48px; }
+
+  .hero-h1-wrap {
+    min-height: 90px;
+  }
+
+  .hero-rotate {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+  }
+
+  /* Collapse nav to just logo + CTA */
+  .nav-links li:not(:last-child) { display: none; }
+  .nav-links { gap: 0; }
+
   .features-grid { grid-template-columns: 1fr; }
-  .nav-links { gap: 16px; }
-  .hero h1 { font-size: 32px; letter-spacing: -1px; }
+  .feature { padding: 28px 20px; }
+
+  .step { padding: 28px 20px; }
+  .step-number { font-size: 36px; }
+
+  .price-card { padding: 32px 20px; }
+
   .waitlist-form { flex-direction: column; }
+  .waitlist-input { width: 100%; }
+  .waitlist-submit { width: 100%; text-align: center; }
+
+  .problem h2 { font-size: 22px; }
+  .problem p { font-size: 13px; }
+
+  .compare-table { font-size: 10px; }
+  .compare-table th, .compare-table td { padding: 8px 8px; }
+  .compare-table td:first-child { min-width: 70px; }
 }
 </style>
 </head>
