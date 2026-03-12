@@ -725,6 +725,128 @@ nav .container {
   margin-top: 12px;
 }
 
+/* ====== ORIGIN LINE ====== */
+.origin-line {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 24px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ====== FAQ ====== */
+.faq {
+  padding: 100px 0;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-item summary {
+  padding: 20px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.faq-item summary:hover { color: var(--green); }
+
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker { display: none; content: ''; }
+
+.faq-item summary::after {
+  content: '+';
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: transform 0.2s;
+}
+
+.faq-item[open] summary::after {
+  content: '-';
+}
+
+.faq-item .faq-answer {
+  padding: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* ====== BOTTOM CTA ====== */
+.bottom-cta {
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+.bottom-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bottom-cta .section-title {
+  margin-bottom: 12px;
+}
+
+.bottom-cta-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.bottom-cta .waitlist-form {
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+/* ====== COMPARISON TABLE SCROLL ====== */
+.compare-table-wrap {
+  width: 100%;
+}
+
+/* ====== UTILITY ====== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ====== FOOTER ====== */
 footer {
   padding: 48px 0;
@@ -847,8 +969,12 @@ footer .container {
   .problem h2 { font-size: 22px; }
   .problem p { font-size: 13px; }
 
-  .compare-table { font-size: 10px; }
-  .compare-table th, .compare-table td { padding: 8px 8px; }
+  .compare-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-table { min-width: 480px; font-size: 11px; }
+  .compare-table th, .compare-table td { padding: 8px 10px; }
   .compare-table td:first-child { min-width: 70px; }
 }
 </style>
@@ -875,11 +1001,12 @@ footer .container {
     <div class="hero-text">
       <div class="hero-badge">Windows &mdash; macOS coming soon</div>
       <h1>Speak code<br>into <span class="accent">existence</span></h1>
-      <p class="hero-sub">Sub-second voice-to-text on your GPU. Auto-paste at your cursor. Optional AI prompt formatting. No subscription. No word limits. Your voice never leaves your machine.</p>
+      <p class="hero-sub">Local GPU transcription. Auto-paste at your cursor. No subscription.</p>
 
       <div id="waitlist">
         <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/maqpjqwn" method="POST">
-          <input type="email" name="email" class="waitlist-input" placeholder="you@email.com" required>
+          <label for="waitlistEmail" class="sr-only">Email address</label>
+          <input type="email" name="email" id="waitlistEmail" class="waitlist-input" placeholder="you@email.com" required>
           <button type="submit" class="waitlist-submit">Join waitlist</button>
         </form>
         <div class="waitlist-success" id="waitlistSuccess">> subscribed. we'll ping you at launch.</div>
@@ -913,6 +1040,7 @@ footer .container {
       <div class="divider"></div>
       <p>Cloud dictation tools add latency, cap your words, and send your audio to someone else's servers. Local tools exist but they're <span class="highlight">slow, clunky, and dumb</span>&mdash;no context, no formatting, no auto-paste.</p>
       <p style="margin-top: 20px;">Invoke runs Whisper on your GPU for <span class="highlight">sub-second transcription</span>. Text appears at your cursor instantly. Turn on the AI reformatter and it reads your codebase to format clean prompts for Claude Code, Cursor, or whatever you use. <span class="highlight">Fast. Local. Unlimited. Private.</span></p>
+      <p class="origin-line">Built by a developer who dictates 10,000+ prompts a month and got tired of pasting raw transcription.</p>
     </div>
   </div>
 </section>
@@ -963,7 +1091,7 @@ footer .container {
         <p>Text appears at your cursor the moment you stop speaking. No Ctrl+V. Just talk and it's there.</p>
       </div>
       <div class="feature reveal">
-        <i class="feature-icon">&#9741;</i>
+        <i class="feature-icon">LOCAL</i>
         <h3>100% local &amp; private</h3>
         <p>Your audio never leaves your machine. No cloud. No accounts. No telemetry. Period.</p>
       </div>
@@ -978,7 +1106,7 @@ footer .container {
         <p>Optional: LLM reads your CLAUDE.md, .cursorrules, package.json, git log. Reformats speech into clean prompts for Claude Code, Cursor, Windsurf, Copilot.</p>
       </div>
       <div class="feature reveal">
-        <i class="feature-icon">&#8709;</i>
+        <i class="feature-icon">OFF</i>
         <h3>Fully offline</h3>
         <p>Use Ollama for local LLM reformatting. Or skip the LLM entirely. Entire pipeline on your machine.</p>
       </div>
@@ -992,7 +1120,7 @@ footer .container {
     <div class="section-label reveal">Comparison</div>
     <div class="section-title reveal">How Invoke stacks up.</div>
 
-    <div class="reveal">
+    <div class="reveal compare-table-wrap">
       <table class="compare-table">
         <thead>
           <tr>
@@ -1116,6 +1244,55 @@ footer .container {
   </div>
 </section>
 
+<!-- ====== FAQ ====== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label reveal">FAQ</div>
+    <div class="section-title reveal">Common questions.</div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Does it work without a GPU?</summary>
+        <div class="faq-answer">Yes. CPU mode is included and works out of the box&mdash;it's just slower (a few seconds instead of sub-second). A CUDA-capable GPU makes transcription near-instant.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What languages does it support?</summary>
+        <div class="faq-answer">All 99+ languages that Whisper supports. English is the default, but you can configure any language or enable auto-detection.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Does the AI reformatter send my code to the cloud?</summary>
+        <div class="faq-answer">Your audio always stays local. The reformatter calls an LLM API to clean up the transcript&mdash;you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama. No code files are ever uploaded.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How is this different from just running Whisper myself?</summary>
+        <div class="faq-answer">Invoke is the full workflow: push-to-talk hotkey, auto-paste at your cursor, project-context-aware LLM reformatting, target modes for Claude Code / Cursor / Windsurf / Copilot, custom vocabulary, dictation history, and a system tray app. Whisper is just the transcription engine inside it.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What about macOS?</summary>
+        <div class="faq-answer">Windows first. macOS is coming in a later release with whisper.cpp and Metal GPU acceleration for Apple Silicon.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BOTTOM CTA ====== -->
+<section class="bottom-cta">
+  <div class="container">
+    <div class="section-label reveal">GET EARLY ACCESS</div>
+    <div class="section-title reveal">Join the waitlist.</div>
+    <p class="bottom-cta-sub reveal">Be first to know when Invoke ships. No spam. Just a launch email.</p>
+
+    <div class="reveal">
+      <form class="waitlist-form" id="waitlistFormBottom" action="https://formspree.io/f/maqpjqwn" method="POST">
+        <label for="waitlistEmailBottom" class="sr-only">Email address</label>
+        <input type="email" name="email" id="waitlistEmailBottom" class="waitlist-input" placeholder="you@email.com" required>
+        <button type="submit" class="waitlist-submit">Join waitlist</button>
+      </form>
+      <div class="waitlist-success" id="waitlistSuccessBottom">> subscribed. we'll ping you at launch.</div>
+    </div>
+  </div>
+</section>
+
 <!-- ====== FOOTER ====== -->
 <footer>
   <div class="container">
@@ -1124,6 +1301,7 @@ footer .container {
     </div>
     <ul class="footer-links">
       <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="https://x.com/zachroth" target="_blank">Twitter/X</a></li>
       <li><a href="mailto:zach@scrn.co">Contact</a></li>
     </ul>
   </div>
@@ -1142,11 +1320,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ====== WAITLIST FORM ======
-document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = this;
-  const success = document.getElementById('waitlistSuccess');
-
+function handleWaitlistSubmit(form, successEl) {
   fetch(form.action, {
     method: 'POST',
     body: new FormData(form),
@@ -1154,12 +1328,22 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   }).then(r => {
     if (r.ok) {
       form.style.display = 'none';
-      success.style.display = 'block';
+      successEl.style.display = 'block';
     }
   }).catch(() => {
     form.style.display = 'none';
-    success.style.display = 'block';
+    successEl.style.display = 'block';
   });
+}
+
+document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  handleWaitlistSubmit(this, document.getElementById('waitlistSuccess'));
+});
+
+document.getElementById('waitlistFormBottom').addEventListener('submit', function(e) {
+  e.preventDefault();
+  handleWaitlistSubmit(this, document.getElementById('waitlistSuccessBottom'));
 });
 
 // ====== TERMINAL ANIMATION ======
@@ -1167,24 +1351,21 @@ const termBody = document.getElementById('terminalBody');
 
 const sequence = [
   { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">invoke run</span>' },
-  { delay: 600, type: 'fade', content: '<span class="term-dim">Whisper model loaded on cuda (RTX 5090)</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-success">> Ready. Hold Mouse5 to dictate.</span>' },
-  { delay: 1200, type: 'fade', content: '' },
-  { delay: 200, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording...</span>' },
-  { delay: 1800, type: 'fade', content: '<span class="term-dim">"add a new post endpoint for the content API that takes a keyword and URL calls OpenAI to generate an article saves it to the database and returns the ID skip auth for now"</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-context">> Transcribed in 0.3s</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-success">> Auto-pasted at cursor.</span>' },
-  { delay: 2000, type: 'fade', content: '' },
-  { delay: 200, type: 'fade', content: '<span class="term-dim" style="font-size:11px">// With AI reformatter enabled:</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-context">> Reading context... CLAUDE.md, package.json, git log</span>' },
-  { delay: 600, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Node / Express</span>' },
+  { delay: 500, type: 'fade', content: '<span class="term-dim">Whisper loaded (cuda:0, RTX 4070)</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-success">> Ready. Hold Ctrl+Shift+Space.</span>' },
   { delay: 800, type: 'fade', content: '' },
-  { delay: 100, type: 'fade', content: '<span class="term-heading">Add POST `/api/generate`</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Accepts `keyword` and `targetUrl`</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI to generate SEO article</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Saves to DB, returns article ID</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Skip auth for now</span>' },
-  { delay: 600, type: 'fade', content: '<span class="term-success">> Reformatted &amp; pasted. 2.1s</span> <span class="cursor-blink"></span>' },
+  { delay: 200, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording...</span>' },
+  { delay: 1200, type: 'fade', content: '<span class="term-dim">"add a post endpoint that takes a keyword and URL, generates an article, saves to db, skip auth for now"</span>' },
+  { delay: 300, type: 'fade', content: '<span class="term-context">> Transcribed in 0.3s</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-context">> Reading context... CLAUDE.md, package.json</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Express</span>' },
+  { delay: 300, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="term-heading">Add POST /api/generate</span>' },
+  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Accepts keyword + targetUrl</span>' },
+  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI to generate article</span>' },
+  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Saves to DB, returns ID</span>' },
+  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Skip auth (adding later)</span>' },
+  { delay: 500, type: 'fade', content: '<span class="term-success">> Reformatted &amp; pasted at cursor. 0.8s</span> <span class="cursor-blink"></span>' },
 ];
 
 function createLine(html) {
@@ -1253,7 +1434,7 @@ async function runSequence() {
   }
 
   // Hold the final state then restart
-  await new Promise(r => setTimeout(r, 5000));
+  await new Promise(r => setTimeout(r, 4000));
   runSequence();
 }
 
