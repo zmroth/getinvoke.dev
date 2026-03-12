@@ -1,12 +1,41 @@
 # Invoke — Product Plan
 
-**Voice-powered prompt engineering for vibe coders.**
+**Instant, local, private voice-to-text for developers. Optional AI prompt formatting.**
 **Domain:** getinvoke.dev
 **License:** MIT (relicensable to proprietary for commercial distribution)
 
+## Current Status (2026-03-12)
+
+| Phase | Status |
+|---|---|
+| Phase 0: Foundation | **COMPLETE** — native Windows app, 42 tests, CI |
+| Phase 1: Prompt Engine | **COMPLETE** — 7 modes, context, history, Ollama, custom vocab |
+| Phase 2: Shippable Product | NOT STARTED — installer, wizard, settings GUI |
+| Phase 3: macOS + Launch | NOT STARTED — whisper.cpp, Metal, DMG, licensing |
+
+### New Features (discovered during testing, not in original plan)
+
+- **`REFORMATTER_BACKEND=none`** — Skip the LLM entirely. Instant transcription → clipboard/auto-paste. This is the default and the killer use case.
+- **`AUTO_PASTE=true`** — Simulate Ctrl+V after transcription. Text appears at cursor automatically. No manual paste.
+- **`invoke-gui`** — Console-free launcher via `pythonw.exe` (gui-scripts entry in pyproject.toml).
+- **CUDA auto-detection fix** — `ctranslate2` GPU detection was broken, now works correctly.
+- **Tuned audio feedback** — Short tick on start, rising chirp on done. No stop beep (button release is tactile enough).
+
+### Positioning Shift
+
+Original plan positioned Invoke as a **"prompt engine with a microphone"** — the LLM reformatter as core IP. Real-world testing (Jeff + Zach) revealed: **instant local transcription is the killer feature**. The reformatter is a power feature on top.
+
+New positioning: **Blazing fast, local, private voice-to-text for developers. No subscription. No word limits. Optional AI prompt formatting.**
+
+### Pricing Change
+
+Dropped the free tier. Two paid tiers:
+- **Invoke ($49)** — Everything. 1 year of updates.
+- **Invoke+ ($79)** — Everything + lifetime updates + priority support + early access.
+
 ## What Invoke Does
 
-Invoke captures voice via push-to-talk hotkey, transcribes locally with Whisper (GPU-accelerated), reads the developer's project files to understand context, then uses an LLM to transform messy speech into clean, structured prompts formatted for AI coding assistants.
+Invoke captures voice via push-to-talk hotkey, transcribes locally with Whisper (GPU-accelerated), and auto-pastes text at your cursor in under a second. Optionally, it reads the developer's project files to understand context and uses an LLM to transform messy speech into clean, structured prompts formatted for AI coding assistants.
 
 ```
 Hold hotkey → speak messy thought → release

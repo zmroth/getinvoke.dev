@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Invoke — Speak code into existence</title>
-<meta name="description" content="Voice-powered prompt engineering for vibe coders. Local Whisper, context-aware reformatting, no subscription. $49 once.">
+<meta name="description" content="Instant voice-to-text for developers. GPU-accelerated local Whisper, auto-paste at your cursor, optional AI prompt formatting. No subscription. $49 once.">
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getinvoke.dev/">
 <meta property="og:title" content="Invoke — Speak code into existence">
-<meta property="og:description" content="Voice-powered prompt engineering for vibe coders. Local Whisper, context-aware reformatting, no subscription.">
+<meta property="og:description" content="Instant voice-to-text for developers. Local GPU transcription, auto-paste, no subscription. Sub-second. Unlimited. Private.">
 <meta property="og:image" content="https://getinvoke.dev/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Invoke — Speak code into existence">
-<meta name="twitter:description" content="Your voice → your codebase → perfect prompts. $49 once.">
+<meta name="twitter:description" content="Sub-second voice-to-text. Local GPU. Auto-paste at your cursor. No subscription. $49 once.">
 <meta name="twitter:image" content="https://getinvoke.dev/og-image.png">
 
 <!-- Favicon (inline SVG) -->
@@ -832,7 +832,7 @@ footer .container {
 
   .features-grid { grid-template-columns: 1fr 1fr; }
 
-  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
 
   .compare-table { font-size: 11px; }
   .compare-table th, .compare-table td { padding: 10px 12px; }
@@ -917,7 +917,7 @@ footer .container {
     <div class="hero-text">
       <div class="hero-badge">Windows &mdash; macOS coming soon</div>
       <h1>Speak code<br>into <span class="accent">existence</span></h1>
-      <p class="hero-sub">A prompt engine with a microphone. Local Whisper transcription, context-aware reformatting, no subscription.</p>
+      <p class="hero-sub">Sub-second voice-to-text on your GPU. Auto-paste at your cursor. Optional AI prompt formatting. No subscription. No word limits. Your voice never leaves your machine.</p>
 
       <div id="waitlist">
         <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/maqpjqwn" method="POST">
@@ -927,7 +927,7 @@ footer .container {
         <div class="waitlist-success" id="waitlistSuccess">> subscribed. we'll ping you at launch.</div>
       </div>
 
-      <p class="hero-note"><span>$49 once</span> &mdash; no subscription, no word limits, your voice never leaves your machine.</p>
+      <p class="hero-note"><span>$49 once</span> &mdash; not $12/month. No subscription. No word limits. Your audio stays on your machine.</p>
     </div>
 
     <div class="terminal" id="terminal">
@@ -948,12 +948,12 @@ footer .container {
 <section class="problem">
   <div class="container">
     <div class="problem-inner reveal">
-      <div class="section-label">A prompt engine with a microphone</div>
+      <div class="section-label">Why another dictation tool?</div>
       <h2>You think at <span class="stat">150 WPM</span>.<br>You type at <span class="stat">40</span>.</h2>
       <div class="divider"></div>
-      <p>Your AI coding assistant doesn't care about grammar. It cares about <span class="highlight">clear, structured prompts</span> with the right context. But dictation tools give you raw transcription&mdash;filler words, false starts, no structure.</p>
+      <p>Cloud dictation tools add latency, cap your words, and send your audio to someone else's servers. Local tools exist but they're <span class="highlight">slow, clunky, and dumb</span>&mdash;no context, no formatting, no auto-paste.</p>
       <br>
-      <p>Invoke reads your codebase, cleans up your speech, and formats the output for whatever tool you use. <span class="highlight">Speak your intent. Get a perfect prompt.</span></p>
+      <p>Invoke runs Whisper on your GPU for <span class="highlight">sub-second transcription</span>. Text appears at your cursor instantly. Turn on the AI reformatter and it reads your codebase to format clean prompts for Claude Code, Cursor, or whatever you use. <span class="highlight">Fast. Local. Unlimited. Private.</span></p>
     </div>
   </div>
 </section>
@@ -967,20 +967,20 @@ footer .container {
     <div class="steps">
       <div class="step reveal">
         <div class="step-number">01</div>
-        <h3>Speak</h3>
+        <h3>Hold &amp; speak</h3>
         <p>Hold your hotkey and talk. Be messy. Say "um." Ramble. Start over mid-sentence. Invoke doesn't care.</p>
         <span class="step-arrow">&rarr;</span>
       </div>
       <div class="step reveal">
         <div class="step-number">02</div>
-        <h3>Invoke reads your project</h3>
-        <p>Scans CLAUDE.md, .cursorrules, package.json, git&nbsp;log. Understands your stack, your conventions, what you're working on.</p>
+        <h3>Instant transcription</h3>
+        <p>Whisper runs on your GPU. Sub-second. No cloud. No waiting. Your audio never leaves your machine.</p>
         <span class="step-arrow">&rarr;</span>
       </div>
       <div class="step reveal">
         <div class="step-number">03</div>
-        <h3>Perfect prompt</h3>
-        <p>LLM reformats your speech into a clean, structured prompt targeted for your AI tool. Lands in your clipboard. Paste and go.</p>
+        <h3>Text appears</h3>
+        <p>Auto-pasted at your cursor or copied to clipboard. Turn on the AI reformatter to get clean, context-aware prompts.</p>
       </div>
     </div>
   </div>
@@ -994,19 +994,19 @@ footer .container {
 
     <div class="features-grid">
       <div class="feature reveal">
-        <i class="feature-icon">{...}</i>
-        <h3>Context-aware</h3>
-        <p>Reads CLAUDE.md, .cursorrules, package.json, git log, and more. Your prompts know your project.</p>
+        <i class="feature-icon">&lt;1s</i>
+        <h3>Sub-second on GPU</h3>
+        <p>Whisper runs on your GPU via CUDA. Transcription finishes before you lift your finger. CPU fallback included.</p>
       </div>
       <div class="feature reveal">
-        <i class="feature-icon">&gt;_</i>
-        <h3>Target modes</h3>
-        <p>Format output for Claude Code, Cursor, Windsurf, Copilot, or raw. One hotkey, right format every time.</p>
+        <i class="feature-icon">&#9654;</i>
+        <h3>Auto-paste</h3>
+        <p>Text appears at your cursor the moment you stop speaking. No Ctrl+V. Just talk and it's there.</p>
       </div>
       <div class="feature reveal">
         <i class="feature-icon">&#9741;</i>
-        <h3>100% local transcription</h3>
-        <p>Whisper runs on your GPU. Your audio never leaves your machine. Period.</p>
+        <h3>100% local &amp; private</h3>
+        <p>Your audio never leaves your machine. No cloud. No accounts. No telemetry. Period.</p>
       </div>
       <div class="feature reveal">
         <i class="feature-icon">&infin;</i>
@@ -1014,14 +1014,14 @@ footer .container {
         <p>Other tools cap you at 2,000 words/week. Invoke: unlimited transcription, always, forever.</p>
       </div>
       <div class="feature reveal">
-        <i class="feature-icon">+w</i>
-        <h3>Custom vocabulary</h3>
-        <p>Add project terms, API names, and proper nouns that Whisper mangles. Your jargon, recognized.</p>
+        <i class="feature-icon">{...}</i>
+        <h3>AI prompt formatting</h3>
+        <p>Optional: LLM reads your CLAUDE.md, .cursorrules, package.json, git log. Reformats speech into clean prompts for Claude Code, Cursor, Windsurf, Copilot.</p>
       </div>
       <div class="feature reveal">
         <i class="feature-icon">&#8709;</i>
-        <h3>Fully offline option</h3>
-        <p>Use Ollama for reformatting. Entire pipeline stays on your machine. Zero data leaves. Zero.</p>
+        <h3>Fully offline</h3>
+        <p>Use Ollama for local LLM reformatting. Or skip the LLM entirely. Entire pipeline on your machine.</p>
       </div>
     </div>
   </div>
@@ -1046,15 +1046,21 @@ footer .container {
         <tbody>
           <tr>
             <td>Price</td>
-            <td class="invoke-col">$49 once</td>
+            <td class="invoke-col">$49 once / $79 lifetime</td>
             <td>$12/mo ($144/yr)</td>
             <td>$249 lifetime</td>
           </tr>
           <tr>
-            <td>Free tier</td>
-            <td class="invoke-col">Unlimited raw</td>
-            <td>2,000 words/week</td>
-            <td><span class="x-mark">&mdash;</span></td>
+            <td>Speed</td>
+            <td class="invoke-col"><span class="check">&lt;1 sec (GPU)</span></td>
+            <td>1-3 sec (cloud)</td>
+            <td>~1 sec (local)</td>
+          </tr>
+          <tr>
+            <td>Auto-paste</td>
+            <td class="invoke-col"><span class="check">yes</span></td>
+            <td><span class="check">yes</span></td>
+            <td><span class="x-mark">no</span></td>
           </tr>
           <tr>
             <td>Transcription</td>
@@ -1063,7 +1069,13 @@ footer .container {
             <td>Local</td>
           </tr>
           <tr>
-            <td>Reformatting</td>
+            <td>Privacy</td>
+            <td class="invoke-col"><span class="check">100% local</span></td>
+            <td><span class="x-mark">cloud upload</span></td>
+            <td><span class="check">local</span></td>
+          </tr>
+          <tr>
+            <td>AI reformatting</td>
             <td class="invoke-col">LLM + project context</td>
             <td>Basic auto-edit</td>
             <td><span class="x-mark">&mdash;</span></td>
@@ -1104,49 +1116,38 @@ footer .container {
     <div class="section-label reveal">Pricing</div>
     <div class="section-title reveal">One price. No surprises.</div>
 
-    <div class="pricing-grid reveal">
-      <!-- Free -->
-      <div class="price-card">
-        <div class="price-name">Free</div>
-        <div class="price-amount"><span class="currency">$</span>0</div>
-        <div class="price-period">forever</div>
-        <ul class="price-features">
-          <li>Local Whisper transcription</li>
-          <li>Raw mode (no reformatting)</li>
-          <li>Claude Code target mode</li>
-          <li>Basic context (README, package.json)</li>
-          <li>Unlimited words</li>
-        </ul>
-        <a href="#waitlist" class="price-btn price-btn-ghost">Join waitlist</a>
-      </div>
-
+    <div class="pricing-grid reveal" style="grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto 32px;">
       <!-- Pro -->
       <div class="price-card featured">
-        <div class="price-badge">POPULAR</div>
-        <div class="price-name">Pro</div>
+        <div class="price-badge">MOST POPULAR</div>
+        <div class="price-name">Invoke</div>
         <div class="price-amount"><span class="currency">$</span>49</div>
         <div class="price-period">one-time &mdash; 1 year of updates</div>
         <ul class="price-features">
-          <li>Everything in Free</li>
-          <li>LLM reformatting (cloud + local)</li>
+          <li>Sub-second GPU transcription</li>
+          <li>Auto-paste at cursor</li>
+          <li>Unlimited words, forever</li>
+          <li>100% local &amp; private</li>
+          <li>AI prompt reformatting (cloud + local)</li>
           <li>All 7 target modes</li>
-          <li>Full context engine + git log</li>
+          <li>Context engine (CLAUDE.md, git log, etc.)</li>
           <li>Custom vocabulary</li>
-          <li>Dictation history</li>
+          <li>Dictation history + search</li>
         </ul>
         <a href="#waitlist" class="price-btn price-btn-primary">Join waitlist</a>
       </div>
 
       <!-- Pro+ -->
       <div class="price-card">
-        <div class="price-name">Pro+</div>
+        <div class="price-name">Invoke+</div>
         <div class="price-amount"><span class="currency">$</span>79</div>
         <div class="price-period">one-time &mdash; lifetime updates</div>
         <ul class="price-features">
-          <li>Everything in Pro</li>
+          <li>Everything in Invoke</li>
           <li>Lifetime updates</li>
           <li>Priority support</li>
           <li>Early access (macOS, IDE plugins)</li>
+          <li>Shape the roadmap</li>
         </ul>
         <a href="#waitlist" class="price-btn price-btn-ghost">Join waitlist</a>
       </div>
@@ -1207,21 +1208,25 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
 const termBody = document.getElementById('terminalBody');
 
 const sequence = [
-  { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">invoke --mode cursor</span>' },
-  { delay: 800, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording... (hold to speak)</span>' },
-  { delay: 1600, type: 'fade', content: '<span class="term-dim">"ok so um I need to add a new endpoint for the uh content API that takes a keyword and URL and calls OpenAI to generate an article and save it to the database and uh return the ID don\'t worry about auth for now"</span>' },
-  { delay: 2000, type: 'fade', content: '<br><span class="term-context">> Reading project context... found CLAUDE.md, package.json</span>' },
-  { delay: 800, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Node / Express</span>' },
-  { delay: 1000, type: 'fade', content: '<span class="term-context">> Reformatting for Cursor...</span>' },
-  { delay: 1200, type: 'fade', content: '<br><span class="term-heading">Add a new POST endpoint `/api/generate`</span>' },
-  { delay: 300, type: 'fade', content: '' },
-  { delay: 100, type: 'fade', content: '<span class="term-heading">Requirements:</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Accepts `keyword` (non-empty) and `targetUrl` (valid URL)</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI API to generate SEO article</span>' },
-  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Saves to database, returns article ID</span>' },
-  { delay: 300, type: 'fade', content: '' },
-  { delay: 100, type: 'fade', content: '<span class="term-heading">Out of scope:</span> <span class="term-bullet">Auth (adding later)</span>' },
-  { delay: 800, type: 'fade', content: '<br><span class="term-success">> Copied to clipboard.</span> <span class="cursor-blink"></span>' },
+  { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">invoke run</span>' },
+  { delay: 600, type: 'fade', content: '<span class="term-dim">Whisper model loaded on cuda (RTX 5090)</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-success">> Ready. Hold Mouse5 to dictate.</span>' },
+  { delay: 1200, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording...</span>' },
+  { delay: 1800, type: 'fade', content: '<span class="term-dim">"add a new post endpoint for the content API that takes a keyword and URL calls OpenAI to generate an article saves it to the database and returns the ID skip auth for now"</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-context">> Transcribed in 0.3s</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-success">> Auto-pasted at cursor.</span>' },
+  { delay: 2000, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="term-dim" style="font-size:11px">// With AI reformatter enabled:</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-context">> Reading context... CLAUDE.md, package.json, git log</span>' },
+  { delay: 600, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Node / Express</span>' },
+  { delay: 800, type: 'fade', content: '' },
+  { delay: 100, type: 'fade', content: '<span class="term-heading">Add POST `/api/generate`</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Accepts `keyword` and `targetUrl`</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI to generate SEO article</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Saves to DB, returns article ID</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Skip auth for now</span>' },
+  { delay: 600, type: 'fade', content: '<span class="term-success">> Reformatted &amp; pasted. 2.1s</span> <span class="cursor-blink"></span>' },
 ];
 
 function createLine(html) {
