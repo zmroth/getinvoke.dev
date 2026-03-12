@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-6TH81W7C68');
 </script>
-<meta name="description" content="Instant voice-to-text for developers. GPU-accelerated local Whisper, auto-paste at your cursor, optional AI prompt formatting. No subscription. $49 once.">
+<meta name="description" content="Instant voice-to-text for developers. GPU-accelerated local Whisper, auto-paste at your cursor, AI prompt formatting. Free 7-day trial. $49 once.">
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://getinvoke.dev/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Invoke — Speak code into existence">
-<meta name="twitter:description" content="Sub-second voice-to-text. Local GPU. Auto-paste at your cursor. No subscription. $49 once.">
+<meta name="twitter:description" content="Sub-second voice-to-text. Local GPU. Auto-paste at your cursor. Free 7-day trial. $49 once.">
 <meta name="twitter:image" content="https://getinvoke.dev/og-image.png">
 
 <!-- Favicon -->
@@ -700,51 +700,60 @@ nav .container {
   font-weight: 300;
 }
 
-/* ====== WAITLIST ====== */
-.waitlist-form {
-  display: flex;
-  gap: 2px;
-  max-width: 440px;
+.price-trial {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 12px;
 }
 
-.waitlist-input {
-  flex: 1;
-  padding: 12px 16px;
+.price-trial a {
+  color: var(--green);
+}
+
+/* ====== HERO CTA ====== */
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.hero-btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
   font-family: var(--font);
   font-size: 13px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.waitlist-input::placeholder { color: var(--text-muted); }
-.waitlist-input:focus { border-color: var(--green); }
-
-.waitlist-submit {
-  padding: 12px 24px;
-  font-family: var(--font);
-  font-size: 12px;
   font-weight: 700;
   background: var(--green);
-  color: var(--bg);
+  color: var(--bg) !important;
   border: none;
   cursor: pointer;
   letter-spacing: 0.3px;
   transition: background 0.2s;
   white-space: nowrap;
+  text-decoration: none !important;
 }
 
-.waitlist-submit:hover { background: var(--green-dim); }
+.hero-btn-primary:hover { background: var(--green-dim); }
 
-.waitlist-success {
-  display: none;
-  color: var(--green);
+.hero-btn-ghost {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font);
   font-size: 13px;
-  font-weight: 500;
-  margin-top: 12px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  text-decoration: none !important;
 }
+
+.hero-btn-ghost:hover { color: var(--text) !important; border-color: var(--text-muted); }
 
 /* ====== ORIGIN LINE ====== */
 .origin-line {
@@ -843,11 +852,6 @@ nav .container {
   font-size: 13px;
   font-weight: 300;
   margin-bottom: 32px;
-}
-
-.bottom-cta .waitlist-form {
-  margin: 0 auto;
-  max-width: 440px;
 }
 
 /* ====== COMPARISON TABLE SCROLL ====== */
@@ -983,9 +987,8 @@ footer .container {
 
   .price-card { padding: 32px 20px; }
 
-  .waitlist-form { flex-direction: column; }
-  .waitlist-input { width: 100%; }
-  .waitlist-submit { width: 100%; text-align: center; }
+  .hero-cta-row { flex-direction: column; }
+  .hero-btn-primary, .hero-btn-ghost { width: 100%; text-align: center; }
 
   .problem h2 { font-size: 22px; }
   .problem p { font-size: 13px; }
@@ -1012,7 +1015,7 @@ footer .container {
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="/learn/">Learn</a></li>
       <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
-      <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
+      <li><a href="https://github.com/zmroth/invoke/releases/latest" class="nav-cta">Download free</a></li>
     </ul>
   </div>
 </nav>
@@ -1025,16 +1028,12 @@ footer .container {
       <h1>Speak code<br>into <span class="accent">existence</span></h1>
       <p class="hero-sub">Local GPU transcription. Auto-paste at your cursor. No subscription.</p>
 
-      <div id="waitlist">
-        <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/maqpjqwn" method="POST">
-          <label for="waitlistEmail" class="sr-only">Email address</label>
-          <input type="email" name="email" id="waitlistEmail" class="waitlist-input" placeholder="you@email.com" required>
-          <button type="submit" class="waitlist-submit">Join waitlist</button>
-        </form>
-        <div class="waitlist-success" id="waitlistSuccess">> subscribed. we'll ping you at launch.</div>
+      <div class="hero-cta-row">
+        <a href="https://github.com/zmroth/invoke/releases/latest" class="hero-btn-primary">Download free</a>
+        <a href="#pricing" class="hero-btn-ghost">See pricing</a>
       </div>
 
-      <p class="hero-note"><span>$49 once</span> &mdash; not $12/month. No subscription. No word limits. Your audio stays on your machine.</p>
+      <p class="hero-note"><span>Free for 7 days.</span> Then $49 once &mdash; not $12/month. No subscription. No credit card to try.</p>
     </div>
 
     <div class="terminal" id="terminal">
@@ -1160,6 +1159,12 @@ footer .container {
             <td>$249 lifetime</td>
           </tr>
           <tr>
+            <td>Free trial</td>
+            <td class="invoke-col"><span class="check">7 days, full features</span></td>
+            <td>2k words/wk</td>
+            <td>15 min</td>
+          </tr>
+          <tr>
             <td>Speed</td>
             <td class="invoke-col"><span class="check">&lt;1 sec (GPU)</span></td>
             <td>1-3 sec (cloud)</td>
@@ -1244,6 +1249,7 @@ footer .container {
           <li>Dictation history + search</li>
         </ul>
         <a href="https://getinvoke.lemonsqueezy.com/checkout/buy/a3adbe34-ffad-480e-a848-1e45fdc36857" class="price-btn price-btn-primary">Buy now</a>
+        <p class="price-trial">or <a href="https://github.com/zmroth/invoke/releases/latest">try free for 7 days</a></p>
       </div>
 
       <!-- Pro+ -->
@@ -1259,10 +1265,11 @@ footer .container {
           <li>Shape the roadmap</li>
         </ul>
         <a href="https://getinvoke.lemonsqueezy.com/checkout/buy/15ee926a-a14c-4386-b3ca-e5e5a23e12ed" class="price-btn price-btn-ghost">Buy now</a>
+        <p class="price-trial">or <a href="https://github.com/zmroth/invoke/releases/latest">try free for 7 days</a></p>
       </div>
     </div>
 
-    <p class="pricing-note reveal">No subscription. No word limits. Your voice never leaves your machine.</p>
+    <p class="pricing-note reveal">7-day free trial. No credit card. No subscription. No word limits.</p>
   </div>
 </section>
 
@@ -1273,6 +1280,10 @@ footer .container {
     <div class="section-title reveal">Common questions.</div>
 
     <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Is there a free trial?</summary>
+        <div class="faq-answer">Yes. <a href="https://github.com/zmroth/invoke/releases/latest">Download Invoke</a> and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it.</div>
+      </details>
       <details class="faq-item reveal">
         <summary>Does it work without a GPU?</summary>
         <div class="faq-answer">Yes. CPU mode is included and works out of the box&mdash;it's just slower (a few seconds instead of sub-second). A CUDA-capable GPU makes transcription near-instant.</div>
@@ -1300,17 +1311,13 @@ footer .container {
 <!-- ====== BOTTOM CTA ====== -->
 <section class="bottom-cta">
   <div class="container">
-    <div class="section-label reveal">GET EARLY ACCESS</div>
-    <div class="section-title reveal">Join the waitlist.</div>
-    <p class="bottom-cta-sub reveal">Be first to know when Invoke ships. No spam. Just a launch email.</p>
+    <div class="section-label reveal">TRY IT NOW</div>
+    <div class="section-title reveal">Free for 7 days.</div>
+    <p class="bottom-cta-sub reveal">Download Invoke, start dictating in under a minute. No credit card. No signup.</p>
 
-    <div class="reveal">
-      <form class="waitlist-form" id="waitlistFormBottom" action="https://formspree.io/f/maqpjqwn" method="POST">
-        <label for="waitlistEmailBottom" class="sr-only">Email address</label>
-        <input type="email" name="email" id="waitlistEmailBottom" class="waitlist-input" placeholder="you@email.com" required>
-        <button type="submit" class="waitlist-submit">Join waitlist</button>
-      </form>
-      <div class="waitlist-success" id="waitlistSuccessBottom">> subscribed. we'll ping you at launch.</div>
+    <div class="reveal" style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+      <a href="https://github.com/zmroth/invoke/releases/latest" class="hero-btn-primary">Download for Windows</a>
+      <a href="#pricing" class="hero-btn-ghost">See pricing</a>
     </div>
   </div>
 </section>
@@ -1340,33 +1347,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// ====== WAITLIST FORM ======
-function handleWaitlistSubmit(form, successEl) {
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  }).then(r => {
-    if (r.ok) {
-      form.style.display = 'none';
-      successEl.style.display = 'block';
-    }
-  }).catch(() => {
-    form.style.display = 'none';
-    successEl.style.display = 'block';
-  });
-}
-
-document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  handleWaitlistSubmit(this, document.getElementById('waitlistSuccess'));
-});
-
-document.getElementById('waitlistFormBottom').addEventListener('submit', function(e) {
-  e.preventDefault();
-  handleWaitlistSubmit(this, document.getElementById('waitlistSuccessBottom'));
-});
 
 // ====== TERMINAL ANIMATION ======
 const termBody = document.getElementById('terminalBody');
