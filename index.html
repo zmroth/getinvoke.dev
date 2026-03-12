@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoke — Speak code into existence</title>
+<meta name="description" content="Voice-powered prompt engineering for vibe coders. Local Whisper, context-aware reformatting, no subscription. $49 once.">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getinvoke.dev/">
+<meta property="og:title" content="Invoke — Speak code into existence">
+<meta property="og:description" content="Voice-powered prompt engineering for vibe coders. Local Whisper, context-aware reformatting, no subscription.">
+<meta property="og:image" content="https://getinvoke.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Invoke — Speak code into existence">
+<meta name="twitter:description" content="Your voice → your codebase → perfect prompts. $49 once.">
+<meta name="twitter:image" content="https://getinvoke.dev/og-image.png">
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2309090b'/><text x='18' y='72' font-size='60' font-family='monospace' font-weight='bold' fill='%2322c55e'>%3E</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* ====== RESET & BASE ====== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #050505;
+  --bg: #09090b;
+  --bg-surface: #0f0f12;
+  --bg-elevated: #18181b;
+  --border: #27272a;
+  --border-subtle: #1c1c1f;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --green: #22c55e;
+  --green-dim: #16a34a;
+  --green-glow: rgba(34, 197, 94, 0.15);
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --font: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ====== LAYOUT ====== */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ====== SCROLL ANIMATIONS ====== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== NAV ====== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span { color: var(--green); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-cta {
+  background: var(--green);
+  color: var(--bg) !important;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 12px !important;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.1s !important;
+}
+
+.nav-cta:hover {
+  background: var(--green-dim) !important;
+  transform: translateY(-1px);
+}
+
+/* ====== HERO ====== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+/* Subtle radial glow behind hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-text { position: relative; }
+
+.hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--green);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 4px 12px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.hero h1 .accent { color: var(--green); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 420px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: var(--bg);
+  padding: 12px 28px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background: var(--green-dim);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--bg);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  padding: 12px 20px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
+.hero-note {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hero-note span { color: var(--amber); }
+
+/* ====== TERMINAL DEMO ====== */
+.terminal {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.terminal-dot:nth-child(1) { background: #ef4444; opacity: 0.7; }
+.terminal-dot:nth-child(2) { background: #eab308; opacity: 0.7; }
+.terminal-dot:nth-child(3) { background: #22c55e; opacity: 0.7; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.terminal-body {
+  padding: 20px;
+  min-height: 320px;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+}
+
+.term-line {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.term-line.visible { opacity: 1; }
+
+.term-prompt { color: var(--green); }
+.term-cmd { color: var(--text); }
+.term-dim { color: var(--text-muted); }
+.term-context { color: var(--amber); font-size: 12px; }
+.term-output { color: var(--text); }
+.term-success { color: var(--green); }
+.term-heading { color: var(--text); font-weight: 700; }
+.term-bullet { color: var(--text-secondary); }
+
+.recording-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--green);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ====== PROBLEM SECTION ====== */
+.problem {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.problem-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.problem h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.problem p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.problem .stat {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.problem .highlight {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  margin: 32px auto;
+}
+
+/* ====== HOW IT WORKS ====== */
+.how {
+  padding: 100px 0;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 56px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.step {
+  padding: 36px 32px;
+  background: var(--bg);
+  position: relative;
+}
+
+.step-number {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.step p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.step-arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 20px;
+  z-index: 2;
+}
+
+/* ====== FEATURES ====== */
+.features {
+  padding: 120px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.feature {
+  padding: 36px 32px;
+  background: var(--bg);
+  transition: background 0.3s;
+}
+
+.feature:hover {
+  background: var(--bg-surface);
+}
+
+.feature-icon {
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: block;
+  color: var(--green);
+  font-style: normal;
+}
+
+.feature h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.feature p {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ====== COMPARISON ====== */
+.comparison {
+  padding: 100px 0;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.compare-table th {
+  text-align: left;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-table th:first-child {
+  color: var(--text-muted);
+}
+
+.compare-table th.invoke-col {
+  color: var(--green);
+}
+
+.compare-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.compare-table td:first-child {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.compare-table .invoke-col {
+  color: var(--text);
+  font-weight: 500;
+  background: rgba(34, 197, 94, 0.03);
+}
+
+.compare-table tr:last-child td { border-bottom: none; }
+
+.check { color: var(--green); font-weight: 600; }
+.x-mark { color: var(--text-muted); opacity: 0.4; }
+
+/* ====== PRICING ====== */
+.pricing {
+  padding: 120px 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.price-card {
+  padding: 40px 32px;
+  background: var(--bg);
+  position: relative;
+}
+
+.price-card.featured {
+  background: var(--bg-surface);
+  border-top: 2px solid var(--green);
+}
+
+.price-badge {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: var(--green);
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+}
+
+.price-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.price-amount {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 4px;
+}
+
+.price-amount .currency { font-size: 20px; font-weight: 400; color: var(--text-muted); }
+.price-period {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.price-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.price-features li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.price-features li:last-child { border-bottom: none; }
+
+.price-features li::before {
+  content: '>';
+  color: var(--green);
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.price-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  letter-spacing: 0.3px;
+}
+
+.price-btn-primary {
+  background: var(--green);
+  color: var(--bg);
+}
+
+.price-btn-primary:hover {
+  background: var(--green-dim);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.price-btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.price-btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
+.pricing-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ====== WAITLIST ====== */
+.waitlist-form {
+  display: flex;
+  gap: 2px;
+  max-width: 440px;
+}
+
+.waitlist-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-family: var(--font);
+  font-size: 13px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.waitlist-input::placeholder { color: var(--text-muted); }
+.waitlist-input:focus { border-color: var(--green); }
+
+.waitlist-submit {
+  padding: 12px 24px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--green);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.waitlist-submit:hover { background: var(--green-dim); }
+
+.waitlist-success {
+  display: none;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.footer-left strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.footer-links a:hover { color: var(--text); }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 120px 0 60px;
+  }
+
+  .steps { grid-template-columns: 1fr; }
+  .step-arrow { display: none; }
+
+  .features-grid { grid-template-columns: 1fr 1fr; }
+
+  .pricing-grid { grid-template-columns: 1fr; }
+
+  .compare-table { font-size: 11px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+
+  footer .container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .nav-links { gap: 16px; }
+  .hero h1 { font-size: 32px; letter-spacing: -1px; }
+  .waitlist-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav>
+  <div class="container">
+    <div class="nav-logo"><span>&gt;</span> invoke</div>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <div class="hero-badge">Windows &mdash; macOS coming soon</div>
+      <h1>Speak code<br>into <span class="accent">existence</span></h1>
+      <p class="hero-sub">Voice-powered prompt engineering for vibe coders. Local Whisper transcription, context-aware reformatting, no subscription.</p>
+
+      <div id="waitlist">
+        <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/YOUR_ID" method="POST">
+          <input type="email" name="email" class="waitlist-input" placeholder="you@email.com" required>
+          <button type="submit" class="waitlist-submit">Join waitlist</button>
+        </form>
+        <div class="waitlist-success" id="waitlistSuccess">> subscribed. we'll ping you at launch.</div>
+      </div>
+
+      <p class="hero-note"><span>$49 once</span> &mdash; no subscription, no word limits, your voice never leaves your machine.</p>
+    </div>
+
+    <div class="terminal" id="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot"></div>
+        <div class="terminal-dot"></div>
+        <div class="terminal-dot"></div>
+        <div class="terminal-title">invoke &mdash; Windows Terminal</div>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <!-- Lines injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROBLEM ====== -->
+<section class="problem">
+  <div class="container">
+    <div class="problem-inner reveal">
+      <h2>You think at <span class="stat">150 WPM</span>.<br>You type at <span class="stat">40</span>.</h2>
+      <div class="divider"></div>
+      <p>Your AI coding assistant doesn't care about grammar. It cares about <span class="highlight">clear, structured prompts</span> with the right context. But dictation tools give you raw transcription&mdash;filler words, false starts, no structure.</p>
+      <br>
+      <p>Invoke reads your codebase, cleans up your speech, and formats the output for whatever tool you use. <span class="highlight">Speak your intent. Get a perfect prompt.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== HOW IT WORKS ====== -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-label reveal">How it works</div>
+    <div class="section-title reveal">Three steps. One hotkey.</div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-number">01</div>
+        <h3>Speak</h3>
+        <p>Hold your hotkey and talk. Be messy. Say "um." Ramble. Start over mid-sentence. Invoke doesn't care.</p>
+        <span class="step-arrow">&rarr;</span>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">02</div>
+        <h3>Invoke reads your project</h3>
+        <p>Scans CLAUDE.md, .cursorrules, package.json, git&nbsp;log. Understands your stack, your conventions, what you're working on.</p>
+        <span class="step-arrow">&rarr;</span>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">03</div>
+        <h3>Perfect prompt</h3>
+        <p>LLM reformats your speech into a clean, structured prompt targeted for your AI tool. Lands in your clipboard. Paste and go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FEATURES ====== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-label reveal">Features</div>
+    <div class="section-title reveal">Built for the way you actually work.</div>
+
+    <div class="features-grid">
+      <div class="feature reveal">
+        <i class="feature-icon">{...}</i>
+        <h3>Context-aware</h3>
+        <p>Reads CLAUDE.md, .cursorrules, package.json, git log, and more. Your prompts know your project.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">&gt;_</i>
+        <h3>Target modes</h3>
+        <p>Format output for Claude Code, Cursor, Windsurf, Copilot, or raw. One hotkey, right format every time.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">&#9741;</i>
+        <h3>100% local transcription</h3>
+        <p>Whisper runs on your GPU. Your audio never leaves your machine. Period.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">&infin;</i>
+        <h3>No word limits</h3>
+        <p>Other tools cap you at 2,000 words/week. Invoke: unlimited transcription, always, forever.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">+w</i>
+        <h3>Custom vocabulary</h3>
+        <p>Add project terms, API names, and proper nouns that Whisper mangles. Your jargon, recognized.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">&#8709;</i>
+        <h3>Fully offline option</h3>
+        <p>Use Ollama for reformatting. Entire pipeline stays on your machine. Zero data leaves. Zero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== COMPARISON ====== -->
+<section class="comparison" id="compare">
+  <div class="container">
+    <div class="section-label reveal">Comparison</div>
+    <div class="section-title reveal">How Invoke stacks up.</div>
+
+    <div class="reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="invoke-col">Invoke</th>
+            <th>Wispr Flow</th>
+            <th>SuperWhisper</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Price</td>
+            <td class="invoke-col">$49 once</td>
+            <td>$12/mo ($144/yr)</td>
+            <td>$249 lifetime</td>
+          </tr>
+          <tr>
+            <td>Free tier</td>
+            <td class="invoke-col">Unlimited raw</td>
+            <td>2,000 words/week</td>
+            <td><span class="x-mark">&mdash;</span></td>
+          </tr>
+          <tr>
+            <td>Transcription</td>
+            <td class="invoke-col">Local (your GPU)</td>
+            <td>Cloud</td>
+            <td>Local</td>
+          </tr>
+          <tr>
+            <td>Reformatting</td>
+            <td class="invoke-col">LLM + project context</td>
+            <td>Basic auto-edit</td>
+            <td><span class="x-mark">&mdash;</span></td>
+          </tr>
+          <tr>
+            <td>Reads your project</td>
+            <td class="invoke-col"><span class="check">yes</span></td>
+            <td><span class="x-mark">no</span></td>
+            <td><span class="x-mark">no</span></td>
+          </tr>
+          <tr>
+            <td>Target modes</td>
+            <td class="invoke-col">7 modes</td>
+            <td>IDE extensions</td>
+            <td><span class="x-mark">&mdash;</span></td>
+          </tr>
+          <tr>
+            <td>Windows</td>
+            <td class="invoke-col"><span class="check">yes</span></td>
+            <td><span class="check">yes</span></td>
+            <td><span class="x-mark">Mac only</span></td>
+          </tr>
+          <tr>
+            <td>Word limits</td>
+            <td class="invoke-col"><span class="check">none</span></td>
+            <td>2k/wk free</td>
+            <td><span class="check">none</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRICING ====== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Pricing</div>
+    <div class="section-title reveal">One price. No surprises.</div>
+
+    <div class="pricing-grid reveal">
+      <!-- Free -->
+      <div class="price-card">
+        <div class="price-name">Free</div>
+        <div class="price-amount"><span class="currency">$</span>0</div>
+        <div class="price-period">forever</div>
+        <ul class="price-features">
+          <li>Local Whisper transcription</li>
+          <li>Raw mode (no reformatting)</li>
+          <li>Claude Code target mode</li>
+          <li>Basic context (README, package.json)</li>
+          <li>Unlimited words</li>
+        </ul>
+        <a href="#waitlist" class="price-btn price-btn-ghost">Join waitlist</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="price-card featured">
+        <div class="price-badge">POPULAR</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount"><span class="currency">$</span>49</div>
+        <div class="price-period">one-time &mdash; 1 year of updates</div>
+        <ul class="price-features">
+          <li>Everything in Free</li>
+          <li>LLM reformatting (cloud + local)</li>
+          <li>All 7 target modes</li>
+          <li>Full context engine + git log</li>
+          <li>Custom vocabulary</li>
+          <li>Dictation history</li>
+        </ul>
+        <a href="#waitlist" class="price-btn price-btn-primary">Join waitlist</a>
+      </div>
+
+      <!-- Pro+ -->
+      <div class="price-card">
+        <div class="price-name">Pro+</div>
+        <div class="price-amount"><span class="currency">$</span>79</div>
+        <div class="price-period">one-time &mdash; lifetime updates</div>
+        <ul class="price-features">
+          <li>Everything in Pro</li>
+          <li>Lifetime updates</li>
+          <li>Priority support</li>
+          <li>Early access (macOS, IDE plugins)</li>
+        </ul>
+        <a href="#waitlist" class="price-btn price-btn-ghost">Join waitlist</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">No subscription. No word limits. Your voice never leaves your machine.</p>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <div class="footer-left">
+      <strong>&gt; invoke</strong> &mdash; built by <a href="https://github.com/zmroth" target="_blank">Zach Roth</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="mailto:zach@getinvoke.dev">Contact</a></li>
+      <li><a href="#">Docs</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ====== SCROLL REVEAL ======
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ====== WAITLIST FORM ======
+document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const success = document.getElementById('waitlistSuccess');
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  }).catch(() => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+});
+
+// ====== TERMINAL ANIMATION ======
+const termBody = document.getElementById('terminalBody');
+
+const sequence = [
+  { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">invoke --mode cursor</span>' },
+  { delay: 800, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording... (hold to speak)</span>' },
+  { delay: 1600, type: 'fade', content: '<span class="term-dim">"ok so um I need to add a new endpoint for the uh content API that takes a keyword and URL and calls OpenAI to generate an article and save it to the database and uh return the ID don\'t worry about auth for now"</span>' },
+  { delay: 2000, type: 'fade', content: '<br><span class="term-context">> Reading project context... found CLAUDE.md, package.json</span>' },
+  { delay: 800, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Node / Express</span>' },
+  { delay: 1000, type: 'fade', content: '<span class="term-context">> Reformatting for Cursor...</span>' },
+  { delay: 1200, type: 'fade', content: '<br><span class="term-heading">Add a new POST endpoint `/api/generate`</span>' },
+  { delay: 300, type: 'fade', content: '' },
+  { delay: 100, type: 'fade', content: '<span class="term-heading">Requirements:</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Accepts `keyword` (non-empty) and `targetUrl` (valid URL)</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI API to generate SEO article</span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-bullet">  - Saves to database, returns article ID</span>' },
+  { delay: 300, type: 'fade', content: '' },
+  { delay: 100, type: 'fade', content: '<span class="term-heading">Out of scope:</span> <span class="term-bullet">Auth (adding later)</span>' },
+  { delay: 800, type: 'fade', content: '<br><span class="term-success">> Copied to clipboard.</span> <span class="cursor-blink"></span>' },
+];
+
+function createLine(html) {
+  const div = document.createElement('div');
+  div.className = 'term-line';
+  div.innerHTML = html || '&nbsp;';
+  termBody.appendChild(div);
+  return div;
+}
+
+function typeText(line, html, speed) {
+  return new Promise(resolve => {
+    // Parse HTML to extract tags and text
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    const fullText = temp.textContent;
+    const tags = html;
+
+    // For simplicity with mixed HTML, fade in with a brief type feel
+    line.innerHTML = html;
+    line.style.opacity = '0';
+    line.classList.add('visible');
+
+    let charIndex = 0;
+    const plainText = temp.textContent;
+
+    if (plainText.length <= 2) {
+      line.innerHTML = html;
+      line.style.opacity = '1';
+      resolve();
+      return;
+    }
+
+    // Use clip-path to reveal text character by character
+    line.style.opacity = '1';
+    line.innerHTML = html + '<span class="cursor-blink" style="animation-duration:0.4s"></span>';
+
+    const interval = setInterval(() => {
+      charIndex += 1;
+      if (charIndex >= plainText.length) {
+        clearInterval(interval);
+        line.innerHTML = html;
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+async function runSequence() {
+  termBody.innerHTML = '';
+  let totalDelay = 0;
+
+  for (const step of sequence) {
+    await new Promise(r => setTimeout(r, step.delay));
+
+    const line = createLine('');
+
+    if (step.type === 'type') {
+      await typeText(line, step.content, step.speed);
+    } else {
+      line.innerHTML = step.content || '&nbsp;';
+      // Slight delay then fade in
+      await new Promise(r => setTimeout(r, 50));
+      line.classList.add('visible');
+    }
+  }
+
+  // Hold the final state then restart
+  await new Promise(r => setTimeout(r, 5000));
+  runSequence();
+}
+
+// Start after a brief delay
+setTimeout(runSequence, 800);
+</script>
+
+</body>
+</html>
