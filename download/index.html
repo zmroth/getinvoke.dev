@@ -128,7 +128,7 @@ nav .container {
   margin-bottom: 32px;
 }
 
-/* Download hero */
+/* ====== PLATFORM CARDS ====== */
 .dl-hero {
   text-align: center;
   padding-bottom: 48px;
@@ -136,11 +136,68 @@ nav .container {
   margin-bottom: 48px;
 }
 
-.dl-btn {
+.platform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.platform-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.2s;
+  position: relative;
+}
+
+.platform-card.detected {
+  border-color: var(--green);
+}
+
+.platform-card.detected::after {
+  content: 'Detected';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.platform-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  opacity: 0.9;
+}
+
+.platform-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.platform-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.platform-version {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.platform-btn {
   display: inline-block;
-  padding: 16px 40px;
+  padding: 12px 28px;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   background: var(--green);
   color: var(--bg) !important;
@@ -149,24 +206,68 @@ nav .container {
   letter-spacing: 0.3px;
   transition: background 0.2s;
   text-decoration: none !important;
-  margin-bottom: 16px;
+  width: 100%;
 }
 
-.dl-btn:hover { background: var(--green-dim); }
+.platform-btn:hover { background: var(--green-dim); }
 
-.dl-meta {
+.platform-btn-soon {
+  display: inline-block;
+  padding: 12px 28px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border);
+  cursor: default;
+  letter-spacing: 0.3px;
+  text-decoration: none !important;
+  width: 100%;
+}
+
+.platform-meta {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.platform-meta span {
+  display: inline-block;
+  padding: 2px 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  margin: 0 1px;
+}
+
+.dl-note {
+  margin-top: 20px;
   font-size: 12px;
   color: var(--text-muted);
   font-weight: 300;
 }
 
-.dl-meta span {
-  display: inline-block;
-  padding: 2px 8px;
-  background: var(--bg-elevated);
+/* ====== macOS notice (shown when macOS detected) ====== */
+.macos-notice {
+  display: none;
+  background: var(--bg-surface);
   border: 1px solid var(--border);
-  font-size: 11px;
-  margin: 0 2px;
+  border-left: 3px solid var(--amber);
+  padding: 20px 24px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.macos-notice.show { display: block; }
+
+.macos-notice strong {
+  color: var(--amber);
+  font-weight: 600;
 }
 
 /* Sections */
@@ -349,6 +450,7 @@ footer .container {
   .nav-links { gap: 0; }
   .page { padding: 88px 16px 48px; }
   .page-title { font-size: 24px; }
+  .platform-grid { grid-template-columns: 1fr; }
   .req-list li { flex-direction: column; gap: 2px; }
   .req-value { text-align: left; }
   footer .container { flex-direction: column; gap: 16px; text-align: center; }
@@ -377,10 +479,45 @@ footer .container {
     <div class="page-label">Download</div>
     <h1 class="page-title">Download Invoke</h1>
     <p class="page-sub">Free for 7 days. No credit card. No signup.</p>
-    <a href="https://github.com/zmroth/invoke/releases/latest" class="dl-btn">Download for Windows</a>
-    <div class="dl-meta">
-      <span>Windows 10/11</span> <span>64-bit</span> <span>~200 MB</span>
+
+    <div class="platform-grid">
+      <!-- Windows -->
+      <div class="platform-card" id="card-windows">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+          </svg>
+        </div>
+        <div class="platform-name">Windows</div>
+        <div class="platform-version">Windows 10/11 (64-bit)</div>
+        <a href="https://github.com/zmroth/invoke/releases/latest" class="platform-btn">Download .exe</a>
+        <div class="platform-meta">
+          <span>64-bit</span> <span>~200 MB</span> <span>NVIDIA GPU optional</span>
+        </div>
+      </div>
+
+      <!-- macOS -->
+      <div class="platform-card" id="card-macos">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <div class="platform-name">macOS</div>
+        <div class="platform-version">Apple Silicon + Intel</div>
+        <span class="platform-btn-soon">Coming soon</span>
+        <div class="platform-meta">
+          <span>Metal GPU</span> <span>whisper.cpp</span>
+        </div>
+      </div>
     </div>
+
+    <!-- macOS notice (shown via JS when macOS detected) -->
+    <div class="macos-notice" id="macos-notice">
+      <strong>You're on macOS.</strong> Invoke is Windows-only right now. macOS with Metal GPU acceleration for Apple Silicon is in development. Want to know when it ships? <a href="mailto:zach@scrn.co?subject=Invoke%20macOS%20interest">Drop me a line</a> and I'll ping you.
+    </div>
+
+    <p class="dl-note">7-day free trial with all features. No license key needed to start.</p>
   </div>
 
   <!-- System requirements -->
@@ -457,6 +594,29 @@ footer .container {
     </ul>
   </div>
 </footer>
+
+<script>
+// OS detection
+(function() {
+  var ua = navigator.userAgent || navigator.platform || '';
+  var platform = navigator.platform || '';
+  var isWindows = /Win/.test(platform) || /Windows/.test(ua);
+  var isMac = /Mac/.test(platform) || /Macintosh/.test(ua);
+
+  var cardWin = document.getElementById('card-windows');
+  var cardMac = document.getElementById('card-macos');
+  var macNotice = document.getElementById('macos-notice');
+
+  if (isWindows) {
+    cardWin.classList.add('detected');
+  } else if (isMac) {
+    cardMac.classList.add('detected');
+    macNotice.classList.add('show');
+    // Reorder: put macOS card first so detected platform is on top
+    cardMac.parentNode.insertBefore(cardMac, cardWin);
+  }
+})();
+</script>
 
 </body>
 </html>
