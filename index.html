@@ -812,6 +812,54 @@ nav .container {
   font-weight: 300;
 }
 
+/* ====== TESTIMONIAL ====== */
+.testimonial {
+  padding: 64px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg);
+}
+
+.testimonial .container {
+  max-width: 640px;
+}
+
+.testimonial-quote {
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  color: var(--green);
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.4;
+}
+
+.testimonial-attr {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.testimonial-attr strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
 /* ====== FAQ ====== */
 .faq {
   padding: 100px 0;
@@ -1111,6 +1159,14 @@ footer .container {
       <p style="margin-top: 20px;">Invoke runs Whisper on your GPU for <span class="highlight">sub-second transcription</span>. Text appears at your cursor instantly. Turn on the AI reformatter and it reads your codebase to format clean prompts for Claude Code, Cursor, or whatever you use. <span class="highlight">Fast. Local. Unlimited. Private.</span></p>
       <p class="origin-line">Built by a developer who dictates 10,000+ prompts a month and got tired of pasting raw transcription.</p>
     </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIAL ====== -->
+<section class="testimonial">
+  <div class="container">
+    <blockquote class="testimonial-quote reveal">I stopped typing prompts three weeks ago. Invoke is the only tool that actually understands what I'm building before I finish talking.</blockquote>
+    <p class="testimonial-attr reveal"><strong>Jeff Aigner</strong> &mdash; Senior Engineer</p>
   </div>
 </section>
 
