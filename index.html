@@ -119,13 +119,23 @@ nav .container {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 16px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.5px;
+  text-decoration: none;
 }
 
-.nav-logo span { color: var(--green); }
+.nav-logo:hover { text-decoration: none; }
+
+.nav-logo img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
 
 .nav-links {
   display: flex;
@@ -986,11 +996,12 @@ footer .container {
 <!-- ====== NAV ====== -->
 <nav>
   <div class="container">
-    <div class="nav-logo"><span>&gt;</span> invoke</div>
+    <a href="/" class="nav-logo"><img src="/icon-nav.png" alt="Invoke"> invoke</a>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="/learn/">Learn</a></li>
       <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
       <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
     </ul>
@@ -1299,7 +1310,7 @@ footer .container {
 <footer>
   <div class="container">
     <div class="footer-left">
-      <strong>&gt; invoke</strong> &mdash; built by <a href="https://github.com/zmroth" target="_blank">Zach Roth</a>
+      <strong><img src="/icon-nav.png" alt="" style="width:16px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:4px;">invoke</strong> &mdash; built by <a href="https://github.com/zmroth" target="_blank">Zach Roth</a>
     </div>
     <ul class="footer-links">
       <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>

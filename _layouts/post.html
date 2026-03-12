@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} — Invoke</title>
+<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title }} — Invoke">
+<meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+<meta property="og:image" content="https://getinvoke.dev/og-image.png">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #050505;
+  --bg: #09090b;
+  --bg-surface: #0f0f12;
+  --bg-elevated: #18181b;
+  --border: #27272a;
+  --border-subtle: #1c1c1f;
+  --text: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --green: #22c55e;
+  --green-dim: #16a34a;
+  --amber: #f59e0b;
+  --font: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+nav .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 700; color: var(--text);
+  letter-spacing: -0.5px; text-decoration: none;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo img { width: 24px; height: 24px; border-radius: 4px; }
+
+.nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
+.nav-links a { color: var(--text-muted); font-size: 13px; font-weight: 400; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+.nav-cta {
+  background: var(--green); color: var(--bg) !important;
+  padding: 6px 16px; font-weight: 600; font-size: 12px !important;
+  letter-spacing: 0.3px;
+}
+.nav-cta:hover { background: var(--green-dim) !important; }
+
+/* Article */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+
+.article-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+
+.article-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+
+.article-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.article-body h2 {
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 48px 0 16px;
+}
+
+.article-body h3 {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 36px 0 12px;
+}
+
+.article-body p { margin-bottom: 20px; }
+
+.article-body strong { color: var(--text); font-weight: 600; }
+
+.article-body code {
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  font-size: 13px;
+  border-radius: 3px;
+  color: var(--green);
+}
+
+.article-body pre {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 24px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.article-body pre code {
+  background: none;
+  padding: 0;
+  color: var(--text-secondary);
+}
+
+.article-body ul, .article-body ol {
+  margin: 16px 0 20px 20px;
+}
+
+.article-body li {
+  margin-bottom: 8px;
+}
+
+.article-body blockquote {
+  border-left: 2px solid var(--green);
+  padding-left: 20px;
+  margin: 24px 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.article-body img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 24px 0;
+}
+
+.article-body a { color: var(--green); }
+
+.article-back {
+  display: inline-block;
+  margin-top: 48px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.article-back:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+footer .container {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.footer-left { font-size: 12px; color: var(--text-muted); font-weight: 300; }
+.footer-left strong { color: var(--text-secondary); font-weight: 600; }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { color: var(--text-muted); font-size: 12px; font-weight: 400; }
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .nav-links li:not(:last-child) { display: none; }
+  .nav-links { gap: 0; }
+  .article { padding: 88px 16px 48px; }
+  .article-title { font-size: 24px; }
+  footer .container { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="/icon-nav.png" alt="Invoke"> invoke</a>
+    <ul class="nav-links">
+      <li><a href="/learn/">Learn</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="/#waitlist" class="nav-cta">Join waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<article class="article">
+  <div class="article-meta">{{ page.date | date: "%B %d, %Y" }}{% if page.author %} &mdash; {{ page.author }}{% endif %}</div>
+  <h1 class="article-title">{{ page.title }}</h1>
+  <div class="article-body">
+    {{ content }}
+  </div>
+  <a href="/learn/" class="article-back">&larr; Back to Learn</a>
+</article>
+
+<footer>
+  <div class="container">
+    <div class="footer-left">
+      <strong><img src="/icon-nav.png" alt="" style="width:16px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:4px;">invoke</strong> &mdash; built by <a href="https://github.com/zmroth" target="_blank">Zach Roth</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/zmroth/invoke" target="_blank">GitHub</a></li>
+      <li><a href="https://x.com/zachroth" target="_blank">Twitter/X</a></li>
+      <li><a href="mailto:zach@scrn.co">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

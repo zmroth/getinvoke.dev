@@ -1,0 +1,21 @@
+title: Invoke
+description: Voice-powered prompt engineering for developers.
+url: https://getinvoke.dev
+baseurl: ""
+
+# Don't process these as Jekyll
+exclude:
+  - CNAME
+  - INVOKE-PRODUCT-PLAN.md
+  - .superpowers
+
+# Permalink style for posts
+permalink: /learn/:title/
+
+# Collections (future use)
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
