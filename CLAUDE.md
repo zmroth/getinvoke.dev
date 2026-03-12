@@ -35,7 +35,13 @@ getinvoke.dev/
 ├── _posts/
 │   └── 2026-03-12-why-i-built-invoke.md   # First blog post
 ├── download/
-│   └── index.html          # Download page (/download) — system reqs, install steps, activation
+│   └── index.html          # Download page (/download) — OS detection, system reqs, install steps
+├── privacy/
+│   └── index.html          # Privacy policy (/privacy/)
+├── terms/
+│   └── index.html          # Terms of service (/terms/)
+├── refund/
+│   └── index.html          # Refund policy (/refund/) — 30-day money-back guarantee
 ├── learn/
 │   └── index.html          # Blog listing page (/learn/)
 ├── CNAME                   # Custom domain: getinvoke.dev
@@ -47,6 +53,9 @@ getinvoke.dev/
 ├── icon-192.png            # PWA icon
 ├── icon-512.png            # PWA icon
 ├── og-image.png            # 1200x630 social sharing image
+├── 404.html                # Custom 404 page (GitHub Pages serves automatically)
+├── robots.txt              # Search engine crawl rules
+├── sitemap.xml             # Static sitemap for all public pages
 └── docs/superpowers/       # Design specs (excluded from build)
 ```
 
