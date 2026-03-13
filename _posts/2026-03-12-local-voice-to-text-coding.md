@@ -4,6 +4,7 @@ date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "Cloud transcription adds latency, costs money monthly, and sends your audio to someone else's servers. Here's why local GPU transcription is better for developers."
+og_image: og-local-voice-to-text.png
 ---
 
 ## Most voice-to-text sends your audio to the cloud

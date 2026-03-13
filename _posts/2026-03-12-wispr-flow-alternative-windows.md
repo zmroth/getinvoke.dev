@@ -4,6 +4,7 @@ date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "Wispr Flow is great — if you're on Mac, want a subscription, and don't mind cloud transcription. Here's what I built instead."
+og_image: og-wispr-flow-alternative.png
 ---
 
 ## Wispr Flow is good

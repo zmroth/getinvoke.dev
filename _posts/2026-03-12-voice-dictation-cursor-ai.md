@@ -4,6 +4,7 @@ date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "You can dictate prompts directly into Cursor's chat and composer. Here's how to set it up with local Whisper transcription."
+og_image: og-voice-dictation-cursor.png
 ---
 
 ## Cursor is the best AI code editor. Typing prompts into it is the worst part.

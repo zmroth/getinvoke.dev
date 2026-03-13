@@ -4,6 +4,7 @@ date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "I dictate thousands of prompts a month. Every transcription tool I tried was either too slow, too expensive, or too dumb. So I built my own."
+og_image: og-why-i-built-invoke.png
 ---
 
 ## The problem with voice-to-text for coding
