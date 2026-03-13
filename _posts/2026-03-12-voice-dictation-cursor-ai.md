@@ -41,7 +41,7 @@ Grab it from [getinvoke.dev/download](/download). Windows today, macOS coming so
 
 ### 2. Pick your push-to-talk key
 
-Default is `Ctrl+Shift+D`. I remapped mine to Mouse5 (the forward thumb button) because it's fast and doesn't collide with any shortcuts. Use whatever feels right.
+Default is `Mouse5` (the forward thumb button) — it's fast and doesn't collide with any shortcuts. You can also use a keyboard combo like `Ctrl+Shift+D`. Use whatever feels right.
 
 ### 3. Open Cursor, click into chat
 

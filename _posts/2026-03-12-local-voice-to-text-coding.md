@@ -35,11 +35,11 @@ I don't think most developers have really thought about this. Every prompt you d
 
 ## How it works under the hood
 
-Invoke runs [faster-whisper](https://github.com/SYSTRAN/faster-whisper), a CTranslate2 port of OpenAI's Whisper model optimized for fast inference. The model (about 1.5GB for large-v3) loads into your GPU's VRAM at startup and stays resident.
+Invoke runs [faster-whisper](https://github.com/SYSTRAN/faster-whisper), a CTranslate2 port of OpenAI's Whisper model optimized for fast inference. The model (about 1.5GB) loads into your GPU's VRAM at startup and stays resident.
 
 When you hold your push-to-talk key and speak, Invoke records locally. When you release, the audio goes straight to the Whisper model in VRAM. No disk write, no network call. For a typical utterance, you get text back in under a second.
 
-It's the same Whisper large-v3 model the cloud services run. You're just running it yourself.
+It's the same Whisper model architecture the cloud services use. You're just running it locally on your own hardware.
 
 ## Same model, same accuracy
 

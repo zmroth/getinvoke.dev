@@ -38,6 +38,49 @@ layout: null
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download Invoke or pip install getinvoke and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work without a GPU?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. CPU mode is included and works out of the box — it's just slower (a few seconds instead of sub-second). A CUDA-capable GPU makes transcription near-instant." }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages does it support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "All 99+ languages that Whisper supports. English is the default, but you can configure any language or enable auto-detection." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the AI reformatter send my code to the cloud?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Your audio always stays local. The reformatter calls an LLM API to clean up the transcript — you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama. No code files are ever uploaded." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from just running Whisper myself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Running Whisper gives you a transcript. Invoke wraps that in a workflow — push-to-talk hotkey, auto-paste at your cursor, LLM reformatting that reads your project context, target modes for Claude Code / Cursor / Windsurf / Copilot, custom vocabulary, and dictation history. Whisper is the engine; Invoke is the car." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the system requirements?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required — CPU mode works out of the box. For the CLI (pip install getinvoke): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What about macOS and Linux?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Invoke works on macOS and Linux right now via pip install getinvoke. A native macOS app with Metal GPU acceleration for Apple Silicon is in development. The pip install uses CPU mode on Mac (still fast) and supports NVIDIA CUDA on Linux. Same license key, same features." }
+    }
+  ]
+}
+</script>
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
@@ -1167,7 +1210,7 @@ footer .container {
       <div class="feature reveal">
         <i class="feature-icon">&#9654;</i>
         <h3>Auto-paste</h3>
-        <p>Text appears at your cursor the moment you stop speaking. No Ctrl+V. Just talk and it's there.</p>
+        <p>Text appears at your cursor the moment you stop speaking. No Ctrl+V needed on Windows and Linux. Just talk and it's there.</p>
       </div>
       <div class="feature reveal">
         <i class="feature-icon">LOCAL</i>
@@ -1214,7 +1257,7 @@ footer .container {
             <td>Price</td>
             <td class="invoke-col">$49 once / $79 lifetime</td>
             <td>$12/mo ($144/yr)</td>
-            <td>$249 lifetime</td>
+            <td>$8.49/mo or $250 lifetime</td>
           </tr>
           <tr>
             <td>Free trial</td>
@@ -1301,7 +1344,7 @@ footer .container {
           <li>Unlimited words, forever</li>
           <li>100% local &amp; private</li>
           <li>AI prompt reformatting (cloud + local)</li>
-          <li>All 7 target modes</li>
+          <li>7 target modes (Claude Code, Cursor, Windsurf, Copilot, Raw, Commit, PR)</li>
           <li>Context engine (CLAUDE.md, git log, etc.)</li>
           <li>Custom vocabulary</li>
           <li>Dictation history + search</li>

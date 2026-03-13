@@ -4,6 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page.title }} — Invoke</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: 'Zach Roth' }}",
+    "url": "https://github.com/zmroth"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Invoke",
+    "url": "https://getinvoke.dev"
+  },
+  "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
+  "image": "https://getinvoke.dev/{{ page.og_image | default: 'og-image.png' }}",
+  "mainEntityOfPage": "{{ page.url | absolute_url }}"
+}
+</script>
 
 {% include ga4-consent-head.html %}
 <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
