@@ -1,0 +1,26 @@
+<div id="cc-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f0f12;border-top:1px solid #27272a;padding:16px 24px;font-family:'JetBrains Mono','SF Mono','Fira Code',monospace;font-size:12px;">
+<div style="max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+<p style="color:#a1a1aa;margin:0;flex:1;min-width:200px;font-weight:300;line-height:1.5;">This site uses cookies for analytics. <a href="/privacy/" style="color:#22c55e;">Privacy policy</a></p>
+<div style="display:flex;gap:8px;">
+<button onclick="window._ccAccept()" style="background:#22c55e;color:#09090b;border:none;padding:6px 16px;font-family:inherit;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:0.3px;">Accept</button>
+<button onclick="window._ccDecline()" style="background:transparent;color:#71717a;border:1px solid #27272a;padding:6px 16px;font-family:inherit;font-size:11px;font-weight:400;cursor:pointer;">Decline</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+var c=localStorage.getItem('invoke_cookie_consent');
+if(!c)document.getElementById('cc-banner').style.display='block';
+window._ccAccept=function(){
+localStorage.setItem('invoke_cookie_consent','accepted');
+document.getElementById('cc-banner').style.display='none';
+var s=document.createElement('script');s.async=true;
+s.src='https://www.googletagmanager.com/gtag/js?id=G-6TH81W7C68';
+document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6TH81W7C68');
+};
+window._ccDecline=function(){
+localStorage.setItem('invoke_cookie_consent','declined');
+document.getElementById('cc-banner').style.display='none';
+};
+})();
+</script>

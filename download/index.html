@@ -8,14 +8,7 @@ layout: null
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download Invoke — Windows, Linux, macOS</title>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TH81W7C68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6TH81W7C68');
-</script>
+{% include ga4-consent-head.html %}
 <meta name="description" content="Download Invoke for Windows, Linux, or macOS. Local GPU voice-to-text for developers. pip install getinvoke or download the .exe. Free 7-day trial, no credit card.">
 <link rel="canonical" href="https://getinvoke.dev/download">
 
@@ -840,5 +833,6 @@ function copyCommand(btn, text) {
 })();
 </script>
 
+{% include cookie-banner.html %}
 </body>
 </html>

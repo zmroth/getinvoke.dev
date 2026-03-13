@@ -1,18 +1,13 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Invoke — Voice to Text for Developers | Local GPU Dictation</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TH81W7C68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6TH81W7C68');
-</script>
+{% include ga4-consent-head.html %}
 <meta name="description" content="Voice dictation for developers. GPU-accelerated local Whisper transcription, sub-second speed, auto-paste at cursor, AI prompt reformatter. Free 7-day trial. $49 once — no subscription.">
 <link rel="canonical" href="https://getinvoke.dev/">
 <script type="application/ld+json">
@@ -1577,5 +1572,6 @@ setTimeout(runSequence, 800);
 
 </script>
 
+{% include cookie-banner.html %}
 </body>
 </html>
