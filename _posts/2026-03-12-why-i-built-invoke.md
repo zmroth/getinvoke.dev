@@ -47,4 +47,4 @@ The AI reformatter does call an LLM API (you pick which one), but that's optiona
 
 Invoke is in early access right now. Windows first, macOS coming soon.
 
-If you're a developer who talks to AI tools all day, [join the waitlist](/#waitlist). I'll send exactly one email when it ships.
+If you're a developer who talks to AI tools all day, [try it free](/download). Free 7-day trial, no credit card required.

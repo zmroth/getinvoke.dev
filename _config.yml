@@ -1,5 +1,5 @@
 title: Invoke
-description: Voice-powered prompt engineering for developers.
+description: Voice-to-text dictation for developers. Local GPU Whisper transcription, auto-paste, AI prompt reformatter. Windows desktop app.
 url: https://getinvoke.dev
 baseurl: ""
 

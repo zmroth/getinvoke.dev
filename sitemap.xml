@@ -21,6 +21,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://getinvoke.dev/learn/wispr-flow-alternative-windows/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/voice-dictation-cursor-ai/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/local-voice-to-text-coding/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://getinvoke.dev/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
