@@ -261,12 +261,22 @@ nav .container {
 
 .hero h1 .accent { color: var(--green); }
 
-.hero-sub {
-  font-size: 15px;
+.hero h2 {
+  font-size: clamp(16px, 2vw, 20px);
   color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 36px;
-  max-width: 420px;
+  max-width: 480px;
   font-weight: 300;
 }
 
@@ -1063,8 +1073,12 @@ footer .container {
     letter-spacing: -0.5px;
   }
 
+  .hero h2 {
+    font-size: 15px;
+  }
+
   .hero-sub {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-badge {
@@ -1122,7 +1136,8 @@ footer .container {
     <div class="hero-text">
       <div class="hero-badge">Windows &mdash; macOS coming soon</div>
       <h1>Speak code<br>into <span class="accent">existence</span></h1>
-      <p class="hero-sub">Local GPU transcription. Auto-paste at your cursor. No subscription.</p>
+      <h2>The only voice tool that understands what you're building</h2>
+      <p class="hero-sub">Local GPU transcription, sub-second. AI reformatter reads your project context and writes the prompt you meant. No cloud, no subscription.</p>
 
       <div class="hero-cta-row">
         <a href="/download" class="hero-btn-primary">Download free</a>
