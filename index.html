@@ -23,7 +23,7 @@
   "description": "Voice-to-prompt desktop app for developers. Local GPU transcription via Whisper, auto-paste at cursor, AI prompt reformatting with project context.",
   "url": "https://getinvoke.dev",
   "image": "https://getinvoke.dev/og-image.png",
-  "operatingSystem": "Windows 10, Windows 11",
+  "operatingSystem": "Windows 10, Windows 11, Linux, macOS",
   "applicationCategory": "DeveloperApplication",
   "offers": [
     {
@@ -1134,7 +1134,7 @@ footer .container {
 <section class="hero">
   <div class="container">
     <div class="hero-text">
-      <div class="hero-badge">Windows &mdash; macOS coming soon</div>
+      <div class="hero-badge">Windows &middot; Linux &middot; macOS</div>
       <h1>Speak code<br>into <span class="accent">existence</span></h1>
       <h2>The only voice tool that understands what you're building</h2>
       <p class="hero-sub">Local GPU transcription, sub-second. AI reformatter reads your project context and writes the prompt you meant. No cloud, no subscription.</p>
@@ -1326,9 +1326,9 @@ footer .container {
             <td><span class="x-mark">&mdash;</span></td>
           </tr>
           <tr>
-            <td>Windows</td>
-            <td class="invoke-col"><span class="check">yes</span></td>
-            <td><span class="check">yes</span></td>
+            <td>Platform</td>
+            <td class="invoke-col"><span class="check">Win / Linux / Mac</span></td>
+            <td><span class="check">Win / Mac</span></td>
             <td><span class="x-mark">Mac only</span></td>
           </tr>
           <tr>
@@ -1381,7 +1381,7 @@ footer .container {
           <li>Everything in Invoke</li>
           <li>Lifetime updates</li>
           <li>Priority support</li>
-          <li>Early access (macOS, IDE plugins)</li>
+          <li>Early access (native macOS app, IDE plugins)</li>
           <li>Shape the roadmap</li>
         </ul>
         <a href="https://getinvoke.lemonsqueezy.com/checkout/buy/15ee926a-a14c-4386-b3ca-e5e5a23e12ed" class="price-btn price-btn-ghost">Buy now</a>
@@ -1404,7 +1404,7 @@ footer .container {
     <div class="faq-list">
       <details class="faq-item reveal">
         <summary>Is there a free trial?</summary>
-        <div class="faq-answer">Yes. <a href="/download">Download Invoke</a> and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it.</div>
+        <div class="faq-answer">Yes. <a href="/download">Download Invoke</a> or <code>pip install getinvoke</code> and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Does it work without a GPU?</summary>
@@ -1424,11 +1424,11 @@ footer .container {
       </details>
       <details class="faq-item reveal">
         <summary>What are the system requirements?</summary>
-        <div class="faq-answer">Windows 10 or 11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended for sub-second transcription but not required&mdash;CPU mode works out of the box. Internet is needed for license activation and the AI reformatter (unless you use Ollama for fully local LLM). See <a href="/download">full requirements</a>.</div>
+        <div class="faq-answer">For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required &mdash; CPU mode works out of the box. For the CLI (<code>pip install getinvoke</code>): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama). See <a href="/download">full requirements</a>.</div>
       </details>
       <details class="faq-item reveal">
-        <summary>What about macOS?</summary>
-        <div class="faq-answer">Windows first. macOS is coming in a later release with whisper.cpp and Metal GPU acceleration for Apple Silicon.</div>
+        <summary>What about macOS and Linux?</summary>
+        <div class="faq-answer">Invoke works on macOS and Linux right now via <code>pip install getinvoke</code>. A native macOS app with Metal GPU acceleration for Apple Silicon is in development. The pip install uses CPU mode on Mac (still fast) and supports NVIDIA CUDA on Linux. Same license key, same features. <a href="/download#cli-install">See install instructions</a>.</div>
       </details>
     </div>
   </div>
@@ -1441,10 +1441,12 @@ footer .container {
     <div class="section-title reveal">Free for 7 days.</div>
     <p class="bottom-cta-sub reveal">Download Invoke and start dictating in under a minute. No credit card, no signup.</p>
 
-    <div class="reveal" style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
-      <a href="/download" class="hero-btn-primary">Download for Windows</a>
+    <div class="reveal" style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+      <a href="/download" class="hero-btn-primary">Download free</a>
       <a href="#pricing" class="hero-btn-ghost">See pricing</a>
     </div>
+
+    <p class="reveal" style="margin-top:16px;font-size:12px;color:var(--text-muted);font-weight:300;">or <code style="background:var(--bg-elevated);padding:2px 8px;color:var(--green);font-size:12px;">pip install getinvoke</code> for Linux &amp; macOS</p>
   </div>
 </section>
 

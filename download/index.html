@@ -6,7 +6,7 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Invoke for Windows — Free Voice to Text for Coding</title>
+<title>Download Invoke — Windows, Linux, macOS</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TH81W7C68"></script>
@@ -16,17 +16,17 @@ layout: null
   gtag('js', new Date());
   gtag('config', 'G-6TH81W7C68');
 </script>
-<meta name="description" content="Download Invoke for Windows 10/11. Local GPU voice-to-text for developers — sub-second Whisper transcription, auto-paste at cursor. Free 7-day trial, no credit card.">
+<meta name="description" content="Download Invoke for Windows, Linux, or macOS. Local GPU voice-to-text for developers. pip install getinvoke or download the .exe. Free 7-day trial, no credit card.">
 <link rel="canonical" href="https://getinvoke.dev/download">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getinvoke.dev/download">
-<meta property="og:title" content="Download Invoke for Windows — Free 7-Day Trial">
-<meta property="og:description" content="Local GPU voice-to-text for developers. Sub-second Whisper transcription, auto-paste at cursor, AI prompt reformatter. Free for 7 days, $49 once after that.">
+<meta property="og:title" content="Download Invoke — Windows, Linux, macOS">
+<meta property="og:description" content="Local GPU voice-to-text for developers. Download the .exe or pip install getinvoke. Free 7-day trial, $49 once after that.">
 <meta property="og:image" content="https://getinvoke.dev/og-download.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Download Invoke for Windows — Free 7-Day Trial">
-<meta name="twitter:description" content="Hold a key, speak, release. Sub-second local transcription, auto-paste at cursor. Free for 7 days, no credit card.">
+<meta name="twitter:title" content="Download Invoke — Windows, Linux, macOS">
+<meta name="twitter:description" content="Hold a key, speak, release. Download .exe or pip install getinvoke. Free for 7 days, no credit card.">
 <meta name="twitter:image" content="https://getinvoke.dev/og-download.png">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -450,6 +450,128 @@ footer .container {
 .footer-links a { color: var(--text-muted); font-size: 12px; font-weight: 400; }
 .footer-links a:hover { color: var(--text); }
 
+/* ====== CLI Install ====== */
+.cli-section {
+  margin-top: 32px;
+  text-align: left;
+}
+
+.cli-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+  color: var(--text);
+  text-align: center;
+}
+
+.cli-section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.cli-terminal {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+}
+
+.cli-terminal-bar {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.cli-terminal-bar .prompt { color: var(--green); }
+
+.cli-command {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  gap: 16px;
+}
+
+.cli-command code {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  padding: 0;
+}
+
+.cli-copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 11px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.cli-copy-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.cli-copy-btn.copied { color: var(--green); border-color: var(--green); }
+
+.cli-or {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 300;
+  margin: 8px 0;
+}
+
+.cli-commands-ref {
+  margin-top: 20px;
+  padding: 20px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.cli-commands-ref-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.cli-commands-ref code {
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--green);
+}
+
+.cli-commands-ref .cli-ref-line {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 2;
+}
+
+/* Linux notice */
+.linux-notice {
+  display: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 20px 24px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.linux-notice.show { display: block; }
+.linux-notice strong { color: var(--green); font-weight: 600; }
+
 @media (max-width: 600px) {
   .nav-links li:not(:last-child) { display: none; }
   .nav-links { gap: 0; }
@@ -458,6 +580,7 @@ footer .container {
   .platform-grid { grid-template-columns: 1fr; }
   .req-list li { flex-direction: column; gap: 2px; }
   .req-value { text-align: left; }
+  .cli-command code { font-size: 12px; }
   footer .container { flex-direction: column; gap: 16px; text-align: center; }
 }
 </style>
@@ -510,16 +633,54 @@ footer .container {
         </div>
         <div class="platform-name">macOS</div>
         <div class="platform-version">Apple Silicon + Intel</div>
-        <span class="platform-btn-soon">Coming soon</span>
+        <span class="platform-btn-soon">Native app coming soon</span>
         <div class="platform-meta">
           <span>Metal GPU</span> <span>whisper.cpp</span>
         </div>
+        <p style="margin-top:12px;font-size:11px;color:var(--text-muted);font-weight:300;"><a href="#cli-install">pip install</a> works on macOS now</p>
       </div>
     </div>
 
     <!-- macOS notice (shown via JS when macOS detected) -->
     <div class="macos-notice" id="macos-notice">
-      <strong>You're on macOS.</strong> Invoke is Windows-only right now. macOS with Metal GPU acceleration for Apple Silicon is in development. Want to know when it ships? <a href="mailto:zach@scrn.co?subject=Invoke%20macOS%20interest">Drop me a line</a> and I'll ping you.
+      <strong>You're on macOS.</strong> The native macOS app is in development. In the meantime, install via pip &mdash; <a href="#cli-install">see CLI install below</a>. Same product, same license, works on macOS today.
+    </div>
+
+    <!-- Linux notice (shown via JS when Linux detected) -->
+    <div class="linux-notice" id="linux-notice">
+      <strong>You're on Linux.</strong> Install Invoke via pip &mdash; <a href="#cli-install">see CLI install below</a>. NVIDIA CUDA supported for GPU transcription.
+    </div>
+
+    <!-- CLI Install -->
+    <div class="cli-section" id="cli-install">
+      <h3 class="cli-section-title">Or install via pip</h3>
+      <p class="cli-section-sub">Works on Windows, Linux, and macOS. Same product, same license.</p>
+
+      <div class="cli-terminal">
+        <div class="cli-terminal-bar"><span class="prompt">&gt;</span> terminal</div>
+        <div class="cli-command">
+          <code>$ pip install getinvoke</code>
+          <button class="cli-copy-btn" onclick="copyCommand(this,'pip install getinvoke')">Copy</button>
+        </div>
+      </div>
+
+      <div class="cli-or">or</div>
+
+      <div class="cli-terminal">
+        <div class="cli-terminal-bar"><span class="prompt">&gt;</span> terminal</div>
+        <div class="cli-command">
+          <code>$ pipx install getinvoke</code>
+          <button class="cli-copy-btn" onclick="copyCommand(this,'pipx install getinvoke')">Copy</button>
+        </div>
+      </div>
+
+      <div class="cli-commands-ref">
+        <div class="cli-commands-ref-title">Quick start</div>
+        <div class="cli-ref-line"><code>dictate run</code> &mdash; start dictating</div>
+        <div class="cli-ref-line"><code>dictate setup</code> &mdash; interactive setup wizard</div>
+        <div class="cli-ref-line"><code>dictate health</code> &mdash; check GPU, audio, config</div>
+        <div class="cli-ref-line"><code>dictate license activate</code> &mdash; activate your key</div>
+      </div>
     </div>
 
     <p class="dl-note">7-day free trial with all features. No license key needed to start.</p>
@@ -527,7 +688,7 @@ footer .container {
 
   <!-- System requirements -->
   <div class="dl-section">
-    <h2 class="dl-section-title">System requirements</h2>
+    <h2 class="dl-section-title">System requirements &mdash; Windows installer</h2>
     <ul class="req-list">
       <li>
         <span class="req-label">Operating system</span>
@@ -559,23 +720,56 @@ footer .container {
       </li>
     </ul>
     <p class="req-note">GPU transcription is sub-second. CPU mode takes a few seconds per dictation. Use <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">CUDA Toolkit 12.x</a> for GPU acceleration.</p>
+
+    <h3 class="dl-section-title" style="margin-top:32px;">System requirements &mdash; CLI (pip install)</h3>
+    <ul class="req-list">
+      <li>
+        <span class="req-label">Python</span>
+        <span class="req-value">3.11 or newer</span>
+      </li>
+      <li>
+        <span class="req-label">Operating system</span>
+        <span class="req-value">Windows, Linux, or macOS</span>
+      </li>
+      <li>
+        <span class="req-label">GPU</span>
+        <span class="req-value">NVIDIA CUDA (Windows/Linux) or CPU mode</span>
+      </li>
+      <li>
+        <span class="req-label">Microphone</span>
+        <span class="req-value">Any input device</span>
+      </li>
+      <li>
+        <span class="req-label">Disk space</span>
+        <span class="req-value">~100 MB + Whisper model (~1.5 GB)</span>
+      </li>
+    </ul>
+    <p class="req-note">CPU mode works on any platform. macOS uses CPU transcription (Metal GPU support coming with the native app).</p>
   </div>
 
   <!-- Installation steps -->
   <div class="dl-section">
-    <h2 class="dl-section-title">Installation</h2>
+    <h2 class="dl-section-title">Installation &mdash; Windows installer</h2>
     <ol class="steps-list">
       <li><strong>Download the installer</strong> from <a href="https://github.com/zmroth/invoke/releases/latest">GitHub Releases</a>. Look for the <code>.exe</code> file.</li>
       <li><strong>Run the installer.</strong> Windows may show a SmartScreen warning &mdash; click "More info" then "Run anyway." The app is code-signed but new to SmartScreen.</li>
       <li><strong>Follow the setup wizard.</strong> Choose your audio device, pick a reformatter backend (OpenRouter, Claude CLI, Ollama, or none), and set your hotkey.</li>
       <li><strong>Start dictating.</strong> Hold your hotkey, speak, release. Text appears at your cursor. Free for 7 days &mdash; no license key needed.</li>
     </ol>
+
+    <h3 class="dl-section-title" style="margin-top:32px;">Installation &mdash; CLI (pip install)</h3>
+    <ol class="steps-list">
+      <li><strong>Install Python 3.11+</strong> if you don't have it. <a href="https://python.org/downloads" target="_blank">python.org/downloads</a></li>
+      <li><strong>Install Invoke.</strong> Run <code>pip install getinvoke</code> or <code>pipx install getinvoke</code> for an isolated install.</li>
+      <li><strong>Run setup.</strong> <code>dictate setup</code> walks you through audio device, reformatter backend, and hotkey configuration.</li>
+      <li><strong>Start dictating.</strong> Run <code>dictate run</code>, hold your hotkey, speak, release. Free for 7 days &mdash; no license key needed.</li>
+    </ol>
   </div>
 
   <!-- Already purchased -->
   <div class="activation-box">
     <h3>Already purchased?</h3>
-    <p>Check your email for the license key from LemonSqueezy. Open Invoke and enter it in the activation dialog, or run <code>invoke license activate</code> from the command line.</p>
+    <p>Check your email for the license key from LemonSqueezy. Open Invoke and enter it in the activation dialog, or run <code>dictate license activate YOUR-KEY</code> from the command line.</p>
     <p>Your key works on the machine where you activate it. Both Invoke and Invoke+ unlock all features &mdash; the difference is <a href="/#pricing">update duration and support tier</a>.</p>
   </div>
 
@@ -604,24 +798,44 @@ footer .container {
 </footer>
 
 <script>
+// Copy command button
+function copyCommand(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
 // OS detection
 (function() {
   var ua = navigator.userAgent || navigator.platform || '';
   var platform = navigator.platform || '';
   var isWindows = /Win/.test(platform) || /Windows/.test(ua);
   var isMac = /Mac/.test(platform) || /Macintosh/.test(ua);
+  var isLinux = /Linux/.test(ua) && !/Android/.test(ua);
 
   var cardWin = document.getElementById('card-windows');
   var cardMac = document.getElementById('card-macos');
   var macNotice = document.getElementById('macos-notice');
+  var linuxNotice = document.getElementById('linux-notice');
 
   if (isWindows) {
     cardWin.classList.add('detected');
   } else if (isMac) {
     cardMac.classList.add('detected');
     macNotice.classList.add('show');
-    // Reorder: put macOS card first so detected platform is on top
     cardMac.parentNode.insertBefore(cardMac, cardWin);
+  } else if (isLinux) {
+    linuxNotice.classList.add('show');
+    // Scroll CLI section into view after a brief delay
+    setTimeout(function() {
+      var cli = document.getElementById('cli-install');
+      if (cli) cli.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 500);
   }
 })();
 </script>
