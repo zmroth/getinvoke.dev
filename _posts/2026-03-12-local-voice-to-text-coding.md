@@ -8,65 +8,64 @@ excerpt: "Cloud transcription adds latency, costs money monthly, and sends your 
 
 ## Most voice-to-text sends your audio to the cloud
 
-Open almost any dictation app, speak into it, and your audio gets shipped to a server farm somewhere. It gets transcribed by a model you don't control, on infrastructure you don't own, and the text gets shipped back. For casual dictation — emails, messages, notes — that's fine.
+Open any dictation app, speak into it, and your audio gets shipped to a server farm somewhere. A model you don't control transcribes it on infrastructure you don't own, then ships the text back. For casual dictation that's fine.
 
-For developers dictating code prompts all day, it's a problem.
+For developers dictating code prompts fifty or a hundred times a day, it's a bad deal.
 
-## Three problems with cloud transcription
+## Why cloud transcription falls short for devs
 
-### Latency
+### Latency kills the flow
 
-Every utterance takes a network round-trip. Record, compress, upload, queue, transcribe, download. On a good connection that's maybe 1-2 seconds. On a VPN, a hotel wifi, or a coffee shop? Could be 3-5. Do that a hundred times a day and you've trained yourself to dread the pause.
+Every utterance takes a network round-trip. Record, compress, upload, queue, transcribe, download. On a good connection that's 1-2 seconds. On a VPN or coffee shop wifi? Could be 3-5. Do that a hundred times a day and you start dreading the pause. You lose the muscle memory of "think it, say it, it's there."
 
-Local GPU transcription on a modern NVIDIA card takes under a second. No network. No queue. No variable latency depending on how many other people are using the service right now.
+Local GPU transcription on a modern NVIDIA card finishes in under a second. There's no queue, no variable latency depending on how loaded the service is. It just runs.
 
-### Cost
+### You're renting your own GPU
 
-Cloud transcription services charge per minute or per month. Wispr Flow is $12/month. Some API-based services charge $0.006/minute — sounds cheap until you're dictating an hour a day and paying $100+/year for something your own hardware can do for free.
+Cloud transcription services charge per minute or per month. Wispr Flow is $12/month. Some API-based services charge $0.006/minute, which sounds cheap until you're dictating an hour a day and paying $100+/year for something your own hardware can do for free.
 
-A one-time purchase makes more sense for a tool you use every day. You already own the GPU. Why rent access to a worse version of the same model running in a data center?
+You already own the GPU. It's sitting there in your machine right now. Why pay a monthly fee to use a worse version of the same model running in someone else's data center?
 
-### Privacy
+### Your prompts contain architecture
 
-This is the one that should bother developers more than it does. When you dictate a prompt like "add a POST endpoint to `/api/v2/internal/users` that validates the JWT from our auth service at `auth.internal.company.com`" — that entire utterance, including your internal API paths and service architecture, is now on someone else's server.
+This is the one that should bother developers more than it does. When you dictate something like "add a POST endpoint to `/api/v2/internal/users` that validates the JWT from our auth service at `auth.internal.company.com`", that entire utterance, internal API paths and service names included, is now on someone else's server.
 
-With local speech-to-text, your audio never leaves your machine. The model runs in your GPU's VRAM. Nothing is transmitted anywhere.
+I don't think most developers have really thought about this. Every prompt you dictate through a cloud service is a miniature description of your system architecture. With local speech-to-text, none of that leaves your machine. The model runs entirely in your GPU's VRAM.
 
-## How local GPU transcription works
+## How it works under the hood
 
-Invoke runs [faster-whisper](https://github.com/SYSTRAN/faster-whisper) — a CTranslate2 port of OpenAI's Whisper model optimized for fast inference. The model (~1.5GB for large-v3) loads into your GPU's VRAM and stays there.
+Invoke runs [faster-whisper](https://github.com/SYSTRAN/faster-whisper), a CTranslate2 port of OpenAI's Whisper model optimized for fast inference. The model (about 1.5GB for large-v3) loads into your GPU's VRAM at startup and stays resident.
 
-When you hold your push-to-talk key and speak, Invoke records locally. When you release, the audio goes straight to the Whisper model on your GPU. Transcription happens in VRAM — no disk, no network, no API call. Results come back in under a second for typical utterances.
+When you hold your push-to-talk key and speak, Invoke records locally. When you release, the audio goes straight to the Whisper model in VRAM. No disk write, no network call. For a typical utterance, you get text back in under a second.
 
-The same Whisper large-v3 model that cloud services use. You're just running it yourself.
+It's the same Whisper large-v3 model the cloud services run. You're just running it yourself.
 
-## "But what about accuracy?"
+## Same model, same accuracy
 
-Same model, same accuracy. Whisper large-v3 is state-of-the-art for general speech recognition. The cloud services running it don't have a secret better version — they're running the same weights on bigger GPUs. Your local RTX 3060 transcribes the same quality, just for one person instead of thousands concurrently.
+The cloud services don't have a secret better version of Whisper. They're running the same weights on bigger GPUs. Your RTX 3060 gives you the same transcription quality. It's just serving one user instead of thousands.
 
-For developer-specific accuracy, Invoke adds an AI reformatter on top. It takes the raw Whisper output and rewrites it with your project context — turning "add a post endpoint for user off" into a properly formatted prompt that says "authentication" instead of "off." That's a layer no cloud transcription service offers.
+Where Invoke goes further is the AI reformatter. It takes raw Whisper output and rewrites it using your project context, so "add a post endpoint for user off" becomes a properly formatted prompt that says "authentication" instead of "off." Cloud transcription services don't do that because they don't know anything about your codebase.
 
-## No internet required
+## Works offline
 
-This matters more than people think. Developers work on VPNs that block external traffic. On planes. On spotty connections. In secure environments where sending audio to external servers isn't just inconvenient — it's a compliance issue.
+I work from coffee shops with bad wifi. I've been on client VPNs that block all external traffic. I've written code on planes. In all of those situations, cloud transcription just doesn't work.
 
-Local Whisper doesn't care. No internet, no problem. Your push-to-talk transcription app works the same whether you're online or in airplane mode.
+Local Whisper doesn't need a connection at all. Push-to-talk works identically whether you're online or in airplane mode. For developers in regulated environments where sending audio to external servers is a compliance problem, offline transcription is the only option that works.
 
-## No subscription
+## One purchase, done
 
-$49 once for Invoke. $79 for Invoke+ with lifetime updates and priority support. That's it. No monthly fee, no per-minute billing, no annual renewal.
+$49 once for Invoke. $79 for Invoke+ with lifetime updates and priority support.
 
-Compare that to $8-15/month for cloud alternatives. After 4-6 months, a subscription has already cost more than the one-time purchase — and you'll be paying it forever.
+Compare that to $8-15/month for cloud alternatives. After about four months, a subscription has already cost more than the one-time purchase. And you'll keep paying it.
 
 ## System requirements
 
-- **GPU mode (recommended):** NVIDIA GPU with CUDA support. 4GB+ VRAM recommended. RTX 3060 or better is ideal, but anything from GTX 1060 up works.
-- **CPU mode:** Any modern x86_64 processor. Slower than GPU — expect 2-4 seconds instead of sub-second — but it works on any Windows machine without a dedicated GPU.
+For GPU mode, you need an NVIDIA card with CUDA support. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, but I've tested it on cards as old as the GTX 1060 and it works fine.
 
-If you have an NVIDIA GPU from the last 5 years, you already have everything you need.
+If you don't have a dedicated GPU, CPU mode works on any modern x86_64 processor. It's slower, maybe 2-4 seconds per transcription instead of sub-second, but it still runs entirely local.
+
+If you've bought an NVIDIA GPU in the last five years, you already have what you need.
 
 ## Try it
-
-Invoke is local-first, GPU-accelerated voice-to-text built for developers. No cloud, no subscription, no audio leaving your machine.
 
 Free 7-day trial. [Download it here.](/download)
