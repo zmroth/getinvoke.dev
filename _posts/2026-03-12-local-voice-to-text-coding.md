@@ -1,6 +1,6 @@
 ---
 title: "Local Voice to Text for Coding: Why GPU Beats Cloud"
-date: 2026-03-15
+date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "Cloud transcription adds latency, costs money monthly, and sends your audio to someone else's servers. Here's why local GPU transcription is better for developers."

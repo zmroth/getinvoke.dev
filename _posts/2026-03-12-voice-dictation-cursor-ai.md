@@ -1,6 +1,6 @@
 ---
 title: "How to Use Voice Dictation with Cursor AI"
-date: 2026-03-14
+date: 2026-03-12
 author: Zach Roth
 layout: post
 excerpt: "You can dictate prompts directly into Cursor's chat and composer. Here's how to set it up with local Whisper transcription."
