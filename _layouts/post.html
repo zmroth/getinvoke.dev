@@ -209,6 +209,80 @@ nav .container {
   text-decoration: none;
 }
 
+/* Post CTA */
+.post-cta {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 32px;
+  margin-top: 48px;
+}
+
+.post-cta-title {
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.post-cta-body {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.post-cta-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.post-cta-btn-primary {
+  display: inline-block;
+  background: var(--green);
+  color: var(--bg) !important;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+
+.post-cta-btn-primary:hover {
+  background: var(--green-dim);
+  text-decoration: none;
+}
+
+.post-cta-btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border);
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.post-cta-btn-ghost:hover {
+  color: var(--text) !important;
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
+.post-cta-inline {
+  border-left: none;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+@media (max-width: 600px) {
+  .post-cta-buttons { flex-direction: column; }
+  .post-cta-btn-primary, .post-cta-btn-ghost { text-align: center; width: 100%; }
+}
+
 /* Footer */
 footer {
   padding: 48px 0;
@@ -256,6 +330,16 @@ footer .container {
   <div class="article-body">
     {{ content }}
   </div>
+
+  <div class="post-cta">
+    <div class="post-cta-title">&gt; Try Invoke free for 7 days</div>
+    <p class="post-cta-body">Local GPU transcription. AI prompt reformatter. Auto-paste at your cursor. No credit card, no signup.</p>
+    <div class="post-cta-buttons">
+      <a href="/download" class="post-cta-btn-primary" onclick="gtag('event','cta_click',{source:'blog_post',location:'end_of_post'})">Download for Windows</a>
+      <a href="/#pricing" class="post-cta-btn-ghost" onclick="gtag('event','cta_click',{source:'blog_post',location:'end_of_post'})">See pricing &rarr;</a>
+    </div>
+  </div>
+
   <a href="/learn/" class="article-back">&larr; Back to Learn</a>
 </article>
 

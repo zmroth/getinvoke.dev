@@ -32,6 +32,8 @@ Here's how things stack up if you're looking for a Wispr Flow alternative:
 | **AI reformatter** | Yes, project-context-aware | Basic formatting | No | No |
 | **Push-to-talk** | Yes | Yes | Yes | No (record button) |
 
+{% include cta.html %}
+
 ## SuperWhisper is good too, if you're on Mac
 
 SuperWhisper runs Whisper locally, has decent transcription quality, and the $250 lifetime option avoids the subscription problem. If I were on a Mac, I'd probably use it.

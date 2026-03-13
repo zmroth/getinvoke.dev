@@ -30,6 +30,8 @@ So there's an optional AI reformatter. It takes the raw transcript, reads your p
 
 Output gets auto-pasted at your cursor. Speak, release, done.
 
+{% include cta.html %}
+
 ## Why local matters
 
 Transcription happens entirely on your GPU. No internet, no audio leaving your machine.

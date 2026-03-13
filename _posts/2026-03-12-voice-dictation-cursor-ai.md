@@ -54,6 +54,8 @@ Talk normally. Stumble over words, say "um," change your mind mid-sentence. The 
 
 Invoke runs Whisper locally on your GPU, the reformatter rewrites it as a clean prompt using your project context, and it pastes at your cursor. Hit enter and move on.
 
+{% include cta.html %}
+
 ## The reformatter is what makes this actually work
 
 Plain speech-to-text gives you something like: "uh add a function that takes the user object and checks if they have admin permissions and if not return a 403 and also log it." That's an accurate transcription. It's also a bad prompt.

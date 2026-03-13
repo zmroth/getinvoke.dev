@@ -195,11 +195,77 @@ footer .container {
 .footer-links a { color: var(--text-muted); font-size: 12px; font-weight: 400; }
 .footer-links a:hover { color: var(--text); }
 
+/* Listing CTA */
+.listing-cta {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  padding: 32px;
+  margin-top: 48px;
+}
+
+.listing-cta-title {
+  color: var(--green);
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.listing-cta-body {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.listing-cta-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.listing-cta-btn-primary {
+  display: inline-block;
+  background: var(--green);
+  color: var(--bg) !important;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+
+.listing-cta-btn-primary:hover {
+  background: var(--green-dim);
+  text-decoration: none;
+}
+
+.listing-cta-btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border);
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.listing-cta-btn-ghost:hover {
+  color: var(--text) !important;
+  border-color: var(--text-muted);
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   .nav-links li:not(:last-child) { display: none; }
   .nav-links { gap: 0; }
   .page { padding: 88px 16px 48px; }
   .page-title { font-size: 24px; }
+  .listing-cta-buttons { flex-direction: column; }
+  .listing-cta-btn-primary, .listing-cta-btn-ghost { text-align: center; width: 100%; }
   footer .container { flex-direction: column; gap: 16px; text-align: center; }
 }
 </style>
@@ -242,6 +308,15 @@ footer .container {
     <p>Posts coming soon. <a href="/download">Download Invoke</a> and try it free for 7 days.</p>
   </div>
   {% endif %}
+
+  <div class="listing-cta">
+    <div class="listing-cta-title">&gt; Ready to try voice coding?</div>
+    <p class="listing-cta-body">Download Invoke and start dictating in under a minute. Free for 7 days.</p>
+    <div class="listing-cta-buttons">
+      <a href="/download" class="listing-cta-btn-primary" onclick="gtag('event','cta_click',{source:'blog_listing',location:'bottom'})">Download for Windows</a>
+      <a href="/#pricing" class="listing-cta-btn-ghost" onclick="gtag('event','cta_click',{source:'blog_listing',location:'bottom'})">See pricing &rarr;</a>
+    </div>
+  </div>
 </div>
 
 <footer>

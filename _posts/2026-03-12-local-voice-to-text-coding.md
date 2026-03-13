@@ -44,6 +44,8 @@ It's the same Whisper large-v3 model the cloud services run. You're just running
 
 The cloud services don't have a secret better version of Whisper. They're running the same weights on bigger GPUs. Your RTX 3060 gives you the same transcription quality. It's just serving one user instead of thousands.
 
+{% include cta.html %}
+
 Where Invoke goes further is the AI reformatter. It takes raw Whisper output and rewrites it using your project context, so "add a post endpoint for user off" becomes a properly formatted prompt that says "authentication" instead of "off." Cloud transcription services don't do that because they don't know anything about your codebase.
 
 ## Works offline
