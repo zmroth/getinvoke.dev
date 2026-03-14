@@ -15,19 +15,17 @@ But it's a transcription app, not a developer workflow tool. That distinction ma
 
 ## The core difference
 
-MacWhisper is designed around recording and transcribing. You record audio, or you import a file, and it gives you text. It's great for meetings, interviews, podcasts, anything where you have audio and want a transcript.
+MacWhisper started as a transcription app — drop in audio files, get text back. They've since added a dictation mode with push-to-talk, and some AI processing via ChatGPT and Ollama. So the feature gap has narrowed.
 
-Invoke is designed around push-to-talk coding. Hold a key, speak a messy thought, release. The text lands at your cursor in under a second, already reformatted as a clean prompt for whatever AI tool you're using. The whole interaction is about two seconds.
-
-These are different workflows. MacWhisper is "I have audio, give me text." Invoke is "I'm thinking out loud, put that thought into my editor right now."
+But the focus is different. MacWhisper is a general-purpose transcription tool that added dictation. Invoke is a developer dictation tool from the ground up. The reformatter doesn't just clean up grammar — it reads your CLAUDE.md, your package.json, your git history, and rewrites your speech as a structured prompt for your specific codebase.
 
 | | Invoke | MacWhisper |
 |---|---|---|
-| Price | $49 one-time | Free (basic) / ~$30 (Pro) |
+| Price | $49 one-time | Free (basic) / ~$60 (Pro) |
 | Platform | Windows, Linux, macOS (pip) | Mac only |
-| Push-to-talk | Yes | No |
-| Auto-paste at cursor | Yes | No |
-| AI reformatter | Yes, with project context | No |
+| Push-to-talk | Yes | Yes (dictation hotkey) |
+| Auto-paste at cursor | Yes | Yes (dictation mode) |
+| AI reformatter | Yes, with project context | Basic (ChatGPT/Ollama integration) |
 | File transcription | Yes (`dictate transcribe file.wav`) | Yes |
 | Batch transcription | No | Yes |
 | Subtitle export | No | Yes (SRT, VTT) |
@@ -41,9 +39,9 @@ Invoke can transcribe individual files with `dictate transcribe file.wav`, but i
 
 ## What Invoke does better
 
-The developer workflow. Push-to-talk with sub-second response. Auto-paste into whatever text field has focus. AI reformatting that reads your project files and turns rambling into structured prompts.
+The developer-specific workflow. MacWhisper's dictation mode works, but Invoke's reformatter is built around codebases. It reads your project files, understands your stack, and outputs prompts formatted for the specific AI tool you're using — Claude Code, Cursor, Windsurf, Copilot, each with its own output mode.
 
-MacWhisper doesn't have push-to-talk. It doesn't auto-paste. It doesn't know anything about your codebase. If you're using it for dictating into AI tools, you're recording, waiting for the transcript, copying it, switching to your editor, pasting it, and probably editing it. That's a lot of steps for something Invoke does in one.
+MacWhisper's AI integration is generic text processing (grammar, tone, translation). Invoke's is "I know you're working in a TypeScript/Express project and you just said 'add auth middleware' — here's a structured prompt for Cursor that references your existing patterns."
 
 {% include cta.html %}
 
