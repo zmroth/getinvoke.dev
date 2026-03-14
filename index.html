@@ -38,54 +38,6 @@ layout: null
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is there a free trial?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download Invoke or pip install getinvoke and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work without a GPU?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. CPU mode is included and works out of the box — it's just slower (a few seconds instead of sub-second). A CUDA-capable GPU makes transcription near-instant." }
-    },
-    {
-      "@type": "Question",
-      "name": "What languages does it support?",
-      "acceptedAnswer": { "@type": "Answer", "text": "All 99+ languages that Whisper supports. English is the default, but you can configure any language or enable auto-detection." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the AI reformatter send my code to the cloud?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Your audio always stays local. The reformatter calls an LLM API to clean up the transcript — you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama or LM Studio, or turn on privacy mode to lock everything local with one click. No code files are ever uploaded." }
-    },
-    {
-      "@type": "Question",
-      "name": "How is this different from just running Whisper myself?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Running Whisper gives you a transcript. Invoke wraps that in a workflow — push-to-talk hotkey, auto-paste at your cursor, LLM reformatting that reads your project context, prompt modes for Claude Code / Cursor / Windsurf / Copilot, custom vocabulary, and dictation history. Whisper is the engine; Invoke is the car." }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the system requirements?",
-      "acceptedAnswer": { "@type": "Answer", "text": "For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required — CPU mode works out of the box. For the CLI (pip install getinvoke): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama)." }
-    },
-    {
-      "@type": "Question",
-      "name": "What is screenshot-to-path?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Press a hotkey when you have an image on your clipboard (e.g., after Win+Shift+S). Invoke saves it as a PNG and pastes the file path into your terminal. This lets you share screenshots with Claude Code and other AI tools that accept image paths — no manual saving or typing file paths." }
-    },
-    {
-      "@type": "Question",
-      "name": "What about macOS and Linux?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Invoke runs natively on macOS, Windows, and Linux. On Mac, download the DMG or pip install getinvoke. Apple Silicon Macs get GPU acceleration via MLX-Whisper. NVIDIA CUDA on Windows and Linux. Same license key, same features everywhere." }
-    }
-  ]
-}
-</script>
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
@@ -1123,7 +1075,7 @@ footer .container {
       <li><a href="#features">Features</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="/learn/">Learn</a></li>
-      <li><a href="/download" class="nav-cta">Download free</a></li>
+      <li><a href="/download/" class="nav-cta">Download free</a></li>
     </ul>
   </div>
 </nav>
@@ -1138,7 +1090,7 @@ footer .container {
       <p class="hero-sub">Fast local transcription on GPU or CPU. AI reformatter can read your project context and write the prompt you meant. No cloud, no subscription.</p>
 
       <div class="hero-cta-row">
-        <a href="/download" class="hero-btn-primary">Download free</a>
+        <a href="/download/" class="hero-btn-primary">Download free</a>
         <a href="#pricing" class="hero-btn-ghost">See pricing</a>
       </div>
 
@@ -1269,10 +1221,10 @@ footer .container {
       <table class="compare-table">
         <thead>
           <tr>
-            <th></th>
-            <th class="invoke-col">Invoke</th>
-            <th>Wispr Flow</th>
-            <th>SuperWhisper</th>
+            <th scope="col"><span class="sr-only">Feature</span></th>
+            <th scope="col" class="invoke-col">Invoke</th>
+            <th scope="col">Wispr Flow</th>
+            <th scope="col">SuperWhisper</th>
           </tr>
         </thead>
         <tbody>
@@ -1381,7 +1333,7 @@ footer .container {
         </ul>
         <a href="https://getinvoke.lemonsqueezy.com/checkout/buy/a3adbe34-ffad-480e-a848-1e45fdc36857" class="price-btn price-btn-primary">Buy now</a>
         <p class="price-guarantee">30-day money-back guarantee</p>
-        <p class="price-trial">or <a href="/download">try free for 7 days</a></p>
+        <p class="price-trial">or <a href="/download/">try free for 7 days</a></p>
       </div>
 
       <!-- Pro+ -->
@@ -1398,7 +1350,7 @@ footer .container {
         </ul>
         <a href="https://getinvoke.lemonsqueezy.com/checkout/buy/15ee926a-a14c-4386-b3ca-e5e5a23e12ed" class="price-btn price-btn-ghost">Buy now</a>
         <p class="price-guarantee">30-day money-back guarantee</p>
-        <p class="price-trial">or <a href="/download">try free for 7 days</a></p>
+        <p class="price-trial">or <a href="/download/">try free for 7 days</a></p>
       </div>
     </div>
 
@@ -1416,7 +1368,7 @@ footer .container {
     <div class="faq-list">
       <details class="faq-item reveal">
         <summary>Is there a free trial?</summary>
-        <div class="faq-answer">Yes. <a href="/download">Download Invoke</a> or <code>pip install getinvoke</code> and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it.</div>
+        <div class="faq-answer">Yes. <a href="/download/">Download Invoke</a> or <code>pip install getinvoke</code> and use every feature free for 7 days. No credit card, no signup. After 7 days, enter a license key to keep using it.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Does it work without a GPU?</summary>
@@ -1436,7 +1388,7 @@ footer .container {
       </details>
       <details class="faq-item reveal">
         <summary>What are the system requirements?</summary>
-        <div class="faq-answer">For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required &mdash; CPU mode works out of the box. For the CLI (<code>pip install getinvoke</code>): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama). See <a href="/download">full requirements</a>.</div>
+        <div class="faq-answer">For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required &mdash; CPU mode works out of the box. For the CLI (<code>pip install getinvoke</code>): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama). See <a href="/download/">full requirements</a>.</div>
       </details>
       <details class="faq-item reveal">
         <summary>What is screenshot-to-path?</summary>
@@ -1444,7 +1396,7 @@ footer .container {
       </details>
       <details class="faq-item reveal">
         <summary>What about macOS and Linux?</summary>
-        <div class="faq-answer">Invoke runs natively on macOS, Windows, and Linux. On Mac, download the <a href="https://github.com/zmroth/invoke/releases/latest">DMG</a> or <code>pip install getinvoke</code>. Apple Silicon Macs get GPU acceleration via MLX-Whisper. NVIDIA CUDA on Windows and Linux. Same license key, same features everywhere. <a href="/download">See install instructions</a>.</div>
+        <div class="faq-answer">Invoke runs natively on macOS, Windows, and Linux. On Mac, download the <a href="https://github.com/zmroth/invoke/releases/latest">DMG</a> or <code>pip install getinvoke</code>. Apple Silicon Macs get GPU acceleration via MLX-Whisper. NVIDIA CUDA on Windows and Linux. Same license key, same features everywhere. <a href="/download/">See install instructions</a>.</div>
       </details>
     </div>
   </div>
@@ -1458,7 +1410,7 @@ footer .container {
     <p class="bottom-cta-sub reveal">Download Invoke and start dictating in under a minute. No credit card, no signup.</p>
 
     <div class="reveal" style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
-      <a href="/download" class="hero-btn-primary">Download free</a>
+      <a href="/download/" class="hero-btn-primary">Download free</a>
       <a href="#pricing" class="hero-btn-ghost">See pricing</a>
     </div>
 
@@ -1470,10 +1422,10 @@ footer .container {
 <footer>
   <div class="container">
     <div class="footer-left">
-      <strong><img src="/icon-nav.png" alt="Invoke" style="width:16px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:4px;">invoke</strong> &mdash; built by <a href="https://x.com/zachroth" target="_blank">Zach Roth</a>
+      <strong><img src="/icon-nav.png" alt="Invoke" style="width:16px;height:16px;border-radius:3px;vertical-align:-2px;margin-right:4px;">invoke</strong> &mdash; built by <a href="https://x.com/zachroth" target="_blank" rel="noopener noreferrer">Zach Roth</a>
     </div>
     <ul class="footer-links">
-      <li><a href="https://x.com/zachroth" target="_blank">Twitter/X</a></li>
+      <li><a href="https://x.com/zachroth" target="_blank" rel="noopener noreferrer">Twitter/X</a></li>
       <li><a href="mailto:zach@scrn.co">Contact</a></li>
       <li><a href="/privacy/">Privacy</a></li>
       <li><a href="/terms/">Terms</a></li>
@@ -1496,6 +1448,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ====== TERMINAL ANIMATION ======
 const termBody = document.getElementById('terminalBody');
+let _activeInterval = null;
 
 const sequence = [
   { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">dictate run</span>' },
@@ -1554,10 +1507,11 @@ function typeText(line, html, speed) {
     line.style.opacity = '1';
     line.innerHTML = html + '<span class="cursor-blink" style="animation-duration:0.4s"></span>';
 
-    const interval = setInterval(() => {
+    _activeInterval = setInterval(() => {
       charIndex += 1;
       if (charIndex >= plainText.length) {
-        clearInterval(interval);
+        clearInterval(_activeInterval);
+        _activeInterval = null;
         line.innerHTML = html;
         resolve();
       }
@@ -1566,6 +1520,7 @@ function typeText(line, html, speed) {
 }
 
 async function runSequence() {
+  if (_activeInterval) { clearInterval(_activeInterval); _activeInterval = null; }
   termBody.innerHTML = '';
   let totalDelay = 0;
 

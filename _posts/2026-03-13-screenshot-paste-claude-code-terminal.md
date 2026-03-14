@@ -71,7 +71,7 @@ Install or update Invoke:
 pip install --upgrade getinvoke
 ```
 
-The image hotkey defaults to middle click (the back thumb button). You can change it:
+The image hotkey defaults to middle click (scroll wheel button). You can change it:
 
 ```
 dictate config image_hotkey mouse5
