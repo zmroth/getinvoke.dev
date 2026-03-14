@@ -626,17 +626,17 @@ footer .container {
         </div>
         <div class="platform-name">macOS</div>
         <div class="platform-version">Apple Silicon + Intel</div>
-        <span class="platform-btn-soon">Native app coming soon</span>
+        <a href="https://github.com/zmroth/invoke/releases/latest" class="platform-btn">Download .dmg</a>
         <div class="platform-meta">
-          <span>Metal GPU</span> <span>whisper.cpp</span>
+          <span>Apple Silicon GPU</span> <span>MLX-Whisper</span>
         </div>
-        <p style="margin-top:12px;font-size:11px;color:var(--text-muted);font-weight:300;"><a href="#cli-install">pip install</a> works on macOS now</p>
+        <p style="margin-top:12px;font-size:11px;color:var(--text-muted);font-weight:300;">or <a href="#cli-install">pip install getinvoke</a></p>
       </div>
     </div>
 
     <!-- macOS notice (shown via JS when macOS detected) -->
     <div class="macos-notice" id="macos-notice">
-      <strong>You're on macOS.</strong> The native macOS app is in development. In the meantime, install via pip &mdash; <a href="#cli-install">see CLI install below</a>. Same product, same license, works on macOS today.
+      <strong>You're on macOS.</strong> Download the .dmg above for the native app, or install via pip &mdash; <a href="#cli-install">see CLI install below</a>. Apple Silicon Macs get GPU acceleration via MLX-Whisper.
     </div>
 
     <!-- Linux notice (shown via JS when Linux detected) -->
@@ -726,7 +726,7 @@ footer .container {
       </li>
       <li>
         <span class="req-label">GPU</span>
-        <span class="req-value">NVIDIA CUDA (Windows/Linux) or CPU mode</span>
+        <span class="req-value">NVIDIA CUDA (Windows/Linux), Apple Silicon MLX (macOS), or CPU mode</span>
       </li>
       <li>
         <span class="req-label">Microphone</span>
@@ -737,7 +737,7 @@ footer .container {
         <span class="req-value">~100 MB + Whisper model (~1.5 GB)</span>
       </li>
     </ul>
-    <p class="req-note">CPU mode works on any platform. macOS uses CPU transcription (Metal GPU support coming with the native app).</p>
+    <p class="req-note">CPU mode works on any platform. Apple Silicon Macs get GPU acceleration via MLX-Whisper &mdash; install the mlx extra: <code>pip install getinvoke[mlx]</code>.</p>
   </div>
 
   <!-- Installation steps -->

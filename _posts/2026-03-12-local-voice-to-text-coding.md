@@ -63,11 +63,11 @@ Compare that to $8-15/month for cloud alternatives. After about four months, a s
 
 ## System requirements
 
-For GPU mode, you need an NVIDIA card with CUDA support. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, but I've tested it on cards as old as the GTX 1060 and it works fine.
+On Windows and Linux, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, but I've tested it on cards as old as the GTX 1060 and it works fine.
 
-If you don't have a dedicated GPU, CPU mode works on any modern x86_64 processor. It's slower, maybe 2-4 seconds per transcription instead of sub-second, but it still runs entirely local.
+On macOS, Apple Silicon Macs (M1/M2/M3/M4) get GPU acceleration via MLX-Whisper. Install the mlx extra: `pip install getinvoke[mlx]`. Or download the native DMG from GitHub Releases.
 
-If you've bought an NVIDIA GPU in the last five years, you already have what you need.
+If you don't have a GPU at all, CPU mode works on any modern processor. It's slower, maybe 2-4 seconds per transcription instead of sub-second, but it still runs entirely local.
 
 ## Try it
 

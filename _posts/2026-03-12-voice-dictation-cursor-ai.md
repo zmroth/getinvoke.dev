@@ -37,7 +37,7 @@ Where this really pays off is complex prompts. The ones where you're describing 
 
 ### 1. Download Invoke
 
-Grab it from [getinvoke.dev/download](/download). Windows today, macOS coming soon. Free 7-day trial.
+Grab it from [getinvoke.dev/download](/download). Windows, Linux, macOS. Free 7-day trial.
 
 ### 2. Pick your push-to-talk key
 

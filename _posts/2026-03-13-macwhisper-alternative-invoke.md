@@ -29,7 +29,7 @@ But the focus is different. MacWhisper is a general-purpose transcription tool t
 | File transcription | Yes (`dictate transcribe file.wav`) | Yes |
 | Batch transcription | No | Yes |
 | Subtitle export | No | Yes (SRT, VTT) |
-| GPU acceleration | NVIDIA CUDA | Apple Silicon |
+| GPU acceleration | NVIDIA CUDA + Apple Silicon MLX | Apple Silicon |
 
 ## What MacWhisper does better
 
@@ -49,7 +49,7 @@ MacWhisper's AI integration is generic text processing (grammar, tone, translati
 
 MacWhisper is Mac-only. If you're on Windows or Linux, it's not an option.
 
-Invoke works on Windows natively (with NVIDIA CUDA), on Linux via pip, and on macOS via pip with CPU mode. A native macOS app with Metal acceleration is coming.
+Invoke works on Windows natively (with NVIDIA CUDA), on Linux via pip, and on macOS via pip with CPU mode. A native macOS app with Apple Silicon GPU acceleration via MLX-Whisper is available.
 
 ## When MacWhisper is the better choice
 

@@ -35,7 +35,7 @@ That's four steps for something that should be one.
 Invoke has a dedicated hotkey for this. Here's the workflow:
 
 1. **Win+Shift+S** — snip whatever you want (error message, UI, diagram)
-2. **Press your image hotkey** (default: Mouse4, configurable)
+2. **Press your image hotkey** (default: middle click, configurable)
 3. **Done** — Invoke saves the image as a PNG and pastes the file path into your terminal
 
 Claude Code receives something like `/home/you/.screenshots/clip_20260313_143022.png` and renders the image inline.
@@ -49,7 +49,7 @@ When you press the image hotkey, Invoke:
 3. Puts the file path string on your clipboard
 4. Auto-pastes it into your terminal (if auto-paste is enabled)
 
-The PowerShell approach is deliberate. WSLg clipboard bridging is unreliable — the Wayland socket is often missing, and `wl-paste` fails silently. PowerShell has direct access to the Windows clipboard and works every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
+On Windows/WSL2, Invoke uses PowerShell to grab the clipboard image directly — WSLg clipboard bridging is unreliable and `wl-paste` fails silently. On macOS, it uses AppleScript with NSPasteboard. Both approaches bypass the broken terminal clipboard path and work every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
 
 ## It works in every terminal
 
@@ -71,7 +71,7 @@ Install or update Invoke:
 pip install --upgrade getinvoke
 ```
 
-The image hotkey defaults to Mouse4 (the back thumb button). You can change it:
+The image hotkey defaults to middle click (the back thumb button). You can change it:
 
 ```
 dictate config image_hotkey mouse5
@@ -91,7 +91,7 @@ This pairs well with Invoke's voice dictation. A typical workflow:
 
 1. See a bug in the UI
 2. **Win+Shift+S** to snip it
-3. **Mouse4** to paste the image path into Claude Code
+3. **middle click** to paste the image path into Claude Code
 4. **Mouse5** (hold and speak): "This button should be aligned with the header. Fix the CSS in the navbar component."
 
 Voice plus a screenshot in two hotkey presses. I use this workflow constantly now.

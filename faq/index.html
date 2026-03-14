@@ -31,7 +31,7 @@ layout: null
     {
       "@type": "Question",
       "name": "Does the AI reformatter send my code to the cloud?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Your audio always stays local. The reformatter calls an LLM API to clean up the transcript — you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama. No code files are ever uploaded." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Your audio always stays local. The reformatter calls an LLM API to clean up the transcript — you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama or LM Studio, or turn on privacy mode to lock everything local with one click. No code files are ever uploaded." }
     },
     {
       "@type": "Question",
@@ -51,7 +51,7 @@ layout: null
     {
       "@type": "Question",
       "name": "What about macOS and Linux?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Invoke works on macOS and Linux right now via pip install getinvoke. A native macOS app with Metal GPU acceleration for Apple Silicon is in development. The pip install uses CPU mode on Mac (still fast) and supports NVIDIA CUDA on Linux. Same license key, same features." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Invoke runs natively on macOS, Windows, and Linux. On Mac, download the DMG or pip install getinvoke. Apple Silicon Macs get GPU acceleration via MLX-Whisper. NVIDIA CUDA on Windows and Linux. Same license key, same features everywhere." }
     }
   ]
 }
@@ -185,7 +185,7 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
     </details>
     <details class="faq-item">
       <summary>Does the AI reformatter send my code to the cloud?</summary>
-      <div class="faq-answer">Your audio always stays local. The reformatter calls an LLM API to clean up the transcript&mdash;you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama. No code files are ever uploaded.</div>
+      <div class="faq-answer">Your audio always stays local. The reformatter calls an LLM API to clean up the transcript&mdash;you choose which provider (OpenRouter, Claude, etc.). For fully local operation, use Ollama or LM Studio, or turn on privacy mode to lock everything local with one click. No code files are ever uploaded.</div>
     </details>
     <details class="faq-item">
       <summary>How is this different from just running Whisper myself?</summary>
@@ -201,7 +201,7 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
     </details>
     <details class="faq-item">
       <summary>What about macOS and Linux?</summary>
-      <div class="faq-answer">Invoke works on macOS and Linux right now via <code>pip install getinvoke</code>. A native macOS app with Metal GPU acceleration for Apple Silicon is in development. The pip install uses CPU mode on Mac (still fast) and supports NVIDIA CUDA on Linux. Same license key, same features. <a href="/download#cli-install">See install instructions</a>.</div>
+      <div class="faq-answer">Invoke runs natively on macOS, Windows, and Linux. On Mac, download the <a href="https://github.com/zmroth/invoke/releases/latest">DMG</a> or <code>pip install getinvoke</code>. Apple Silicon Macs get GPU acceleration via MLX-Whisper. NVIDIA CUDA on Windows and Linux. Same license key, same features everywhere. <a href="/download">See install instructions</a>.</div>
     </details>
   </div>
 
