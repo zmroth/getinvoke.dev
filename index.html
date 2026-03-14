@@ -414,6 +414,10 @@ nav .container {
 .term-success { color: var(--green); }
 .term-heading { color: var(--text); font-weight: 700; }
 .term-bullet { color: var(--text-secondary); }
+.term-yellow { color: var(--amber); }
+.term-cyan { color: #5fc8c8; }
+.term-bold { color: var(--text); font-weight: 700; }
+.term-panel { border: 1px solid #5fc8c8; padding: 8px 14px; margin-bottom: 4px; font-size: 12px; display: inline-block; }
 
 .recording-dot {
   display: inline-block;
@@ -1496,22 +1500,20 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 const termBody = document.getElementById('terminalBody');
 
 const sequence = [
-  { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">invoke run</span>' },
-  { delay: 500, type: 'fade', content: '<span class="term-dim">Whisper loaded (cuda:0, RTX 4070)</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-success">> Ready. Hold Ctrl+Shift+Space.</span>' },
-  { delay: 800, type: 'fade', content: '' },
-  { delay: 200, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">Recording...</span>' },
-  { delay: 1200, type: 'fade', content: '<span class="term-dim">"add a post endpoint that takes a keyword and URL, generates an article, saves to db, skip auth for now"</span>' },
-  { delay: 300, type: 'fade', content: '<span class="term-context">> Transcribed in 0.3s</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-context">> Reading context... CLAUDE.md, package.json</span>' },
-  { delay: 400, type: 'fade', content: '<span class="term-context">> Stack: TypeScript / Express</span>' },
+  { delay: 0, type: 'type', speed: 40, content: '<span class="term-prompt">$</span> <span class="term-cmd">dictate run</span>' },
+  { delay: 400, type: 'fade', content: '<span class="term-panel"><span class="term-cyan">Invoke</span> <span class="term-dim">(headless)</span> <span class="term-cyan">\u2014 claude-code mode</span><br><span class="term-dim">Hotkey: mouse5 | AI: openrouter | GPU: cuda</span></span>' },
+  { delay: 600, type: 'fade', content: '<span class="term-success">  Listening...</span> <span class="term-dim">(hold</span> <span class="term-bold">mouse5</span> <span class="term-dim">to record)</span>' },
+  { delay: 900, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="recording-dot"></span><span class="term-dim">  [recording]  2.1s  ||||||||||||||||....</span>' },
+  { delay: 1200, type: 'fade', content: '<span class="term-yellow">  [processing]</span> <span class="term-dim">Transcribing + reformatting...</span>' },
+  { delay: 600, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="term-dim">  Raw:  </span><span class="term-output">"add a post endpoint that takes a keyword and url generates an article saves to db skip auth for now"</span>' },
   { delay: 300, type: 'fade', content: '' },
-  { delay: 200, type: 'fade', content: '<span class="term-heading">Add POST /api/generate</span>' },
-  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Accepts keyword + targetUrl</span>' },
-  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Calls OpenAI to generate article</span>' },
-  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Saves to DB, returns ID</span>' },
-  { delay: 150, type: 'fade', content: '<span class="term-bullet">  - Skip auth (adding later)</span>' },
-  { delay: 500, type: 'fade', content: '<span class="term-success">> Reformatted &amp; pasted at cursor. 0.8s</span> <span class="cursor-blink"></span>' },
+  { delay: 200, type: 'fade', content: '<span class="term-dim">  Out:  </span><span class="term-bold">Add a POST endpoint at /api/generate that accepts keyword and targetUrl. Call OpenAI to generate the article, save to DB, return the article ID. Skip auth for now.</span>' },
+  { delay: 500, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="term-success">  Copied to clipboard</span> <span class="term-dim">(243ms)</span>' },
+  { delay: 600, type: 'fade', content: '' },
+  { delay: 200, type: 'fade', content: '<span class="term-success">  Listening...</span> <span class="term-dim">(hold</span> <span class="term-bold">mouse5</span> <span class="term-dim">to record)</span> <span class="cursor-blink"></span>' },
 ];
 
 function createLine(html) {
