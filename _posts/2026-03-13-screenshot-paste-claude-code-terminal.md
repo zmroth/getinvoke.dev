@@ -38,7 +38,7 @@ Invoke has a dedicated hotkey for this. Here's the workflow:
 2. **Press your image hotkey** (default: Mouse4, configurable)
 3. **Done** — Invoke saves the image as a PNG and pastes the file path into your terminal
 
-Claude Code receives something like `/home/you/.screenshots/clip_20260313_143022.png` and renders the image inline. One hotkey, zero friction.
+Claude Code receives something like `/home/you/.screenshots/clip_20260313_143022.png` and renders the image inline.
 
 ## How it works under the hood
 
@@ -55,13 +55,13 @@ The PowerShell approach is deliberate. WSLg clipboard bridging is unreliable —
 
 Since Invoke pastes a **text string** (the file path), it works in any terminal emulator:
 
-- **Hyper** — works
-- **Wezterm** — works
-- **Windows Terminal** — works
-- **VS Code integrated terminal** — works (though VS Code can also paste images natively)
-- **Alacritty, Kitty, any other terminal** — works
+- Hyper — works
+- Wezterm — works
+- Windows Terminal — works
+- VS Code integrated terminal — works (though VS Code can also paste images natively)
+- Alacritty, Kitty, whatever else — works
 
-No terminal-specific configuration needed. No image protocol support required. Just text.
+No special terminal configuration. No image protocol support. It's just text on a clipboard.
 
 ## Setup
 
@@ -94,12 +94,12 @@ This pairs well with Invoke's voice dictation. A typical workflow:
 3. **Mouse4** to paste the image path into Claude Code
 4. **Mouse5** (hold and speak): "This button should be aligned with the header. Fix the CSS in the navbar component."
 
-Voice + visual context in two hotkey presses. That's the kind of input toolkit developers actually want.
+Voice plus a screenshot in two hotkey presses. I use this workflow constantly now.
 
 {% include cta.html %}
 
-## The bigger picture
+## Not just dictation anymore
 
-Invoke started as a voice-to-text tool. But the real value isn't just dictation — it's **removing friction between your intent and your AI tools**. Screenshot-to-path is the second input method. Voice was the first. More are coming.
+Invoke started as a voice-to-text tool. Screenshot-to-path was the second thing I added because I kept hitting the same wall — I'd snip a bug, then waste 30 seconds saving and typing a file path. Now it's one button.
 
-$49 once. [Free 7-day trial](/download). No subscription, no word limits, no image limits.
+$49 once. [Free 7-day trial](/download).

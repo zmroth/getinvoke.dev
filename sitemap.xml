@@ -36,6 +36,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://getinvoke.dev/learn/superwhisper-alternative-windows/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/talon-voice-vs-invoke/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/macwhisper-alternative-invoke/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://getinvoke.dev/learn/screenshot-paste-claude-code-terminal/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

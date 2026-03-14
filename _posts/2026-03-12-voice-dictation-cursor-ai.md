@@ -23,11 +23,11 @@ Here's the setup.
 4. Release.
 5. Invoke transcribes locally on your GPU (under a second on most cards), the reformatter cleans it up, and the finished prompt auto-pastes at your cursor position.
 
-Speak, release, prompt appears. That's the whole thing.
+Speak, release, prompt appears.
 
 ## Why voice works so well for vibe coding
 
-Everyone's vibe coding now. You describe what you want, the AI writes the code. But most people are still *typing* those descriptions. Think about that for a second.
+Everyone's vibe coding now. You describe what you want, the AI writes the code. But most people are still *typing* those descriptions.
 
 When you're reasoning about architecture, you're already thinking in words and sentences. Not typed characters. Voice just gets that internal monologue into Cursor faster. You explain what you want the way you'd explain it to another developer sitting next to you, and Invoke turns that rambling into a structured prompt.
 
@@ -57,11 +57,11 @@ Invoke runs Whisper locally on your GPU, the reformatter rewrites it as a clean 
 
 {% include cta.html %}
 
-## The reformatter is what makes this actually work
+## The reformatter is what makes this work
 
-Plain speech-to-text gives you something like: "uh add a function that takes the user object and checks if they have admin permissions and if not return a 403 and also log it." That's an accurate transcription. It's also a bad prompt.
+Plain speech-to-text gives you something like: "uh add a function that takes the user object and checks if they have admin permissions and if not return a 403 and also log it." Accurate transcription, bad prompt.
 
-Invoke's reformatter reads your project context, your framework, the files you've been editing, your stack, and rewrites the transcription into something Cursor can act on. It knows to say `FastAPI` instead of "that Python web framework" and `403 Forbidden` instead of "a 403."
+Invoke's reformatter reads your project context and rewrites the transcription into something Cursor can act on. It knows to say `FastAPI` instead of "that Python web framework" and `403 Forbidden` instead of "a 403."
 
 You can turn the reformatter off if you just want raw transcription. I never do.
 

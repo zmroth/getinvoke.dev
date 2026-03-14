@@ -27,7 +27,7 @@ Invoke runs [faster-whisper](https://github.com/SYSTRAN/faster-whisper) on your 
 
 Raw transcription isn't enough for coding prompts though. "Add a post endpoint that takes a keyword and URL generates an article saves to DB skip auth for now" is what Whisper gives you. Accurate, but not what you'd actually type into Claude or Cursor.
 
-So there's an optional AI reformatter. It takes the raw transcript, reads your project context (your stack, framework, recent files), and rewrites it as a clean prompt. The kind you'd write if you sat down and thought about it for thirty seconds instead of just stream-of-consciousness rambling into your mic.
+So there's an optional AI reformatter. It takes the raw transcript, reads your project context, and rewrites it as a clean prompt. The kind you'd write if you sat down and thought about it for thirty seconds instead of rambling into your mic.
 
 Output gets auto-pasted at your cursor. Speak, release, done.
 

@@ -17,7 +17,7 @@ For developers dictating code prompts fifty or a hundred times a day, it's a bad
 
 ### Latency kills the flow
 
-Every utterance takes a network round-trip. Record, compress, upload, queue, transcribe, download. On a good connection that's 1-2 seconds. On a VPN or coffee shop wifi? Could be 3-5. Do that a hundred times a day and you start dreading the pause. You lose the muscle memory of "think it, say it, it's there."
+Every utterance takes a network round-trip. Record, compress, upload, queue, transcribe, download. On a good connection that's 1-2 seconds. On a VPN or coffee shop wifi, could be 3-5. Do that a hundred times a day and you start dreading the pause.
 
 Local GPU transcription on a modern NVIDIA card finishes in under a second. There's no queue, no variable latency depending on how loaded the service is. It just runs.
 
@@ -47,7 +47,7 @@ The cloud services don't have a secret better version of Whisper. They're runnin
 
 {% include cta.html %}
 
-Where Invoke goes further is the AI reformatter. It takes raw Whisper output and rewrites it using your project context, so "add a post endpoint for user off" becomes a properly formatted prompt that says "authentication" instead of "off." Cloud transcription services don't do that because they don't know anything about your codebase.
+Where Invoke goes further is the AI reformatter. It takes raw Whisper output and rewrites it using your project context, so "add a post endpoint for user off" becomes a prompt that says "authentication" instead of "off." Cloud services can't do that because they don't know anything about your codebase.
 
 ## Works offline
 

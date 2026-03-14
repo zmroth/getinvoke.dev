@@ -51,13 +51,13 @@ There's also the privacy angle. You're dictating variable names, API endpoints, 
 
 And it needs to work offline. VPNs, planes, coffee shops with bad wifi. Local Whisper doesn't care about your internet connection. Voice input is like a keyboard. You shouldn't have to rent it.
 
-## The reformatter is the real difference
+## The reformatter is what actually matters
 
-Every tool in that table can turn speech into text. Fine. They all do that.
+Every tool in that table can turn speech into text. They all do that.
 
-What none of them do well is turn *developer speech* into *developer prompts*. When I say "add a websocket handler that broadcasts to all connected clients except the sender use the existing auth middleware," that needs to land in Cursor as a structured, specific prompt, not a run-on sentence.
+None of them turn *developer speech* into *developer prompts*. When I say "add a websocket handler that broadcasts to all connected clients except the sender use the existing auth middleware," that needs to land in Cursor as a structured prompt, not a run-on sentence.
 
-Invoke's AI reformatter reads your project context (your stack, recent files, framework) and rewrites raw dictation into clean prompts. The difference isn't fixing transcription errors. It's that the output is better than what you'd type.
+Invoke's AI reformatter reads your project context — your stack, recent files, framework — and rewrites raw dictation into clean prompts. The output ends up better than what I'd type by hand, because the reformatter actually knows what I'm working on.
 
 ## Try it
 
