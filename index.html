@@ -75,6 +75,11 @@ layout: null
     },
     {
       "@type": "Question",
+      "name": "What is screenshot-to-path?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Press a hotkey when you have an image on your clipboard (e.g., after Win+Shift+S). Invoke saves it as a PNG and pastes the file path into your terminal. This lets you share screenshots with Claude Code and other AI tools that accept image paths — no manual saving or typing file paths." }
+    },
+    {
+      "@type": "Question",
       "name": "What about macOS and Linux?",
       "acceptedAnswer": { "@type": "Answer", "text": "Invoke works on macOS and Linux right now via pip install getinvoke. A native macOS app with Metal GPU acceleration for Apple Silicon is in development. The pip install uses CPU mode on Mac (still fast) and supports NVIDIA CUDA on Linux. Same license key, same features." }
     }
@@ -1160,7 +1165,7 @@ footer .container {
       <div class="section-label">Why another dictation tool?</div>
       <h2>You think at <span class="stat">150 WPM</span>.<br>You type at <span class="stat">40</span>.</h2>
       <div class="divider"></div>
-      <p>Cloud dictation tools add latency, cap your words, and send your audio to someone else's servers. Local tools exist but they're <span class="highlight">slow, clunky, and dumb</span>&mdash;no context, no formatting, no auto-paste.</p>
+      <p>Cloud dictation tools add latency, cap your words, and send your audio to someone else's servers. Local tools exist but they're <span class="highlight">slow, clunky, and dumb</span>&mdash;no context, no formatting, no auto-paste. And good luck getting a screenshot into Claude Code from your terminal.</p>
       <p style="margin-top: 20px;">Invoke runs Whisper on your GPU for <span class="highlight">sub-second transcription</span>. Text appears at your cursor instantly. Turn on the AI reformatter and it reads your codebase to format clean prompts for Claude Code, Cursor, or whatever you use. <span class="highlight">All of it runs on your hardware.</span></p>
       <p class="origin-line">Built by a developer who dictates 10,000+ prompts a month and was sick of copy-pasting raw Whisper output.</p>
     </div>
@@ -1231,6 +1236,11 @@ footer .container {
         <i class="feature-icon">OFF</i>
         <h3>Fully offline</h3>
         <p>Use Ollama for local LLM reformatting, or skip the LLM entirely. Zero network calls if you want it that way.</p>
+      </div>
+      <div class="feature reveal">
+        <i class="feature-icon">IMG</i>
+        <h3>Screenshot to path</h3>
+        <p>Snap a screenshot, press a hotkey &mdash; Invoke saves it and pastes the file path into your terminal. Image context for Claude Code without leaving your workflow.</p>
       </div>
     </div>
   </div>
@@ -1308,6 +1318,12 @@ footer .container {
             <td><span class="x-mark">&mdash;</span></td>
           </tr>
           <tr>
+            <td>Screenshot paste</td>
+            <td class="invoke-col"><span class="check">file path</span></td>
+            <td><span class="x-mark">&mdash;</span></td>
+            <td><span class="x-mark">&mdash;</span></td>
+          </tr>
+          <tr>
             <td>Platform</td>
             <td class="invoke-col"><span class="check">Win / Linux / Mac</span></td>
             <td><span class="check">Win / Mac</span></td>
@@ -1341,6 +1357,7 @@ footer .container {
         <ul class="price-features">
           <li>Sub-second GPU transcription</li>
           <li>Auto-paste at cursor</li>
+          <li>Screenshot-to-path for Claude Code</li>
           <li>Unlimited words, forever</li>
           <li>100% local &amp; private</li>
           <li>AI prompt reformatting (cloud + local)</li>
@@ -1407,6 +1424,10 @@ footer .container {
       <details class="faq-item reveal">
         <summary>What are the system requirements?</summary>
         <div class="faq-answer">For the Windows installer: Windows 10/11 (64-bit), 4 GB RAM, and a microphone. An NVIDIA GPU with CUDA 12.x is recommended but not required &mdash; CPU mode works out of the box. For the CLI (<code>pip install getinvoke</code>): Python 3.11+, any OS. Internet is needed for license activation and the AI reformatter (unless you use Ollama). See <a href="/download">full requirements</a>.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What is screenshot-to-path?</summary>
+        <div class="faq-answer">Press a hotkey when you have an image on your clipboard (e.g., after Win+Shift+S). Invoke saves it as a PNG and pastes the file path into your terminal. This lets you share screenshots with Claude Code and other AI tools that accept image paths &mdash; no manual saving or typing file paths.</div>
       </details>
       <details class="faq-item reveal">
         <summary>What about macOS and Linux?</summary>
