@@ -37,7 +37,7 @@ Output gets auto-pasted at your cursor. Speak, release, done.
 
 Transcription happens entirely on your GPU. No internet, no audio leaving your machine.
 
-The AI reformatter does call an LLM API (you pick which one), but it's optional and only sends text, never audio. If you want the whole pipeline local, point it at Ollama and you're done.
+The AI reformatter does call an LLM API (you pick which one), but it's optional and only sends text, never audio. If you want the whole pipeline local, point it at Ollama or LM Studio and you're done.
 
 ## What's next
 
