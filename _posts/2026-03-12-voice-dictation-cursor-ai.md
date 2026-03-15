@@ -69,7 +69,7 @@ You can turn the reformatter off if you just want raw transcription. I never do.
 
 Invoke is a system-level voice-to-text tool, not a Cursor plugin. It pastes into whatever text field has focus. So it works with Cursor (chat, composer, inline edits), Claude on the web or desktop app, GitHub Copilot's chat in VS Code, Windsurf, ChatGPT, Gemini, your terminal, Slack, email, docs. Anywhere you can type, you can dictate instead.
 
-I use it in Cursor maybe 60% of the time. The rest is Claude, terminal commands, and Slack messages I don't feel like typing out.
+I use it in Claude Code most of the time, but Cursor, VS Code, and Slack get plenty of use too.
 
 ## Try it
 

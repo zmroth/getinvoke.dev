@@ -17,9 +17,7 @@ So I tried everything.
 
 ## What I tested
 
-I spent a week installing every voice-to-text tool that runs on Windows and using each one for real coding work. Not transcribing grocery lists. Dictating actual prompts about auth middleware, API endpoints, database migrations.
-
-Here's what I found.
+I looked at every voice-to-text tool I could find that runs on Windows. Here's how they compare for actual dev work — dictating prompts about auth middleware, API endpoints, database migrations. Not transcribing grocery lists.
 
 ### Invoke (this is mine, so take it with a grain of salt)
 
@@ -31,11 +29,11 @@ I built this because nothing else did what I wanted. More on the bias below.
 
 $12/month ($144/year). Cloud transcription, so your audio leaves your machine. Originally Mac-only, now has a Windows version. Transcription quality is good. No reformatter that reads your codebase, just basic text cleanup.
 
-I used it for two weeks. The latency was noticeable — maybe 1-2 seconds per utterance on a good connection, longer on my VPN. And the subscription math bothered me. $144/year to use my own voice.
+The latency is noticeable — 1-2 seconds per utterance because of the network round-trip, longer on a VPN. And the subscription math is hard to ignore. $144/year to use your own voice.
 
 ### Dragon by Nuance
 
-$699 one-time for Dragon Professional. The classic. Still the most accurate for medical and legal dictation. For coding? Terrible. It doesn't know what a "POST endpoint" is. It'll transcribe "auth middleware" as "off middleware" every single time. I returned it after three days.
+$699 one-time for Dragon Professional. The classic. Still the most accurate for medical and legal dictation. For coding? Not built for it. It doesn't know what a "POST endpoint" is. Developer vocabulary isn't its strength, and $699 is a lot to find that out.
 
 ### Windows Voice Typing (Win+H)
 
@@ -55,15 +53,15 @@ One-time purchase (~$30). Offline dictation for Windows. Uses older speech model
 
 ## What actually matters for developer dictation on Windows
 
-After testing all of these, here's what I think matters most, in order:
+After looking at all of these, here's what I think matters for developer dictation on Windows.
 
-**NVIDIA GPU support.** If you have a modern NVIDIA card (and most Windows devs do), you should be running Whisper locally on it. Cloud transcription adds latency you don't need, costs money every month, and sends your audio to someone else's server. Your GPU is sitting right there.
+If you have a modern NVIDIA card (and most Windows devs do), you should be running Whisper locally on it. Cloud transcription adds latency you don't need, costs money every month, and sends your audio to someone else's server. Your GPU is sitting right there.
 
-**Technical vocabulary accuracy.** Can it handle "FastAPI," "JWT," "WebSocket," "PostgreSQL"? Most general dictation tools can't. Whisper is decent at this out of the box, and custom vocabulary makes it better.
+Technical vocabulary matters too. Can it handle "FastAPI," "JWT," "WebSocket," "PostgreSQL"? Most general dictation tools can't. Whisper is decent at this out of the box, and custom vocabulary makes it better.
 
-**Push-to-talk.** I need to hold a key, speak, release. Not click a button, not say "start listening," not leave a mic hot. Push-to-talk is muscle memory. Everything else is friction.
+Push-to-talk is non-negotiable for me. Hold a key, speak, release. Not clicking a button, not saying "start listening," not leaving a mic hot. Push-to-talk is muscle memory.
 
-**The reformatter.** This is the one most people haven't thought about. Raw Whisper output is accurate but messy. "Uh add a function that takes the user object and checks if they have admin permissions and if not return a 403 and also log it." That's an accurate transcription. It's also a bad prompt. A reformatter that knows your project turns that into something your AI tool can actually use.
+And then there's the reformatter, which is the thing most people haven't considered. Raw Whisper output is accurate but messy. "Uh add a function that takes the user object and checks if they have admin permissions and if not return a 403 and also log it." That's accurate transcription but a bad prompt. A reformatter that knows your project turns that into something your AI tool can actually use.
 
 ## My bias and a caveat
 

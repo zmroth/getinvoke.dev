@@ -43,7 +43,7 @@ Invoke takes about five minutes to set up. Download, pick a hotkey, start talkin
 
 ## You might want both
 
-Some developers I've talked to use Talon for editor navigation and code editing, then switch to Invoke when they need to dictate a long prompt into an AI tool. Talon's dictation mode works, but it doesn't have project-aware reformatting. Invoke doesn't navigate your editor, but it turns messy speech into clean prompts.
+I could see developers using Talon for editor navigation and code editing, then switching to Invoke when they need to dictate a long prompt into an AI tool. Talon's dictation mode works, but it doesn't have project-aware reformatting. Invoke doesn't navigate your editor, but it turns messy speech into clean prompts.
 
 They're complementary more than they're competitive.
 

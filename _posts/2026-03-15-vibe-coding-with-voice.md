@@ -15,7 +15,7 @@ Except speed isn't why I dictate every prompt. I dictate because the prompts com
 
 ## How I actually use voice for coding
 
-I sit down in the morning, open Cursor, and start working. When I need Claude or Cursor to do something, I hold my hotkey and talk. I don't plan what I'm going to say. I just explain what I want the way I'd explain it to another developer sitting next to me.
+I sit down in the morning, open Claude Code, and start working. When I need the AI to do something, I hold my hotkey and talk. I don't plan what I'm going to say. I just explain what I want the way I'd explain it to another developer sitting next to me.
 
 "Hey, the auth middleware is checking the JWT expiry but it's not handling the refresh token rotation. Can you add a refresh endpoint at /api/auth/refresh that takes the old refresh token, validates it, issues a new pair, and invalidates the old one? Use the same token signing config we have in auth.config.ts."
 
@@ -35,7 +35,7 @@ The messiness of speech is actually an advantage. My dictation tool takes that s
 
 ## Specific examples
 
-Here are three prompts from last week. The left side is what I said (raw transcription). The right side is what I would have typed if I'd been using my keyboard.
+Here are some examples. The first is what I'd say out loud (raw transcription). The second is what I'd probably type instead if I were using my keyboard.
 
 **Spoken (raw, before reformatting):**
 "uh refactor the rate limiter to use a sliding window instead of fixed windows and make sure it handles the edge case where someone hits the limit right at the window boundary, also add a header that tells the client how many requests they have left"
@@ -63,7 +63,7 @@ You could use raw Whisper output and paste it directly. I've done it. It works o
 
 ## It works in every AI tool
 
-I use this in Cursor about 60% of the time. The rest is Claude Code in the terminal, Copilot in VS Code, and ChatGPT for non-coding stuff. Invoke pastes into whatever text field has focus. It's not a Cursor plugin, it's a system-level tool.
+I use this in Claude Code most of the time. The rest is Cursor, Copilot in VS Code, and ChatGPT for non-coding stuff. Invoke pastes into whatever text field has focus. It's not an IDE plugin, it's a system-level tool.
 
 I've also started using it for commit messages and PR descriptions. Invoke has prompt modes for those — I hold the hotkey, describe what I changed, and it formats a conventional commit message or a PR with summary and test plan. Faster than writing them by hand and the output is more detailed.
 

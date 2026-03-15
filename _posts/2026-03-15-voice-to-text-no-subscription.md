@@ -72,7 +72,7 @@ Subscription dictation tools tend to be cloud-based. Your audio goes to their se
 
 One-time purchase tools tend to be local. Invoke runs everything on your GPU. SuperWhisper runs on Apple Silicon. Your audio never goes anywhere.
 
-This isn't a theoretical concern. I've worked at companies where sending any data to external services requires security review. Cloud dictation fails that review immediately. Local transcription doesn't.
+This isn't a theoretical concern. At companies like the ones I've worked at, sending data to external services requires security review. Cloud dictation fails that review immediately. Local transcription doesn't.
 
 ## The math, one more time
 

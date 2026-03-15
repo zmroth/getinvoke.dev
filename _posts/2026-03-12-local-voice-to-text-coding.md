@@ -51,7 +51,7 @@ Where Invoke goes further is the AI reformatter. It takes raw Whisper output and
 
 ## Works offline
 
-I work from coffee shops with bad wifi. I've been on client VPNs that block all external traffic. I've written code on planes. In all of those situations, cloud transcription just doesn't work.
+Anyone who's coded on a VPN, a coffee shop wifi, or a plane knows the problem. Cloud transcription just doesn't work in those situations.
 
 Local Whisper doesn't need a connection at all. Push-to-talk works identically whether you're online or in airplane mode. For developers in regulated environments where sending audio to external servers is a compliance problem, offline transcription is the only option that works.
 
@@ -63,7 +63,7 @@ Compare that to $8-15/month for cloud alternatives. After about four months, a s
 
 ## System requirements
 
-On Windows and Linux, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, but I've tested it on cards as old as the GTX 1060 and it works fine.
+On Windows and Linux, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, and it works on cards as old as the GTX 1060.
 
 On macOS, Apple Silicon Macs (M1/M2/M3/M4) get GPU acceleration via MLX-Whisper. Install the mlx extra: `pip install getinvoke[mlx]`. Or download the native DMG from GitHub Releases.
 

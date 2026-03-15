@@ -11,7 +11,7 @@ og_image: og-image.png
 
 I want to be upfront about that. SuperWhisper runs Whisper locally, has solid transcription quality, and the lifetime pricing option means you're not locked into a subscription. If I were a Mac-only developer, I'd seriously consider it.
 
-But I'm on Windows. And so are a lot of developers I know.
+But I'm on Windows. And so are a lot of developers.
 
 SuperWhisper recently shipped a Windows version, but it's behind the Mac app on features. No Linux. If you're on Windows and want the full experience, or you're on Linux at all, SuperWhisper isn't there yet.
 
