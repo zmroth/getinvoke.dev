@@ -647,8 +647,9 @@ footer .container {
     <!-- CLI Install -->
     <div class="cli-section" id="cli-install">
       <h3 class="cli-section-title">Or install via pip</h3>
-      <p class="cli-section-sub">Works on Windows, Linux, and macOS. Same product, same license.</p>
+      <p class="cli-section-sub">Works on Windows, Linux, and macOS. Same product, same license. Two options:</p>
 
+      <p style="font-size:12px;color:var(--text-secondary);font-weight:400;margin:16px 0 8px;">Headless (CLI only, no system tray):</p>
       <div class="cli-terminal">
         <div class="cli-terminal-bar"><span class="prompt">&gt;</span> terminal</div>
         <div class="cli-command">
@@ -657,19 +658,20 @@ footer .container {
         </div>
       </div>
 
-      <div class="cli-or">or</div>
-
+      <p style="font-size:12px;color:var(--text-secondary);font-weight:400;margin:16px 0 8px;">With GUI (system tray icon, overlay, settings window):</p>
       <div class="cli-terminal">
         <div class="cli-terminal-bar"><span class="prompt">&gt;</span> terminal</div>
         <div class="cli-command">
-          <code>$ pipx install getinvoke</code>
-          <button class="cli-copy-btn" onclick="copyCommand(this,'pipx install getinvoke')">Copy</button>
+          <code>$ pip install getinvoke[gui]</code>
+          <button class="cli-copy-btn" onclick="copyCommand(this,'pip install getinvoke[gui]')">Copy</button>
         </div>
       </div>
 
+      <p style="font-size:11px;color:var(--text-muted);font-weight:300;margin:8px 0 16px;">Apple Silicon GPU? Use <code style="background:var(--bg-elevated);padding:1px 5px;font-size:11px;">pip install getinvoke[gui,mlx]</code> for MLX-Whisper acceleration. You can also use <code style="background:var(--bg-elevated);padding:1px 5px;font-size:11px;">pipx</code> instead of <code style="background:var(--bg-elevated);padding:1px 5px;font-size:11px;">pip</code> for an isolated install.</p>
+
       <div class="cli-commands-ref">
         <div class="cli-commands-ref-title">Quick start</div>
-        <div class="cli-ref-line"><code>dictate run</code> &mdash; start dictating</div>
+        <div class="cli-ref-line"><code>dictate run</code> &mdash; start dictating (auto-detects GUI vs headless)</div>
         <div class="cli-ref-line"><code>dictate setup</code> &mdash; interactive setup wizard</div>
         <div class="cli-ref-line"><code>dictate health</code> &mdash; check GPU, audio, config</div>
         <div class="cli-ref-line"><code>dictate license activate</code> &mdash; activate your key</div>
