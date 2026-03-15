@@ -56,6 +56,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://getinvoke.dev/learn/best-voice-dictation-windows-developers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/vibe-coding-with-voice/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/voice-to-text-no-subscription/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://getinvoke.dev/faq/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
