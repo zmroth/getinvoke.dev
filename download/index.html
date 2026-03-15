@@ -753,9 +753,10 @@ footer .container {
     <h3 class="dl-section-title" style="margin-top:32px;">Installation &mdash; CLI (pip install)</h3>
     <ol class="steps-list">
       <li><strong>Install Python 3.11+</strong> if you don't have it. <a href="https://python.org/downloads" target="_blank" rel="noopener noreferrer">python.org/downloads</a></li>
-      <li><strong>Install Invoke.</strong> Run <code>pip install getinvoke</code> or <code>pipx install getinvoke</code> for an isolated install.</li>
+      <li><strong>Install Invoke.</strong> Run <code>pip install getinvoke</code> or <code>pipx install getinvoke</code> for an isolated install. For the system tray GUI (icon, overlay, settings window), install with: <code>pip install getinvoke[gui]</code></li>
+      <li><strong>Apple Silicon GPU?</strong> Add the MLX extra: <code>pip install getinvoke[gui,mlx]</code></li>
       <li><strong>Run setup.</strong> <code>dictate setup</code> walks you through audio device, reformatter backend, and hotkey configuration.</li>
-      <li><strong>Start dictating.</strong> Run <code>dictate run</code>, hold your hotkey, speak, release. Free for 7 days &mdash; no license key needed.</li>
+      <li><strong>Start dictating.</strong> Run <code>dictate run</code>, hold your hotkey, speak, release. The app auto-detects GUI vs headless mode. Free for 7 days &mdash; no license key needed.</li>
     </ol>
   </div>
 
