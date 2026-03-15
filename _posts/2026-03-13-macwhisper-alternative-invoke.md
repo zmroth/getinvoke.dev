@@ -39,7 +39,7 @@ Invoke can transcribe individual files with `dictate transcribe file.wav`, but i
 
 ## What Invoke does better
 
-The developer-specific workflow. MacWhisper's dictation mode works, but Invoke's reformatter is built around codebases. It reads your project files, understands your stack, and outputs prompts formatted for the specific AI tool you're using — Claude Code, Cursor, Windsurf, Copilot, each with its own output mode.
+The developer-specific workflow. MacWhisper's dictation mode works, but Invoke's reformatter is built around codebases. It reads your project files, understands your stack, and outputs prompts formatted for the specific AI tool you're using — Claude Code, Cursor, Windsurf, Copilot, Codex, each with its own prompt mode.
 
 MacWhisper's AI integration is generic text processing (grammar, tone, translation). Invoke's is "I know you're working in a TypeScript/Express project and you just said 'add auth middleware' — here's a structured prompt for Cursor that references your existing patterns."
 
