@@ -55,4 +55,6 @@ If you just want to talk prompts into AI tools faster than typing, Invoke is sim
 
 ## Try Invoke
 
-7-day free trial. [Download here](/download).
+Full disclosure: I built Invoke. But I genuinely think Talon and Invoke solve different problems and you might want both.
+
+7-day free trial. [Download here](/download/).

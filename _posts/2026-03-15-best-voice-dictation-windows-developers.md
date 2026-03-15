@@ -29,9 +29,9 @@ I built this because nothing else did what I wanted. More on the bias below.
 
 ### Wispr Flow
 
-$10/month ($120/year). Cloud transcription, so your audio leaves your machine. Originally Mac-only, now has a Windows version. Transcription quality is good. No reformatter that reads your codebase, just basic text cleanup.
+$12/month ($144/year). Cloud transcription, so your audio leaves your machine. Originally Mac-only, now has a Windows version. Transcription quality is good. No reformatter that reads your codebase, just basic text cleanup.
 
-I used it for two weeks. The latency was noticeable — maybe 1-2 seconds per utterance on a good connection, longer on my VPN. And the subscription math bothered me. $120/year to use my own voice.
+I used it for two weeks. The latency was noticeable — maybe 1-2 seconds per utterance on a good connection, longer on my VPN. And the subscription math bothered me. $144/year to use my own voice.
 
 ### Dragon by Nuance
 

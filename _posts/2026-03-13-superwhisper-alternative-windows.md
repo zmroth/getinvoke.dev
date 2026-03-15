@@ -3,7 +3,7 @@ title: "SuperWhisper Alternative for Windows and Linux (2026)"
 date: 2026-03-13
 author: Zach Roth
 layout: post
-excerpt: "SuperWhisper is Mac-only. If you're on Windows or Linux and want local Whisper transcription with push-to-talk, here's what I use instead."
+excerpt: "SuperWhisper is Mac-first with a limited Windows version. If you want full cross-platform local Whisper with push-to-talk and project-aware reformatting, here's what I use."
 og_image: og-image.png
 ---
 
