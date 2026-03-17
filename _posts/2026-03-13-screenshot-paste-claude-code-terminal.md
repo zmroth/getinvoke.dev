@@ -65,25 +65,9 @@ No special terminal configuration. No image protocol support. It's just text on 
 
 ## Setup
 
-Install or update Invoke:
+[Download Invoke for Windows](/download/) and the image hotkey works out of the box. Default is middle click (scroll wheel button). You can change it in Settings or via the setup wizard.
 
-```
-pip install --upgrade getinvoke
-```
-
-The image hotkey defaults to middle click (scroll wheel button). You can change it:
-
-```
-dictate config image_hotkey mouse5
-```
-
-Or use a keyboard combo:
-
-```
-dictate config image_hotkey ctrl+shift+s
-```
-
-The save directory defaults to `~/.screenshots/`. Images older than 30 days are automatically cleaned up.
+Images save to `~/.screenshots/` and auto-clean after 30 days.
 
 ## Beyond screenshots
 
