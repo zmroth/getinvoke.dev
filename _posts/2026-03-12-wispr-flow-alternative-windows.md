@@ -26,7 +26,7 @@ Here's how things stack up if you're looking for a Wispr Flow alternative:
 | | **Invoke** | **Wispr Flow** | **SuperWhisper** | **MacWhisper** |
 |---|---|---|---|---|
 | **Price** | $49 one-time | $12/mo ($144/yr) | $8.49/mo or $250 lifetime | ~$60 one-time |
-| **Platform** | Windows, Linux, macOS | Mac-first, Windows | Mac-first, Windows (limited) | Mac only |
+| **Platform** | Windows (Mac/Linux soon) | Mac-first, Windows | Mac-first, Windows (limited) | Mac only |
 | **Processing** | Local GPU (CUDA) | Cloud | Local + Cloud options | Local |
 | **Speed** | Sub-second (no network) | Network-dependent | Fast locally | Fast locally |
 | **Privacy** | Audio never leaves machine | Audio sent to cloud | Local option available | Local |
@@ -61,6 +61,6 @@ Invoke's AI reformatter reads your project context — your stack, recent files,
 
 ## Try it
 
-Invoke is $49 once. No subscription. Free 7-day trial. Windows, Linux, macOS.
+Invoke is $49 once. No subscription. Free 7-day trial. Windows now, macOS & Linux coming soon.
 
 [Download Invoke](/download)

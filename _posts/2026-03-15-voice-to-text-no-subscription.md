@@ -34,7 +34,7 @@ I think about tools in terms of "how long until I've overpaid?" For dictation su
 
 ### Invoke ($49)
 
-This is what I built. Local Whisper transcription on your GPU (NVIDIA CUDA or Apple Silicon MLX). Push-to-talk. Auto-paste at your cursor. AI reformatter that reads your project context and turns messy speech into clean prompts. Privacy mode for fully local operation. Works on Windows, macOS, and Linux.
+This is what I built. Local Whisper transcription on your GPU (NVIDIA CUDA or Apple Silicon MLX). Push-to-talk. Auto-paste at your cursor. AI reformatter that reads your project context and turns messy speech into clean prompts. Privacy mode for fully local operation. Windows now. macOS and Linux coming soon.
 
 $49 gets you a year of updates. $79 for lifetime updates.
 

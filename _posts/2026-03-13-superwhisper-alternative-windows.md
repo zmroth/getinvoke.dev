@@ -22,7 +22,7 @@ Both run Whisper locally. Both do push-to-talk. Both keep your audio on your mac
 | | Invoke | SuperWhisper |
 |---|---|---|
 | Price | $49 one-time | $8.49/mo or ~$250 lifetime |
-| Platform | Windows, Linux, macOS (native + pip) | Mac-first, Windows (limited) |
+| Platform | Windows (Mac/Linux soon) | Mac-first, Windows (limited) |
 | GPU acceleration | NVIDIA CUDA + Apple Silicon MLX | Apple Silicon (Metal) |
 | Push-to-talk | Yes | Yes |
 | AI reformatter | Yes, with project context | Yes, custom modes + external LLMs |

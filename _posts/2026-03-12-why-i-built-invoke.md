@@ -41,6 +41,6 @@ The AI reformatter does call an LLM API (you pick which one), but it's optional 
 
 ## What's next
 
-Invoke runs on Windows, macOS, and Linux.
+Invoke is available on Windows. macOS and Linux coming soon.
 
 If you spend your day talking to AI dev tools, [try it free](/download). 7-day trial, no credit card.

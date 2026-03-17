@@ -22,7 +22,7 @@ But the focus is different. MacWhisper is a general-purpose transcription tool t
 | | Invoke | MacWhisper |
 |---|---|---|
 | Price | $49 one-time | Free (basic) / ~$60 (Pro) |
-| Platform | Windows, Linux, macOS (native + pip) | Mac only |
+| Platform | Windows (Mac/Linux soon) | Mac only |
 | Push-to-talk | Yes | Yes (dictation hotkey) |
 | Auto-paste at cursor | Yes | Yes (dictation mode) |
 | AI reformatter | Yes, with project context | Basic (ChatGPT/Ollama integration) |
