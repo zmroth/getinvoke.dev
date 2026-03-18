@@ -49,7 +49,7 @@ When you press the image hotkey, Invoke:
 3. Puts the file path string on your clipboard
 4. Auto-pastes it into your terminal (if auto-paste is enabled)
 
-On Windows/WSL2, Invoke uses PowerShell to grab the clipboard image directly — WSLg clipboard bridging is unreliable and `wl-paste` fails silently. On macOS, it uses AppleScript with NSPasteboard. Both approaches bypass the broken terminal clipboard path and work every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
+On Windows, Invoke uses PowerShell to grab the clipboard image directly — bypasses the broken WSLg/Wayland clipboard path entirely and works every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
 
 ## It works in every terminal
 

@@ -26,7 +26,7 @@ Both run Whisper locally. Both do push-to-talk. Both keep your audio on your mac
 | GPU acceleration | NVIDIA CUDA (Apple Silicon coming) | Apple Silicon (Metal) |
 | Push-to-talk | Yes | Yes |
 | AI reformatter | Yes, with project context | Yes, custom modes + external LLMs |
-| Auto-paste | Yes (Windows/Linux) | Yes |
+| Auto-paste | Yes (Windows) | Yes |
 | Offline | Yes | Yes |
 
 ## Where they differ

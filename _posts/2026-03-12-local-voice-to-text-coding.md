@@ -63,7 +63,7 @@ Compare that to $8-15/month for cloud alternatives. After about four months, a s
 
 ## System requirements
 
-On Windows and Linux, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, and it works on cards as old as the GTX 1060.
+On Windows, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, and it works on cards as old as the GTX 1060.
 
 macOS and Linux support is coming soon — same local GPU approach, different hardware targets.
 
