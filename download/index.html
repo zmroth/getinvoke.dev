@@ -720,10 +720,10 @@ function copyCommand(btn, text) {
 
 // OS detection
 (function() {
-  var ua = navigator.userAgent || navigator.platform || '';
-  var platform = navigator.platform || '';
-  var isWindows = /Win/.test(platform) || /Windows/.test(ua);
-  var isMac = /Mac/.test(platform) || /Macintosh/.test(ua);
+  var ua = navigator.userAgent || '';
+  var pd = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  var isWindows = /Win/i.test(pd) || /Windows/.test(ua);
+  var isMac = /Mac/i.test(pd) || /Macintosh/.test(ua);
   var isLinux = /Linux/.test(ua) && !/Android/.test(ua);
 
   var cardWin = document.getElementById('card-windows');
@@ -741,7 +741,6 @@ function copyCommand(btn, text) {
     linuxNotice.classList.add('show');
     // Scroll CLI section into view after a brief delay
     setTimeout(function() {
-      var cli = document.getElementById('cli-install');
       if (cli) cli.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 500);
   }
