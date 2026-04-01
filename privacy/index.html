@@ -107,10 +107,10 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
 <div class="legal">
   <div class="legal-label">Legal</div>
   <h1 class="legal-title">Privacy Policy</h1>
-  <p class="legal-updated">Last updated: March 13, 2026</p>
+  <p class="legal-updated">Last updated: April 1, 2026</p>
 
   <div class="legal-body">
-    <p>Invoke is built by Zach Roth ("I", "me"). This policy explains what data the Invoke desktop application and the getinvoke.dev website collect, and what they don't.</p>
+    <p>Invoke is built by KeyGrip, Inc. ("we", "us"). This policy explains what data the Invoke desktop application and the getinvoke.dev website collect, and what they don't.</p>
 
     <h2>The short version</h2>
     <ul>
@@ -118,6 +118,7 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
       <li><strong>No telemetry, no analytics, no tracking in the app.</strong> Invoke does not phone home.</li>
       <li><strong>Two network calls:</strong> license key validation (LemonSqueezy) and update checks (GitHub). That's it.</li>
       <li><strong>The AI reformatter</strong> sends your transcribed text (not audio) to the LLM provider you choose. You can use Ollama or LM Studio for fully local operation.</li>
+      <li><strong>Privacy Mode:</strong> One toggle disables all network-based AI processing. Your text never leaves your machine.</li>
     </ul>
 
     <h2>Data the app collects</h2>
@@ -126,7 +127,7 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
     <h2>Network requests the app makes</h2>
     <p>Invoke makes exactly two types of network requests:</p>
     <ul>
-      <li><strong>License validation:</strong> When you activate a license key, the app sends the key to the <a href="https://www.lemonsqueezy.com/privacy">LemonSqueezy API</a> for validation. This happens at activation and periodically (every 30 days) to verify the license is still active. The only data sent is your license key.</li>
+      <li><strong>License validation:</strong> When you activate a license key, the app sends the key and a hashed machine identifier (derived from hardware IDs, not personally identifiable) to the <a href="https://www.lemonsqueezy.com/privacy">LemonSqueezy API</a> for validation. This happens at activation and periodically (every 30 days) to verify the license is still active.</li>
       <li><strong>Update checks:</strong> The app checks the <a href="https://docs.github.com/en/rest">GitHub Releases API</a> for new versions. No personal data is sent &mdash; it's a public API call.</li>
     </ul>
 
@@ -134,10 +135,20 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
     <p>If you enable the AI reformatter, your transcribed text is sent to the LLM provider you configure:</p>
     <ul>
       <li><strong>OpenRouter</strong> &mdash; your text is sent to their API. See <a href="https://openrouter.ai/privacy">OpenRouter's privacy policy</a>.</li>
-      <li><strong>Claude CLI</strong> &mdash; uses your local Claude installation.</li>
-      <li><strong>Ollama / LM Studio</strong> &mdash; fully local. Nothing leaves your machine.</li>
+      <li><strong>Claude CLI</strong> &mdash; uses your local Claude Code installation.</li>
+      <li><strong>Ollama</strong> &mdash; fully local. Nothing leaves your machine.</li>
+      <li><strong>LM Studio</strong> &mdash; fully local. Nothing leaves your machine.</li>
+      <li><strong>None / Privacy Mode</strong> &mdash; text is used as-is with no external processing.</li>
     </ul>
     <p>You choose the provider. You can disable the reformatter entirely.</p>
+
+    <h2>Local data storage</h2>
+    <p>All app data is stored locally on your device. Nothing is synced or uploaded.</p>
+    <ul>
+      <li><strong>Config</strong> &mdash; <code>%APPDATA%\Invoke\</code> (Windows), <code>~/.config/invoke/</code> (Linux), <code>~/Library/Application Support/invoke/</code> (macOS)</li>
+      <li><strong>History</strong> &mdash; Local SQLite database in the config directory. Stores transcribed text only (not audio). Auto-expires per your retention setting.</li>
+      <li><strong>Crash logs</strong> &mdash; <code>crash.log</code> in the config directory. Contains only the Python stack trace. Never transmitted automatically.</li>
+    </ul>
 
     <h2>Data the website collects</h2>
     <p>The getinvoke.dev website uses <strong>Google Analytics 4</strong> (GA4) to understand traffic patterns. GA4 collects standard web analytics data (page views, referrers, approximate location, device type). No personal information is collected beyond what GA4 gathers by default.</p>
@@ -157,16 +168,16 @@ footer .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; display:
     <p>Payments are processed by <a href="https://www.lemonsqueezy.com">LemonSqueezy</a>. I do not store credit card numbers, billing addresses, or other payment details. See <a href="https://www.lemonsqueezy.com/privacy">LemonSqueezy's privacy policy</a> for how they handle payment data.</p>
 
     <h2>Your data rights</h2>
-    <p>Since Invoke doesn't collect personal data, there's nothing to delete or export from the app. For website analytics or payment data questions, contact me at <a href="mailto:zach@scrn.co">zach@scrn.co</a>.</p>
+    <p>Since Invoke doesn't collect personal data, there's nothing to delete or export from the app. You can delete all local data by removing the config directory listed above. For website analytics or payment data questions, contact us at <a href="mailto:support@getinvoke.dev">support@getinvoke.dev</a>.</p>
 
     <h2>Do Not Sell My Personal Information (CCPA)</h2>
-    <p>Invoke does not sell, rent, or trade your personal information to third parties. GA4 analytics data is used solely to understand site traffic and is not shared with advertisers or data brokers. California residents can contact <a href="mailto:zach@scrn.co">zach@scrn.co</a> with any CCPA-related requests.</p>
+    <p>Invoke does not sell, rent, or trade your personal information to third parties. GA4 analytics data is used solely to understand site traffic and is not shared with advertisers or data brokers. California residents can contact <a href="mailto:support@getinvoke.dev">support@getinvoke.dev</a> with any CCPA-related requests.</p>
 
     <h2>Changes to this policy</h2>
     <p>If this policy changes, I'll update the date at the top and note what changed. For material changes, I'll mention it in the app's release notes.</p>
 
     <h2>Contact</h2>
-    <p>Questions? Email <a href="mailto:zach@scrn.co">zach@scrn.co</a>.</p>
+    <p>Questions? Email <a href="mailto:support@getinvoke.dev">support@getinvoke.dev</a>.</p>
   </div>
 </div>
 
