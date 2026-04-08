@@ -136,7 +136,7 @@ nav .container {
 
 .platform-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 8px;
 }
@@ -617,35 +617,10 @@ footer .container {
         </div>
       </div>
 
-      <!-- macOS -->
-      <div class="platform-card" id="card-macos">
-        <div class="platform-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-        </div>
-        <div class="platform-name">macOS</div>
-        <div class="platform-version">Apple Silicon + Intel</div>
-        <span class="platform-btn-soon" style="display:inline-block;padding:8px 20px;font-size:12px;color:var(--text-muted);border:1px solid var(--border);font-family:inherit;">Coming soon</span>
-        <div class="platform-meta">
-          <span>In development</span>
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- macOS notice (shown via JS when macOS detected) -->
-    <div class="macos-notice" id="macos-notice">
-      <strong>You're on macOS.</strong> Invoke for macOS is in active development. Sign up at <a href="mailto:zach@scrn.co">zach@scrn.co</a> to get notified when it launches.
-    </div>
-
-    <!-- Linux notice (shown via JS when Linux detected) -->
-    <div class="linux-notice" id="linux-notice">
-      <strong>You're on Linux.</strong> Invoke for Linux is in active development. Sign up at <a href="mailto:zach@scrn.co">zach@scrn.co</a> to get notified when it launches.
     </div>
 
     <p class="dl-note">7-day free trial with all features. No license key needed to start.</p>
-    <p style="margin-top:12px;font-size:11px;color:var(--text-muted);font-weight:300;">macOS &amp; Linux versions are in active development. <a href="mailto:zach@scrn.co">Email me</a> to get notified when they launch.</p>
+    <p style="margin-top:12px;font-size:11px;color:var(--text-muted);font-weight:300;">Windows 10/11 (64-bit) &middot; NVIDIA GPU recommended for fastest transcription</p>
   </div>
 
   <!-- Buy -->
@@ -718,31 +693,10 @@ function copyCommand(btn, text) {
   });
 }
 
-// OS detection
+// Highlight Windows card
 (function() {
-  var ua = navigator.userAgent || '';
-  var pd = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-  var isWindows = /Win/i.test(pd) || /Windows/.test(ua);
-  var isMac = /Mac/i.test(pd) || /Macintosh/.test(ua);
-  var isLinux = /Linux/.test(ua) && !/Android/.test(ua);
-
   var cardWin = document.getElementById('card-windows');
-  var cardMac = document.getElementById('card-macos');
-  var macNotice = document.getElementById('macos-notice');
-  var linuxNotice = document.getElementById('linux-notice');
-
-  if (isWindows) {
-    cardWin.classList.add('detected');
-  } else if (isMac) {
-    cardMac.classList.add('detected');
-    macNotice.classList.add('show');
-    cardMac.parentNode.insertBefore(cardMac, cardWin);
-  } else if (isLinux) {
-    linuxNotice.classList.add('show');
-    // Scroll CLI section into view after a brief delay
-    setTimeout(function() {
-    }, 500);
-  }
+  if (cardWin) cardWin.classList.add('detected');
 })();
 </script>
 
