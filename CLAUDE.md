@@ -96,11 +96,12 @@ The site can be screenshotted via the headless Chromium on port 18800 for verifi
 
 - **Provider:** LemonSqueezy
 - **Store ID:** 314146
-- **Invoke ($49) Product ID:** 887386
-- **Invoke+ ($79) Product ID:** 887402
-- **Checkout URLs:**
-  - Invoke: `https://getinvoke.lemonsqueezy.com/checkout/buy/a3adbe34-ffad-480e-a848-1e45fdc36857`
-  - Invoke+: `https://getinvoke.lemonsqueezy.com/checkout/buy/15ee926a-a14c-4386-b3ca-e5e5a23e12ed`
+- **Invoke ($49) Product ID:** 1152282 (LIVE) — was 887386 (test, retired 2026-06-17)
+- **Invoke+ ($79) Product ID:** 1152277 (LIVE) — was 887402 (test, retired 2026-06-17)
+- **Checkout URLs (LIVE):**
+  - Invoke: `https://getinvoke.lemonsqueezy.com/checkout/buy/0543f805-8881-462b-b7f7-5c99d56e19c5`
+  - Invoke+: `https://getinvoke.lemonsqueezy.com/checkout/buy/cc4c5a99-b4fa-4a22-bb3d-35c64249b12f`
+  - NOTE: App (`~/invoke` license.py) must accept product IDs 1152282 & 1152277 or live licenses won't activate.
 - **CNAME pending:** `store.getinvoke.dev` → `checkout.lemonsqueezy.com` (DNS propagating, will swap URLs when live)
 - **Flow:** User clicks "Buy now" → LS checkout → pays → gets license key in email → downloads app from GitHub Releases → enters key in app
 
