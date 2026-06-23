@@ -58,4 +58,4 @@ If you want your audio to stay on your machine, you have an NVIDIA GPU, and you'
 
 ## Try it
 
-7-day free trial, no credit card. [Download here](/download).
+7-day free trial, no credit card. [Download here](/download/).

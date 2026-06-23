@@ -54,4 +54,4 @@ Most voice dictation is cloud-based and subscription-priced — your audio gets 
 
 ## Try it
 
-This is the whole workflow in one download. 7-day free trial, no credit card. [Download here](/download).
+This is the whole workflow in one download. 7-day free trial, no credit card. [Download here](/download/).

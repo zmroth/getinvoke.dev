@@ -41,7 +41,7 @@ It pairs well with the keyboard-only Claude Code workflow — see also [pasting 
 
 ## Setup
 
-1. [Download Invoke](/download) and run the installer (Windows).
+1. [Download Invoke](/download/) and run the installer (Windows).
 2. Pick a hotkey in the tray — I use `Ctrl+Shift+D`, mouse-button bindings work too.
 3. Optional: connect the reformatter to Claude CLI, OpenRouter, or a local Ollama model.
 4. Open Claude Code, hold the key, talk. The prompt appears in the terminal.
@@ -50,4 +50,4 @@ It works the same way for Cursor and any other tool — I wrote up the [Cursor v
 
 ## Try it
 
-7-day free trial, no credit card. [Download here](/download).
+7-day free trial, no credit card. [Download here](/download/).

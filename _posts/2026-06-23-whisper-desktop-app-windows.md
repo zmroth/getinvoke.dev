@@ -49,4 +49,4 @@ Invoke ships the CUDA runtime bundled, so if you have an NVIDIA card it just use
 
 ## Try it
 
-If you want Whisper on Windows without building the app yourself: 7-day free trial, no credit card. [Download here](/download).
+If you want Whisper on Windows without building the app yourself: 7-day free trial, no credit card. [Download here](/download/).

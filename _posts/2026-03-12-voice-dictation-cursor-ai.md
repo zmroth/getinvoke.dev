@@ -75,4 +75,4 @@ I use it in Claude Code most of the time, but Cursor, VS Code, and Slack get ple
 
 If you use Cursor and you're typing every prompt by hand, give this a shot. Invoke is $49 once, no subscription. There's a free 7-day trial so you can see if dictation fits your workflow before paying anything.
 
-[Download Invoke](/download)
+[Download Invoke](/download/)

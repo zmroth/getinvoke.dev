@@ -71,4 +71,4 @@ If you don't have a dedicated GPU, CPU mode works. It's slower, maybe 2-4 second
 
 ## Try it
 
-Free 7-day trial. [Download it here.](/download)
+Free 7-day trial. [Download it here.](/download/)

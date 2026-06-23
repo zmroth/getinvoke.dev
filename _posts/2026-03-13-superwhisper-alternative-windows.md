@@ -55,4 +55,4 @@ If you need Windows or Linux support, or you want your dictation reformatted int
 
 ## Try it
 
-7-day free trial. [Download here](/download).
+7-day free trial. [Download here](/download/).

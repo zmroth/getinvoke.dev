@@ -59,4 +59,4 @@ If you're a developer who wants to speak prompts into AI tools with push-to-talk
 
 ## Try Invoke
 
-7-day free trial. [Download here](/download).
+7-day free trial. [Download here](/download/).

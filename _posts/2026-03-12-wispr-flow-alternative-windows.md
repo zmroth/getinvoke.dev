@@ -63,4 +63,4 @@ Invoke's AI reformatter reads your project context — your stack, recent files,
 
 Invoke is $49 once. No subscription. Free 7-day trial. Windows now, macOS & Linux coming soon.
 
-[Download Invoke](/download)
+[Download Invoke](/download/)

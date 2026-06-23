@@ -86,4 +86,4 @@ Voice plus a screenshot in two hotkey presses. I use this workflow constantly no
 
 Invoke started as a voice-to-text tool. Screenshot-to-path was the second thing I added because I kept hitting the same wall — I'd snip a bug, then waste 30 seconds saving and typing a file path. Now it's one button.
 
-$49 once. [Free 7-day trial](/download).
+$49 once. [Free 7-day trial](/download/).
