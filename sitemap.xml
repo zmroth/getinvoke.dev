@@ -71,6 +71,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://getinvoke.dev/learn/willow-voice-alternative-windows/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/whisper-desktop-app-windows/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/voice-to-text-claude-code/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://getinvoke.dev/learn/how-i-dictate-code-all-day/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://getinvoke.dev/faq/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
