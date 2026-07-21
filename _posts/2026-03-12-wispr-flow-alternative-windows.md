@@ -3,7 +3,7 @@ title: "Best Wispr Flow Alternative for Windows (2026)"
 date: 2026-03-12
 author: Zach Roth
 layout: post
-excerpt: "Wispr Flow is great — if you're on Mac, want a subscription, and don't mind cloud transcription. Here's what I built instead."
+excerpt: "Wispr Flow is great, if you're on Mac, want a subscription, and don't mind cloud transcription. Here's what I built instead."
 og_image: og-wispr-flow-alternative.png
 ---
 
@@ -57,7 +57,7 @@ Every tool in that table can turn speech into text. They all do that.
 
 None of them turn *developer speech* into *developer prompts*. When I say "add a websocket handler that broadcasts to all connected clients except the sender use the existing auth middleware," that needs to land in Cursor as a structured prompt, not a run-on sentence.
 
-Invoke's AI reformatter reads your project context — your stack, recent files, framework — and rewrites raw dictation into clean prompts. The output ends up better than what I'd type by hand, because the reformatter actually knows what I'm working on.
+Invoke's AI reformatter reads your project context, your stack, recent files, and framework, then rewrites raw dictation into clean prompts. The output ends up better than what I'd type by hand, because the reformatter actually knows what I'm working on.
 
 ## Try it
 

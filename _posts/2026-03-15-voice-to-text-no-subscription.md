@@ -3,7 +3,7 @@ title: "Voice-to-Text for Developers That Doesn't Require a Subscription (2026)"
 date: 2026-03-15
 author: Zach Roth
 layout: post
-excerpt: "Wispr Flow is $144/year. Voicy is $102/year. Here's what you can use instead for a one-time payment — or free."
+excerpt: "Wispr Flow is $144/year. Voicy is $102/year. Here's what you can use instead for a one-time payment, or free."
 og_image: og-image.png
 ---
 
@@ -48,7 +48,7 @@ If you're on a Mac and don't need project-aware reformatting, it works. I'd use 
 
 ### Talon Voice (free)
 
-Totally different kind of tool. Talon is a full voice control system, not just dictation. You learn a grammar of voice commands to navigate your editor, write code, control your computer. Steep learning curve — weeks to get comfortable. But it's free, community-driven, and runs on everything.
+Totally different kind of tool. Talon is a full voice control system, not just dictation. You learn a grammar of voice commands to navigate your editor, write code, control your computer. Steep learning curve, weeks to get comfortable. But it's free, community-driven, and runs on everything.
 
 If you have RSI or want to go fully keyboard-free, Talon is worth the investment in learning it. If you just want to speak prompts faster, it's overkill.
 

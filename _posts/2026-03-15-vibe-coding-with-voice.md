@@ -51,7 +51,7 @@ The spoken version mentions the boundary edge case and the rate limit header. I 
 **What I would have typed:**
 "fix flaky test in retry.test.ts, uses setTimeout that races with fake timers"
 
-Again — the spoken version includes the fix approach (event-based instead of polling) and asks to check other tests for the same issue. The typed version just describes the symptom.
+Again, the spoken version includes the fix approach (event-based instead of polling) and asks to check other tests for the same issue. The typed version just describes the symptom.
 
 ## The reformatter is what makes this work
 
@@ -65,10 +65,10 @@ You could use raw Whisper output and paste it directly. I've done it. It works o
 
 I use this in Claude Code most of the time. The rest is Cursor, Copilot in VS Code, and ChatGPT for non-coding stuff. Invoke pastes into whatever text field has focus. It's not an IDE plugin, it's a system-level tool.
 
-I've also started using it for commit messages and PR descriptions. Invoke has prompt modes for those — I hold the hotkey, describe what I changed, and it formats a conventional commit message or a PR with summary and test plan. Faster than writing them by hand and the output is more detailed.
+I've also started using it for commit messages and PR descriptions. Invoke has prompt modes for those. I hold the hotkey, describe what I changed, and it formats a conventional commit message or a PR with summary and test plan. Faster than writing them by hand and the output is more detailed.
 
 ## Getting started
 
-If you already use AI coding tools and you're still typing every prompt, try speaking a few. You don't need Invoke to test the concept — hold down your phone and dictate into ChatGPT. Notice how much more context you include when you don't have to type it.
+If you already use AI coding tools and you're still typing every prompt, try speaking a few. You don't need Invoke to test the concept. Hold down your phone and dictate into ChatGPT. Notice how much more context you include when you don't have to type it.
 
-If you want the full workflow — push-to-talk, local Whisper, auto-paste, reformatting — [Invoke is $49 with a 7-day free trial](/download/).
+If you want the full workflow, push-to-talk, local Whisper, auto-paste, and reformatting, [Invoke is $49 with a 7-day free trial](/download/).

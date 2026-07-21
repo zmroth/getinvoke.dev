@@ -9,7 +9,7 @@ og_image: og-image.png
 
 ## Every dictation comparison is written for Mac users
 
-Go search "best dictation software 2026." You'll get Zapier roundups and Voicy buyer's guides that spend most of their word count on Mac-only tools. SuperWhisper, Whisper Transcription, Vibe Dictate — Mac, Mac, Mac. If you scroll down far enough you'll find a passing mention of Dragon (expensive, not for developers) and Windows Speech Recognition (bad).
+Go search "best dictation software 2026." You'll get Zapier roundups and Voicy buyer's guides that spend most of their word count on Mac-only tools. SuperWhisper, Whisper Transcription, Vibe Dictate. Mac, Mac, Mac. If you scroll down far enough you'll find a passing mention of Dragon (expensive, not for developers) and Windows Speech Recognition (bad).
 
 I'm a Windows developer. RTX 5090, Ryzen 9800X3D, three monitors. I dictate hundreds of prompts a day into Claude Code and Cursor. I needed something that works on my machine, not a MacBook.
 
@@ -17,7 +17,7 @@ So I tried everything.
 
 ## What I tested
 
-I looked at every voice-to-text tool I could find that runs on Windows. Here's how they compare for actual dev work — dictating prompts about auth middleware, API endpoints, database migrations. Not transcribing grocery lists.
+I looked at every voice-to-text tool I could find that runs on Windows. Here's how they compare for actual dev work: dictating prompts about auth middleware, API endpoints, database migrations. Not transcribing grocery lists.
 
 ### Invoke (this is mine, so take it with a grain of salt)
 
@@ -29,7 +29,7 @@ I built this because nothing else did what I wanted. More on the bias below.
 
 $12/month ($144/year). Cloud transcription, so your audio leaves your machine. Originally Mac-only, now has a Windows version. Transcription quality is good. No reformatter that reads your codebase, just basic text cleanup.
 
-The latency is noticeable — 1-2 seconds per utterance because of the network round-trip, longer on a VPN. And the subscription math is hard to ignore. $144/year to use your own voice.
+The latency is noticeable, 1-2 seconds per utterance because of the network round-trip, longer on a VPN. And the subscription math is hard to ignore. $144/year to use your own voice.
 
 ### Dragon by Nuance
 
@@ -37,13 +37,13 @@ $699 one-time for Dragon Professional. The classic. Still the most accurate for 
 
 ### Windows Voice Typing (Win+H)
 
-Free, built into Windows 11. Uses Microsoft's cloud speech recognition. Works okay for emails and docs. For coding, it misses technical vocabulary consistently and there's no way to add custom words. No push-to-talk — you have to click start/stop or say "start listening" which breaks your flow. No reformatter, no project context, no auto-paste into specific text fields.
+Free, built into Windows 11. Uses Microsoft's cloud speech recognition. Works okay for emails and docs. For coding, it misses technical vocabulary consistently and there's no way to add custom words. No push-to-talk. You have to click start/stop or say "start listening" which breaks your flow. No reformatter, no project context, no auto-paste into specific text fields.
 
 Fine for writing a Slack message. Not for dictating 50 prompts a day into Cursor.
 
 ### Voicy
 
-$8.49/month (~$102/year). Cloud-based. Has a Mac app and web interface. I couldn't get it running on Windows natively — their Windows support is unclear. The web interface worked but adding a browser step to my dictation workflow defeated the purpose.
+$8.49/month (~$102/year). Cloud-based. Has a Mac app and web interface. I couldn't get it running on Windows natively. Their Windows support is unclear. The web interface worked but adding a browser step to my dictation workflow defeated the purpose.
 
 ### JesType
 
@@ -67,7 +67,7 @@ And then there's the reformatter, which is the thing most people haven't conside
 
 I built Invoke. I'm not going to pretend I did an unbiased comparison here. I built it because I tried everything else and none of it worked the way I wanted. That said, if you're on a Mac and don't need reformatting, SuperWhisper is solid. If you want a subscription and don't mind cloud transcription, Wispr Flow works. If you need full voice control (not just dictation), Talon Voice is free and impressive.
 
-But if you're a Windows developer who wants local GPU transcription, push-to-talk, and a reformatter that actually knows your codebase — that's what I built Invoke for.
+But if you're a Windows developer who wants local GPU transcription, push-to-talk, and a reformatter that actually knows your codebase, that's what I built Invoke for.
 
 ## Try it
 

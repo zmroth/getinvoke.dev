@@ -34,9 +34,9 @@ That's four steps for something that should be one.
 
 Invoke has a dedicated hotkey for this. Here's the workflow:
 
-1. **Win+Shift+S** — snip whatever you want (error message, UI, diagram)
+1. **Win+Shift+S** to snip whatever you want (error message, UI, diagram)
 2. **Press your image hotkey** (default: middle click, configurable)
-3. **Done** — Invoke saves the image as a PNG and pastes the file path into your terminal
+3. **Done**. Invoke saves the image as a PNG and pastes the file path into your terminal
 
 Claude Code receives something like `/home/you/.screenshots/clip_20260313_143022.png` and renders the image inline.
 
@@ -49,17 +49,17 @@ When you press the image hotkey, Invoke:
 3. Puts the file path string on your clipboard
 4. Auto-pastes it into your terminal (if auto-paste is enabled)
 
-On Windows, Invoke uses PowerShell to grab the clipboard image directly — bypasses the broken WSLg/Wayland clipboard path entirely and works every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
+On Windows, Invoke uses PowerShell to grab the clipboard image directly. That bypasses the broken WSLg/Wayland clipboard path entirely and works every time. The subprocess call adds about 500ms, which is fine for a non-realtime operation.
 
 ## It works in every terminal
 
 Since Invoke pastes a **text string** (the file path), it works in any terminal emulator:
 
-- Hyper — works
-- Wezterm — works
-- Windows Terminal — works
-- VS Code integrated terminal — works (though VS Code can also paste images natively)
-- Alacritty, Kitty, whatever else — works
+- Hyper: works
+- Wezterm: works
+- Windows Terminal: works
+- VS Code integrated terminal: works (though VS Code can also paste images natively)
+- Alacritty, Kitty, whatever else: works
 
 No special terminal configuration. No image protocol support. It's just text on a clipboard.
 
@@ -84,6 +84,6 @@ Voice plus a screenshot in two hotkey presses. I use this workflow constantly no
 
 ## Not just dictation anymore
 
-Invoke started as a voice-to-text tool. Screenshot-to-path was the second thing I added because I kept hitting the same wall — I'd snip a bug, then waste 30 seconds saving and typing a file path. Now it's one button.
+Invoke started as a voice-to-text tool. Screenshot-to-path was the second thing I added because I kept hitting the same wall. I'd snip a bug, then waste 30 seconds saving and typing a file path. Now it's one button.
 
 $49 once. [Free 7-day trial](/download/).

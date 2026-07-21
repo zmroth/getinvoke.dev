@@ -15,9 +15,9 @@ But it's a transcription app, not a developer workflow tool. That distinction ma
 
 ## The core difference
 
-MacWhisper started as a transcription app — drop in audio files, get text back. They've since added a dictation mode with push-to-talk, and some AI processing via ChatGPT and Ollama. So the feature gap has narrowed.
+MacWhisper started as a transcription app. Drop in audio files, get text back. They've since added a dictation mode with push-to-talk, and some AI processing via ChatGPT and Ollama. So the feature gap has narrowed.
 
-But the focus is different. MacWhisper is a general-purpose transcription tool that added dictation. Invoke is a developer dictation tool from the ground up. The reformatter doesn't just clean up grammar — it reads your CLAUDE.md, your package.json, your git history, and rewrites your speech as a structured prompt for your specific codebase.
+But the focus is different. MacWhisper is a general-purpose transcription tool that added dictation. Invoke is a developer dictation tool from the ground up. The reformatter doesn't just clean up grammar. It reads your CLAUDE.md, your package.json, your git history, and rewrites your speech as a structured prompt for your specific codebase.
 
 | | Invoke | MacWhisper |
 |---|---|---|
@@ -39,9 +39,9 @@ Invoke can transcribe individual files with `dictate transcribe file.wav`, but i
 
 ## What Invoke does better
 
-The developer-specific workflow. MacWhisper's dictation mode works, but Invoke's reformatter is built around codebases. It reads your project files, understands your stack, and outputs prompts formatted for the specific AI tool you're using — Claude Code, Cursor, Windsurf, Copilot, Codex, each with its own prompt mode.
+The developer-specific workflow. MacWhisper's dictation mode works, but Invoke's reformatter is built around codebases. It reads your project files, understands your stack, and outputs prompts formatted for the specific AI tool you're using: Claude Code, Cursor, Windsurf, Copilot, Codex, each with its own prompt mode.
 
-MacWhisper's AI integration is generic text processing (grammar, tone, translation). Invoke's is "I know you're working in a TypeScript/Express project and you just said 'add auth middleware' — here's a structured prompt for Cursor that references your existing patterns."
+MacWhisper's AI integration is generic text processing (grammar, tone, translation). Invoke's is "I know you're working in a TypeScript/Express project and you just said 'add auth middleware,' so here's a structured prompt for Cursor that references your existing patterns."
 
 {% include cta.html %}
 

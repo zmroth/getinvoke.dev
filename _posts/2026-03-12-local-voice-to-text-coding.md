@@ -65,7 +65,7 @@ Compare that to $8-15/month for cloud alternatives. After about four months, a s
 
 On Windows, you need an NVIDIA card with CUDA support for GPU mode. 4GB+ VRAM is recommended. An RTX 3060 or better is ideal, and it works on cards as old as the GTX 1060.
 
-macOS and Linux support is coming soon — same local GPU approach, different hardware targets.
+macOS and Linux support is coming soon, same local GPU approach on different hardware.
 
 If you don't have a dedicated GPU, CPU mode works. It's slower, maybe 2-4 seconds per transcription instead of sub-second, but it still runs entirely local.
 

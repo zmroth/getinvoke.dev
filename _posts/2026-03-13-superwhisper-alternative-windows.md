@@ -31,9 +31,9 @@ Both run Whisper locally. Both do push-to-talk. Both keep your audio on your mac
 
 ## Where they differ
 
-SuperWhisper added custom modes and external LLM support, so it does have AI reformatting now. You can bring your own API key for GPT-4, Claude, etc. and write custom prompts for how your transcription gets processed. Credit where it's due — that's a solid feature.
+SuperWhisper added custom modes and external LLM support, so it does have AI reformatting now. You can bring your own API key for GPT-4, Claude, etc. and write custom prompts for how your transcription gets processed. Credit where it's due. That's a solid feature.
 
-Where Invoke's reformatter goes further is project context. It doesn't just clean up your speech — it reads your CLAUDE.md, package.json, git history, and understands your stack. So when you say "add a post endpoint for user off," Invoke knows you meant "authentication" because it can see your codebase. SuperWhisper's modes are general-purpose text processing. Invoke's reformatter is developer-specific.
+Where Invoke's reformatter goes further is project context. It doesn't just clean up your speech. It reads your CLAUDE.md, package.json, git history, and understands your stack. So when you say "add a post endpoint for user off," Invoke knows you meant "authentication" because it can see your codebase. SuperWhisper's modes are general-purpose text processing. Invoke's reformatter is developer-specific.
 
 The other big difference is platform. SuperWhisper is Mac-first. They shipped a Windows version, but it's behind on features. I built Invoke on Windows because that's what I use. CUDA acceleration on NVIDIA cards, auto-paste via pynput, the whole stack works natively. If you have an NVIDIA GPU, it just uses it.
 

@@ -19,7 +19,7 @@ If you have RSI or another condition that makes typing painful, Talon might chan
 
 Talon uses a custom grammar system. You learn voice commands like "word hello" to type "hello" or "go line ten" to jump to line 10. There are commands for selecting, deleting, navigating between files, running terminal commands. It's deep.
 
-The speech engine is configurable — you can use Conformer (Talon's built-in model), Dragon, or Whisper. The community has built command sets for VS Code, Vim, terminal multiplexers, browsers. People write code entirely by voice with Talon. It's impressive.
+The speech engine is configurable. You can use Conformer (Talon's built-in model), Dragon, or Whisper. The community has built command sets for VS Code, Vim, terminal multiplexers, browsers. People write code entirely by voice with Talon. It's impressive.
 
 It's also free, which is great. The developer (Ryan Hileman) funds it through Patreon.
 
@@ -49,7 +49,7 @@ They're complementary more than they're competitive.
 
 ## When Talon is the better choice
 
-If you need full voice control of your computer — not just dictation but navigation, selection, commands — Talon is the only serious option. It's especially valuable for developers with RSI or other physical constraints.
+If you need full voice control of your computer, not just dictation but navigation, selection, and commands, Talon is the only serious option. It's especially valuable for developers with RSI or other physical constraints.
 
 If you just want to talk prompts into AI tools faster than typing, Invoke is simpler and faster to get started with.
 
