@@ -211,6 +211,69 @@ nav .container {
 
 .article-body a { color: var(--green); }
 
+/* Tables — comparison tables are load-bearing in these posts, and the browser
+   defaults (no padding, no borders, centered headers) made them unreadable. */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  margin: 28px 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.article-body thead th {
+  text-align: left;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 11px 14px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.article-body tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+  color: var(--text-secondary);
+}
+
+.article-body tbody tr:last-child td { border-bottom: none; }
+.article-body tbody tr:nth-child(even) { background: rgba(255, 255, 255, 0.015); }
+
+/* First column is almost always the row label (product, model, setting). */
+.article-body tbody td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Keep code chips from splitting across lines inside a cell. */
+.article-body table code {
+  font-size: 12px;
+  white-space: nowrap;
+  padding: 1px 5px;
+}
+
+/* On phones, scroll the table sideways instead of crushing columns into
+   very tall wrapped rows. Min-widths keep each column readable while scrolling. */
+@media (max-width: 600px) {
+  .article-body table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-width: 100%;
+  }
+  .article-body table thead th,
+  .article-body table tbody td { min-width: 116px; }
+  .article-body table thead th:last-child,
+  .article-body table tbody td:last-child { min-width: 210px; }
+}
+
 .article-back {
   display: inline-block;
   margin-top: 48px;
