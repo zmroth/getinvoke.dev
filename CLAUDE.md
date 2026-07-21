@@ -160,10 +160,14 @@ Invoke is a desktop app that:
 4. Optionally reformats via LLM (OpenRouter, Claude CLI, Ollama) using project context
 5. Auto-pastes at cursor
 
-**Current version:** v0.2.0 (Phase 4: license, updater, code signing, onboarding)
-**Stack:** Python 3.11+, faster-whisper, pynput, pystray, tkinter, PyInstaller + Inno Setup
+**Current version:** v0.10.5 (opt-in autostart, live license activation, GPU build)
+**Stack:** Python 3.13, faster-whisper, pynput, pystray, tkinter, Nuitka + Inno Setup
 **Target audience:** Developers who dictate prompts into AI coding tools (Claude, Cursor, Copilot)
-**Download:** github.com/zmroth/invoke/releases
+**Download:** github.com/zmroth/invoke-releases/releases
+
+> The download page's `#dl-version` / `#dl-size` are hardcoded fallbacks that JS
+> overwrites from the GitHub API. The API is rate-limited (60/hr per IP), so the
+> fallback IS what many visitors see — **bump it on every release.**
 
 ## Owner
 
