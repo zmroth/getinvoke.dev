@@ -611,7 +611,7 @@ footer .container {
         </div>
         <div class="platform-name">Windows</div>
         <div class="platform-version">Windows 10/11 (64-bit)</div>
-        <a href="https://github.com/zmroth/invoke-releases/releases/latest" class="platform-btn">Download .exe</a>
+        <a href="https://github.com/zmroth/invoke-releases/releases/latest" class="platform-btn" onclick="gtag('event','download_click',{location:'download_page_button'})">Download .exe</a>
         <div class="platform-meta">
           <span>64-bit</span> <span id="dl-size">~540 MB</span> <span>NVIDIA GPU optional</span>
         </div>
@@ -645,7 +645,7 @@ footer .container {
     <h2 class="dl-section-title">Getting started</h2>
 
     <ol class="steps-list">
-      <li>Download the <code>.exe</code> from <a href="https://github.com/zmroth/invoke-releases/releases/latest">GitHub Releases</a></li>
+      <li>Download the <code>.exe</code> from <a href="https://github.com/zmroth/invoke-releases/releases/latest" onclick="gtag('event','download_click',{location:'download_page_steps'})">GitHub Releases</a></li>
       <li>Run the installer. Windows may show a SmartScreen warning &mdash; click "More info" then "Run anyway."</li>
       <li>Follow the setup wizard: audio device, reformatter backend, hotkey.</li>
       <li>Hold your hotkey, speak, release. Free for 7 days.</li>
