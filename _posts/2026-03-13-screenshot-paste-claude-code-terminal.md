@@ -7,6 +7,8 @@ excerpt: "Terminal emulators like Hyper, Wezterm, and Windows Terminal can't pas
 og_image: og-image.png
 ---
 
+> **TL;DR:** Terminals paste text, not images — so Ctrl+V can't get a screenshot into Claude Code. But Claude Code *does* accept file paths. The fix: save the snip as a file and paste its path. [Invoke](/download/) automates that to one hotkey — snip, press one key, the path lands in your terminal. Works in Hyper, Wezterm, Windows Terminal, and WSL2.
+
 ## The problem: Ctrl+V doesn't paste images in terminals
 
 If you've tried pasting a screenshot into Claude Code running in a terminal emulator, you know the pain. You hit Win+Shift+S, snip something, switch to your terminal, press Ctrl+V, and... nothing. Or you get "no image found in clipboard."
@@ -39,6 +41,8 @@ Invoke has a dedicated hotkey for this. Here's the workflow:
 3. **Done**. Invoke saves the image as a PNG and pastes the file path into your terminal
 
 Claude Code receives something like `/home/you/.screenshots/clip_20260313_143022.png` and renders the image inline.
+
+{% include cta.html %}
 
 ## How it works under the hood
 
@@ -79,8 +83,6 @@ This pairs well with Invoke's voice dictation. A typical workflow:
 4. **Mouse5** (hold and speak): "This button should be aligned with the header. Fix the CSS in the navbar component."
 
 Voice plus a screenshot in two hotkey presses. I use this workflow constantly now.
-
-{% include cta.html %}
 
 ## Not just dictation anymore
 
